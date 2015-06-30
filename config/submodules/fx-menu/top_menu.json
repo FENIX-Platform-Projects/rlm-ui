@@ -1,0 +1,88 @@
+{
+   "items":[
+      {
+         "attrs":{
+            "id":"home"
+         },
+         "target":"#home",
+         "label":{
+            "EN":"RLM"
+         }
+      },
+      {
+         "attrs":{
+            "id":"download"
+         },
+        "type": "dropdown",
+
+         "label":{
+            "EN":"Download"
+         } ,
+        "children" : [
+          {
+            "attrs":{
+              "id":"scores"
+            },
+            "target":"#download/survey",
+            "label":{
+              "EN":"Household survey"
+            }
+          },
+          {
+            "attrs":{
+              "id":"table"
+            },
+            "target":"#download/country",
+            "label":{
+              "EN":"Cross Country"
+            }
+          }
+        ]
+      },
+      {
+         "attrs":{
+            "id":"modules"
+         },
+         "target":"#modules",
+         "label":{
+            "EN":"Thematic Modules"
+         }
+      },
+      {
+         "attrs":{
+            "id":"standards"
+         },
+         "target":"#standards",
+         "label":{
+            "EN":"Methods and Standards"
+         }
+      },
+     {
+       "attrs":{
+         "id":"about"
+       },
+       "target":"#about",
+       "label":{
+         "EN":"About"
+       }
+     }
+   ],
+
+   "rightItems":[
+      {
+         "attrs":{
+            "id":"login"
+         },
+         "target":"",
+         "label":{
+            "EN":""
+         }
+      }
+   ],
+
+   "type" : "static-top",
+
+   "brand":{
+      "target":"#"
+   }
+}

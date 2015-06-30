@@ -1,0 +1,12 @@
+[submodule "submodules/fenix-ui-common"]
+	path = submodules/fenix-ui-common
+	url = ../fenix-ui-common
+[submodule "submodules/fenix-ui-olap"]
+	path = submodules/fenix-ui-olap
+	url = ../fenix-ui-olap
+[submodule "submodules/fenix-ui-menu"]
+	path = submodules/fenix-ui-menu
+	url = ../fenix-ui-menu
+[submodule "submodules/fenix-ui-chart-creator"]
+	path = submodules/fenix-ui-chart-creator
+	url = ../fenix-ui-chart-creator

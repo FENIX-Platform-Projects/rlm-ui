@@ -1,0 +1,110 @@
+<!-- Section switcher-->
+<div class="row">
+    <div class="col-xs-12">
+        <ul class="voh-section-switcher">
+            <li><a href="#visualization/scores"> {{ section_survey}}</a></li>
+            <li class="active"><a href="#visualization/table">{{ section_country }}</a></li>
+        </ul>
+    </div>
+</div>
+
+
+<!-- Selectors -->
+<div class="row voh-visualization-selector">
+    <!-- Map Container-->
+    <div class="col-xs-8 voh-map-cont">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1> {{ map_selector_title }}</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <!-- Geo selector granularity-->
+                <div>
+                    <form id="geo-granularity-form" class="geo-granularity-form" action="" onsubmit="return(false);">
+                        <input id="geo-as-country" type="radio" name="geo-granularity" value="country">
+                        <label for="geo-as-country"> {{ geo_granularity_country }}</label>
+                        <input id="geo-as-region" type="radio" name="geo-granularity" value="region">
+                        <label for="geo-as-region">{{ geo_granularity_region }}</label>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="geo-selector-container">
+                    <div id="geo-selector"> </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Other selectors Container-->
+    <div class="col-xs-4 voh-other-sel">
+        <h1> {{ other_selectors_title }}</h1>
+
+        <!-- FI status selectors-->
+        <div>
+            <form id="table-fi-form" action="" onsubmit="return(false);">
+                <input id="radio-severe-status" type="radio" name="status" value="s">
+                <label for="radio-severe-status"> {{ fi_status_severe }}</label>
+                <input id="radio-moderate-severe-status" type="radio" name="status" value="ms">
+                <label for="radio-moderate-severe-status">{{ fi_status_moderate_severe }}</label>
+            </form>
+        </div>
+
+        <!-- Variables selectors-->
+        <div class="voh-other-var">
+            <h4> {{ variables_title }} </h4>
+            <form id="table-variables-form" action="" onsubmit="return(false);">
+                <input id="table-age-sel" type="checkbox" name="variable" value="age">
+                <label for="table-age-sel"> {{ var_age }}</label><br>
+                <input id="table-location-sel" type="checkbox" name="variable" value="location">
+                <label for="table-location-sel"> {{ var_location }}</label><br>
+                <input id="table-education-sel" type="checkbox" name="variable" value="education">
+                <label for="table-education-sel"> {{ var_education }}</label><br>
+                <input id="table-gender-sel" type="checkbox" name="variable" value="gender">
+                <label for="table-gender-sel"> {{ var_gender }}</label><br>
+                <input id="table-marital-sel" type="checkbox" name="variable" value="marital">
+                <label for="table-marital-sel"> {{ var_marital_status }}</label><br>
+                <input id="table-income-sel" type="checkbox" name="variable" value="income">
+                <label for="table-income-sel"> {{ var_income }}</label><br>
+            </form>
+        </div>
+
+        <!-- Total selectors-->
+        <div>
+            <input id="checkbox-show-total" type="checkbox" name="total" value="population">
+            <label for="checkbox-show-total">{{ checkbox_show_total }}</label>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Toolbar -->
+<div class="row">
+    <div class="col-xs-12 voh-vis-buttons-holder">
+        <button id="table-go-btn" class="btn btn-default btn-table-go pull-right"> {{ go_btn }}</button>
+        <button id="table-reset-btn" class="btn btn-default btn-reset pull-right"> {{ reset_btn }}</button>
+    </div>
+</div>
+
+<!-- Error Holder -->
+<div class="row">
+    <div class="col-xs-12">
+        <div class="error-holder"></div>
+    </div>
+</div>
+
+<!-- Results container -->
+<div class="row">
+    <div class="col-xs-12">
+        <div id="results-container">
+            <div id="pivot1"></div>
+        </div>
+    </div>
+</div>
