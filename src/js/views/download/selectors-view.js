@@ -10,7 +10,7 @@ define([
     'fx-common/WDSClient',
     'jstree',
     'amplify'
-], function (Handlebars, View, Config, E, Services, template, i18nLabels, WDSClient) {
+], function (Handlebars, View, Config, Services, E, template, i18nLabels, WDSClient) {
 
     'use strict';
 
@@ -63,6 +63,13 @@ define([
             this.$selectorYear = this.$el.find(s.SELECTOR_YEAR);
             this.$selectorQualifier = this.$el.find(s.SELECTOR_QUALIFIER);
 
+            this.selector2$node = {
+                'indicator' : this.$selectorIndicator,
+                'country' :  this.$selectorCountry,
+                'year' :  this.$selectorYear,
+                'qualifier' :  this.$selectorQualifier
+            };
+
             this.$selectors = this.$el.find(s.SELECTORS);
             this.$selectorContainerCountry = this.$el.find(s.SELECTOR_CONTAINER_COUNTRY);
 
@@ -76,6 +83,11 @@ define([
             };
 
             this.codelists = Object.keys(this.codelists_conf);
+
+            this.selectorsReady = 0;
+
+            this.selectorsAmount = 4;
+
         },
 
         initComponents: function () {
@@ -88,10 +100,11 @@ define([
 
         },
 
-        initJsTreeSelector: function (selector, $container, cl) {
+        initJsTreeSelector: function (selector, cl) {
 
             //Init country selector
             var data = [],
+                $container = this.selector2$node[selector],
                 self = this;
 
             _.each(cl || amplify.store.sessionStorage('cl_' + selector), function (n) {
@@ -116,6 +129,10 @@ define([
 
             });
 
+            $container.on('ready.jstree', function () {
+                self.onJsTreeReady();
+            });
+
             initSearch(selector, $container);
 
             initBtns(selector, $container);
@@ -126,7 +143,7 @@ define([
                 if (data.selected.length > Config.SELECTOR_THRESHOLD) {
                     $container.jstree(true).deselect_node(data.node);
                 } else {
-                    amplify.publish(E.SELECTOR_SELECT + selector, data.node);
+                    amplify.publish(E.SELECTOR_SELECT, selector, data.node);
                 }
 
             }, this));
@@ -188,6 +205,61 @@ define([
             }
         },
 
+        onJsTreeReady : function () {
+
+            this.selectorsReady ++;
+
+            if ( this.selectorsReady === this.selectorsAmount) {
+
+                this.onSelectorsReady();
+            }
+
+        },
+
+        disableJsTree : function ($c) {
+
+            var nodes,
+                $container = typeof $c === 'string' ? this.selector2$node[$c] : $c;
+
+            $container.jstree("uncheck_all");
+
+            nodes = $container.jstree(true).get_json();
+
+            _.each(nodes, function (n) {
+                $container.jstree(true).disable_node(n);
+            });
+
+        },
+
+        enableJsTree : function ($c) {
+
+            var nodes,
+                $container = typeof $c === 'string' ? this.selector2$node[$c] : $c;
+
+            nodes = $container.jstree(true).get_json();
+
+            _.each(nodes, function (n) {
+                $container.jstree(true).enable_node(n);
+            });
+        },
+
+        refreshJsTree : function (selector) {
+
+            var self = this;
+
+            this.WDSClient.retrieve({
+                payload: {
+                    query: Services['REFRESH_' + selector.toUpperCase()],
+                    queryVars: this.prepareInputsForWds(this.getInputs())
+                },
+                success: function (data) {
+                    self.initJsTreeSelector(selector, data);
+                },
+                error: _.bind(this.onPreloadCodelistError, this)
+            });
+
+        },
+
         preloadResources: function () {
 
             _.each(this.codelists, _.bind(function (cd) {
@@ -224,7 +296,7 @@ define([
         },
 
         onPreloadCodelistError: function (e) {
-            amplify.publish(E.CODELIST_LOAD_ERROR, e)
+            amplify.publish(E.CODELIST_LOAD_ERROR, e);
         },
 
         onPreloadCodelistSuccess: function (cd, response) {
@@ -258,7 +330,6 @@ define([
             this.initPage();
 
             this.unlockForm();
-
         },
 
         initPage: function () {
@@ -268,9 +339,9 @@ define([
 
         printSelectors: function () {
 
-            this.initJsTreeSelector('indicator', this.$selectorIndicator);
+            this.initJsTreeSelector('indicator');
 
-            this.initJsTreeSelector('country', this.$selectorCountry);
+            this.initJsTreeSelector('country');
 
             var cl = [];
 
@@ -281,9 +352,15 @@ define([
                 });
             }
 
-            this.initJsTreeSelector('year', this.$selectorYear, cl);
+            this.initJsTreeSelector('year', cl);
 
-            this.initJsTreeSelector('qualifier', this.$selectorQualifier);
+            this.initJsTreeSelector('qualifier');
+
+        },
+
+        onSelectorsReady : function () {
+
+            this.printDefaultSelection();
 
         },
 
@@ -324,28 +401,25 @@ define([
 
         bindEventListeners: function () {
 
-            amplify.subscribe(E.SELECTOR_SELECT + 'indicator', this, this.onIndicatorSelectorSelect);
-            amplify.subscribe(E.SELECTOR_SELECT + 'country', this, this.onCountrySelectorSelect);
-            amplify.subscribe(E.SELECTOR_SELECT + 'year', this, this.onYearSelectorSelect);
-            amplify.subscribe(E.SELECTOR_SELECT + 'qualifier', this, this.onQualifierSelectorSelect);
+            amplify.subscribe(E.SELECTOR_SELECT, this, this.onSelectorSelection);
+
 
         },
 
-        onIndicatorSelectorSelect: function () {
-            console.log("onIndicatorSelectorSelect")
+        onSelectorSelection: function ( selector ) {
+
+            /*Leggi configurazione
+
+
+            cache della configurazione di refesh dei selettori
+
+            config.refresh_settings del selector
+
+            loop su refresh, enable e disable
+
+            */
         },
 
-        onCountrySelectorSelect: function () {
-            console.log("onCountrySelectorSelect")
-        },
-
-        onYearSelectorSelect: function () {
-            console.log("onYearSelectorSelect")
-        },
-
-        onQualifierSelectorSelect: function () {
-            console.log("onQualifierSelectorSelect")
-        },
 
         /* Data request process */
 
@@ -383,6 +457,32 @@ define([
 
         },
 
+        /* Utils */
+        prepareInputsForWds: function (inputs) {
+
+            var result = {},
+                keys = Object.keys(inputs),
+                self = this;
+
+            _.each(keys, function (k) {
+                result[k] = Array.isArray(inputs[k]) ? self.processArray(inputs[k]) : inputs[k];
+            });
+
+            return result;
+        },
+
+        processArray: function (input) {
+
+            var result = '',
+                concat = "','";
+
+            _.each(input, function (item) {
+                result += item + concat;
+            });
+
+            return result.substring(0, result.length - concat.length);
+        },
+
         /* Disposition */
 
         unbindEventListeners: function () {
@@ -396,10 +496,7 @@ define([
             this.$el.find(s.SELECTOR_BTN_ALL).off();
             this.$el.find(s.SELECTOR_BTN_NONE).off();
 
-            amplify.unsubscribe(E.SELECTOR_SELECT + 'indicator', this.onIndicatorSelectorSelect);
-            amplify.unsubscribe(E.SELECTOR_SELECT + 'country', this.onCountrySelectorSelect);
-            amplify.unsubscribe(E.SELECTOR_SELECT + 'year', this.onYearSelectorSelect);
-            amplify.unsubscribe(E.SELECTOR_SELECT + 'qualifier', this.onQualifierSelectorSelect);
+            amplify.unsubscribe(E.SELECTOR_SELECT, this.onSelectorSelection);
 
         },
 

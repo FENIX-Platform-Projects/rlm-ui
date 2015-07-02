@@ -177,6 +177,26 @@ define([
 
             var errors = [];
 
+            if (!inputs.hasOwnProperty("country") || !inputs.hasOwnProperty("indicator") || !inputs.hasOwnProperty("qualifier") || !inputs.hasOwnProperty("year") ) {
+                errors.push("no_input");
+            }
+
+            if (inputs.country.length < 1 ) {
+                errors.push("country_empty");
+            }
+
+            if (inputs.indicator.length < 1 ) {
+                errors.push("indicator_empty");
+            }
+
+            if (inputs.qualifier.length < 1 ) {
+                errors.push("qualifier_empty");
+            }
+
+            if (inputs.year.length < 1 ) {
+                errors.push("year_empty");
+            }
+
             return (Object.keys(errors).length === 0) ? true : errors;
         },
 
@@ -210,6 +230,9 @@ define([
         },
 
         createRequest: function (inputs) {
+
+            console.log("STOP in create REQUEST")
+            return;
 
             this.currentRequest = {
                 inputs: inputs,
@@ -330,11 +353,10 @@ define([
         /* Disposition */
 
         unbindEventListeners: function () {
+
             this.$goBtn.off();
             this.$resetBtn.off();
 
-            //Components disposition
-            this.$geoSelector.jstree('destroy');
         },
 
         dispose: function () {

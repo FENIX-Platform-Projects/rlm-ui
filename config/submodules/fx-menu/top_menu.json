@@ -40,8 +40,10 @@
     },
     {
       "attrs": {
-        "id": "datamng",
-        "rel" : "external"
+        "id": "datamng"
+      },
+      "a_attrs": {
+        "rel": "external"
       },
       "target": "datamng.html",
       "label": {
@@ -81,9 +83,16 @@
       "attrs": {
         "id": "login"
       },
-      "target": "",
       "label": {
-        "EN": ""
+        "EN": "LOGIN"
+      }
+    },
+    {
+      "attrs": {
+        "id": "logout"
+      },
+      "label": {
+        "EN": "LOGOUT"
       }
     }
   ],

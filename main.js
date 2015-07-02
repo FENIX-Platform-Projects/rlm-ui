@@ -38,6 +38,8 @@ require([
                     nls: "../../i18n",
                     bootstrap: "//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min",
 
+                    'fx-common/config/auth_users' : '../../config/auth_users.json',
+
                     underscore: "{FENIX_CDN}/js/underscore/1.7.0/underscore.min",
                     backbone: "{FENIX_CDN}/js/backbone/1.1.2/backbone.min",
                     handlebars: "{FENIX_CDN}/js/handlebars/2.0.0/handlebars",

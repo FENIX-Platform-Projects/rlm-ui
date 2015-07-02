@@ -7,9 +7,10 @@ define([
     'globals/State',
     'views/base/view',
     'fx-menu/start',
+    'fx-common/AuthManager',
     'i18n!nls/site',
     'text!templates/site.hbs'
-], function ($, Chaplin, _, E, State, View, Menu, i18nLabels, template) {
+], function ($, Chaplin, _, E, State, View, Menu, AuthManager, i18nLabels, template) {
 
     'use strict';
 
@@ -43,22 +44,42 @@ define([
 
         initComponents : function () {
 
-            //Top Menu
-            this.topMenu = new Menu({
-                url: 'config/submodules/fx-menu/top_menu.json',
-                //active: State.menu,
-                container: '#top-menu-container',
-                callback: _.bind(this.onMenuRendered, this),
-                breadcrumb : {
-                    active : true,
-                    container : "#breadcrumb-container",
-                    showHome : true
+            var self = this,
+                menuConf = {
+                    url: 'config/submodules/fx-menu/top_menu.json',
+                    //active: State.menu,
+                    container: '#top-menu-container',
+                    callback: _.bind(this.onMenuRendered, this),
+                    breadcrumb : {
+                        active : true,
+                        container : "#breadcrumb-container",
+                        showHome : true
+                    },
+                    footer : {
+                        active : true,
+                        container : "#footer-menu-container"
+                    }
                 },
-                footer : {
-                    active : true,
-                    container : "#footer-menu-container"
+                menuConfAuth = _.extend({}, menuConf, {
+                    hiddens: ['login']
+                }),
+                menuConfPub = _.extend({}, menuConf, {
+                    hiddens: ['datamng','logout']
+                });
+
+            this.authManager = new AuthManager({
+                onLogin: function() {
+                    self.topMenu.refresh(menuConfAuth);
+                },
+                onLogout: function() {
+                    self.topMenu.refresh(menuConfPub);
                 }
             });
+
+            //Top Menu
+            this.topMenu = new Menu(this.authManager.isLogged() ? menuConfAuth : menuConfPub);
+
+
         },
 
         onMenuRendered : function () {
