@@ -3,12 +3,13 @@ define([
     'jquery',
     'chaplin',
     'underscore',
+    'config/Events',
     'globals/State',
     'views/base/view',
     'fx-menu/start',
     'i18n!nls/site',
     'text!templates/site.hbs'
-], function ($, Chaplin, _, State, View, Menu, i18nLabels, template) {
+], function ($, Chaplin, _, E, State, View, Menu, i18nLabels, template) {
 
     'use strict';
 
@@ -37,7 +38,7 @@ define([
         },
 
         bindEventListeners : function () {
-            amplify.subscribe('voh.state.change', this, this.onStateUpdate);
+            amplify.subscribe(E.STATE_CHANGE, this, this.onStateUpdate);
         },
 
         initComponents : function () {

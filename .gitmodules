@@ -10,3 +10,21 @@
 [submodule "submodules/fenix-ui-chart-creator"]
 	path = submodules/fenix-ui-chart-creator
 	url = ../fenix-ui-chart-creator
+[submodule "submodules/fenix-ui-catalog"]
+	path = submodules/fenix-ui-catalog
+	url = https://github.com/FENIX-Platform/fenix-ui-catalog
+[submodule "submodules/fenix-ui-data-management"]
+	path = submodules/fenix-ui-data-management
+	url = https://github.com/FENIX-Platform/fenix-ui-data-management
+[submodule "submodules/fenix-ui-metadata-editor"]
+	path = submodules/fenix-ui-metadata-editor
+	url = https://github.com/FENIX-Platform/fenix-ui-metadata-editor
+[submodule "submodules/fenix-ui-DataEditor"]
+	path = submodules/fenix-ui-DataEditor
+	url = https://github.com/FENIX-Platform/fenix-ui-DataEditor
+[submodule "submodules/fenix-ui-dataUpload"]
+	path = submodules/fenix-ui-dataUpload
+	url = https://github.com/FENIX-Platform/fenix-ui-dataUpload
+[submodule "submodules/fenix-ui-DSDEditor"]
+	path = submodules/fenix-ui-DSDEditor
+	url = https://github.com/FENIX-Platform/fenix-ui-DSDEditor

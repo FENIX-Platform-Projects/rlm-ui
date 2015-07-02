@@ -13,7 +13,23 @@ define([
 
         // Set your application name here so the document title is set to
         // “Controller title – Site title” (see Layout#adjustTitle)
-        title: 'Voices of the Hungry',
+        title: 'Rural Livelihood Monitor',
+
+     /*   initialize: function() {
+            // ...
+            this.initLayout({
+
+                isExternalLink : function (a) {
+                    console.log(a);
+
+                    return false;
+                }
+            });
+
+            Chaplin.Application.prototype.initialize.call(this, arguments);
+        },
+*/
+
 
         start: function () {
             var args = [].slice.call(arguments);
