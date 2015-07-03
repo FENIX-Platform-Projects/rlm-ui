@@ -26,6 +26,19 @@ define(function ( ) {
         SELECTOR_MULTISELECTION : {
             COUNTRY : ['year', 'qualifier'],
             INDICATOR: ['country', 'year', 'qualifier']
+        },
+
+        SELECTOR_REFRESH_SETTINGS : {
+            COUNTRY : {
+                REFRESH: [],
+                ENABLE: [],
+                DISABLE: []
+            },
+            INDICATOR: {
+                REFRESH: [],
+                ENABLE: [],
+                DISABLE: []
+            }
         }
 
     };

@@ -1,33 +1,33 @@
 /*global define*/
 define({
     "rows": [
-        "Source","Source label","Country","Country_label","Qualifier","Qualifier_label"
+        ["Indicator_label","Indicator"], ["Source label","Source"],["Country_label","Country"],
+        ["Qualifier_label","Qualifier"]
     ],
-    "cols": ["Year","Year_label"],
+    "cols": ["Year"],
     "vals": [
-        "Value","Unit","Flag"
+        "Value","Flag"  ,"Unit"
     ],
     "hiddenAttributes": [
-        "Value","Unit","Flag"
+        "Value","Flag","Year_label","Unit"
     ],
     "InstanceRenderers": [
-        {label: "Grid", func: "Table"},
-        {label: "Table", func: "Table2"}
+        {label: "Grid", func: "Table"}
     ],
     "InstanceAggregators": [
-        {label: "SumUnit", func: "Sum2"},
-        {label: "Sum", func: "Sum"},
-        { label: "Average", func: "Average" }
+        {label: "SumUnit", func: "Sum2"}
     ],
     derivedAttributes: {
 
     },
-    linkedAttributes:[],
+    linkedAttributes:[["Qualifier","Qualifier_label"],
+        ["Indicator_label","Indicator"],
+        ["Source label","Source"],["Country","Country_label"]],
     "showAgg": false,
     "showRender": false,
-    "showUnit":true,
-    "showCode":true,
-    "showFlags":true
+    "showUnit":false,
+    "showCode":false,
+    "showFlags":false
 
 });
 

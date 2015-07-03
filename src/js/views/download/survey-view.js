@@ -7,30 +7,24 @@ define([
     'config/Services',
     'config/Events',
     'text!templates/download/survey.hbs',
+    'text!templates/download/survey-result.hbs',
     'text!templates/common/error.hbs',
     'text!templates/common/courtesy-message.hbs',
     'i18n!nls/download-survey',
     'i18n!nls/errors',
     'fx-common/WDSClient',
-
     'pivot',
     'pivotRenderers',
     'pivotAggregators',
     'text!pivotDataTest',
     'pivotDataConfig',
-
     'underscore',
+    'packery',
+    'jqueryBridget',
     'q',
     'jstree',
     'amplify'
-//TODO REMOVE
-], function (Handlebars, View, SelectorsView, Config, Services, E, template, errorTemplate, courtesyMessageTemplate, i18nLabels, i18Errors, WDSClient,
-             Pivot,
-             pivotRenderers,
-             pivotAggregators,
-             pivotDataTest,
-             pivotDataConfig,
-             _) {
+], function (Handlebars, View, SelectorsView, Config, Services, E, template, resultTemplate, errorTemplate, courtesyMessageTemplate, i18nLabels, i18Errors, WDSClient, Pivot, pivotRenderers, pivotAggregators, pivotDataTest, pivotDataConfig, _, Packery, bridget) {
 
     'use strict';
 
@@ -40,8 +34,13 @@ define([
         ERROR_HOLDER: ".error-holder",
         COURTESY_MESSAGE_HOLDER: ".courtesy-message-holder",
         RESULTS_CONTAINER: '#results-container',
-        RESULT_SELECTOR: '.voh-result',
-        SELECTORS_CONTAINER : '.download-selectors-container'
+        RESULT_SELECTOR: '.rlm-result',
+        SELECTORS_CONTAINER : '.download-selectors-container',
+
+        RESULT_OLAP_CONTAINER: '[data-role="pivot-container"]',
+
+        BTN_DOWNLOAD_PIVOT: '[data-download]',
+        BTN_REMOVE_RESULT : '[data-control="remove"]'
     };
 
     var DownloadSurveyView = View.extend({
@@ -67,9 +66,18 @@ define([
             //results
             this.$resultsContainer = this.$el.find(s.RESULTS_CONTAINER);
 
+            this.pivots = [];
+
         },
 
         initComponents: function () {
+
+            bridget('packery', Packery);
+
+            this.$resultsContainer.packery({
+                itemSelector: s.RESULT_SELECTOR,
+                transitionDuration: 0
+            });
 
             this.WDSClient = new WDSClient({
                 //serviceUrl: Config.WDS_URL,
@@ -135,6 +143,7 @@ define([
             this.$goBtn.on('click', _.bind(this.onClickGoBtn, this));
 
             this.$resetBtn.on('click', _.bind(this.onClickResetBtn, this));
+
         },
 
         onClickGoBtn: function () {
@@ -149,8 +158,6 @@ define([
                 this.resetError();
 
                 this.resetCourtesyMessage();
-
-                this.resetResults();
 
                 this.createRequest(inputs);
 
@@ -289,53 +296,96 @@ define([
             if (this.currentRequest.response.length === 0) {
                 this.printCourtesyMessage();
             } else {
-                this.initOlapCreator();
+                this.appendResult();
             }
         },
 
         /* Results rendering */
+        appendResult: function () {
 
-        processResponse: function (response) {
+            window.fx_rlm_dynamic_id !== 0 ? window.fx_rlm_dynamic_id = 0 : window.fx_rlm_dynamic_id ++;
 
-            var fields = ['geo', 'geo_label', 'variable', 'group_code', 'ms', 's'];
+            //Add here the result header
+            var template = Handlebars.compile(resultTemplate),
+                id = 'rlm-dynamic-pivot-' +  window.fx_rlm_dynamic_id,
+                $result = this.appendDynamicId($(template()), id),
+                pivot;
 
-            response.unshift(fields);
+            // add to packery layout
+            this.$resultsContainer.append($result).packery('appended', $result);
 
-            return response;
+            pivot = this.initOlapCreator(id);
+
+            this.bindResultEventListeners($result, pivot);
         },
 
-        initOlapCreator: function () {
+        bindResultEventListeners : function ($result, pivot) {
 
-            console.log("Print olap here");
-           // return;
+            $result.find(s.BTN_DOWNLOAD_PIVOT).on('click', _.bind(function (e) {
+                this.onClickDownloadPivot($(e.currentTarget).data('download'), pivot);
+            }, this));
 
-            this.pivot = new Pivot();
+            $result.find(s.BTN_REMOVE_RESULT).on('click', _.bind(function () {
+                this.removeResult($result);
+                pivot.destroy();
+            }, this));
 
-            var pivotDataConf = $.extend(true, {}, pivotDataConfig);
+        },
+
+        onClickDownloadPivot : function (output, pivot){
+
+            switch (output.toUpperCase()) {
+                case 'CSV': pivot.exportCSV(); break;
+                case 'XLS': pivot.exportExcel(); break;
+            }
+        },
+
+        removeResult : function ($item){
+
+            this.$resultsContainer.packery('remove', $item);
+            this.$resultsContainer.packery();
+        },
+
+        appendDynamicId : function ($result, id) {
+
+            $result.find(s.RESULT_OLAP_CONTAINER).attr('id', id);
+
+            return $result;
+
+        },
+
+        initOlapCreator: function (id) {
+
+            var pivot = new Pivot(),
+                pivotDataConf = $.extend(true, {}, pivotDataConfig);
+
+            this.pivots.push(pivot);
 
             pivotDataConf.rendererDisplay = pivotRenderers;
+
             pivotDataConf.aggregatorDisplay = pivotAggregators;
-          /*  pivotDataConf.vals.push(this.currentRequest.inputs.status);
-            pivotDataConf.derivedAttributes.group_code = function (row) {
 
-                var cl_group_code = amplify.store.sessionStorage("cl_" + row.variable);
-                if (cl_group_code) {
-                    var obj = _.findWhere(cl_group_code, {code: row.group_code});
-                    return obj ? obj.label : null;
-                }
+            pivot.render( id, this.currentRequest.response, pivotDataConf );
 
-            };           */
-                  console.log("TEST",this.currentRequest.response,pivotDataConf)
-            this.pivot.render("pivot1", this.currentRequest.response, pivotDataConf);
+            return pivot;
         },
 
         resetResults: function () {
 
-            //Destroy OLAP
-            if (this.pivot && this.pivot.hasOwnProperty('destroy')) {
-                this.pivot.destroy();
-                $("#pivot1").empty();
-            }
+            //Destroy charts
+            _.each(this.pivots, function (p) {
+
+                if (p.hasOwnProperty('destroy')) {
+                    p.destroy();
+                }
+
+            });
+            this.pivots = [];
+
+            //Clear packery
+            var $packeryItems = this.$resultsContainer.find(s.RESULT_SELECTOR);
+            this.$resultsContainer.packery('remove', $packeryItems);
+            this.$resultsContainer.packery();
         },
 
         /* Utils */

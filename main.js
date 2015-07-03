@@ -50,6 +50,7 @@ require([
                     handlebars: "{FENIX_CDN}/js/handlebars/2.0.0/handlebars",
                     chaplin: "{FENIX_CDN}/js/chaplin/1.0.1/chaplin.min",
 
+
                     config: "../../config",
                     json: "../../json",
 

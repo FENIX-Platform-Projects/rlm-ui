@@ -8493,20 +8493,20 @@ input[type="checkbox"]:checked + label {
   .voh-visualization-selector .voh-other-sel .voh-other-var form label {
     margin: 5px 0; }
 
-.voh-result {
+.rlm-result {
   width: 50%;
   height: 305px;
   padding: 15px; }
-  .voh-result.w2 {
+  .rlm-result.w2 {
     width: 100%; }
-  .voh-result [data-role="header"] {
+  .rlm-result [data-role="header"] {
     text-transform: uppercase;
     height: 25px;
     border-bottom: 1px solid #cccccc; }
-    .voh-result [data-role="header"] h2 {
+    .rlm-result [data-role="header"] h2 {
       color: #666666;
       margin-top: 0; }
-  .voh-result [data-role="content"] {
+  .rlm-result [data-role="content"] {
     height: 250px; }
 
 .geo-selector-container {

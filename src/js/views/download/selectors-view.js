@@ -71,6 +71,7 @@ define([
             };
 
             this.$selectors = this.$el.find(s.SELECTORS);
+            this.$filters = this.$selectors.find(s.SELECTOR_FILTER);
             this.$selectorContainerCountry = this.$el.find(s.SELECTOR_CONTAINER_COUNTRY);
 
             //Codelists
@@ -86,7 +87,9 @@ define([
 
             this.selectorsReady = 0;
 
-            this.selectorsAmount = 4;
+            this.selectorsAmount = Object.keys(this.selector2$node).length;
+
+            this.refreshSettings = Config.SELECTOR_REFRESH_SETTINGS[this.section.toUpperCase()];
 
         },
 
@@ -105,7 +108,8 @@ define([
             //Init country selector
             var data = [],
                 $container = this.selector2$node[selector],
-                self = this;
+                self = this,
+                multiple = isMultiSelection(selector);
 
             _.each(cl || amplify.store.sessionStorage('cl_' + selector), function (n) {
                 data.push(createNode(n));
@@ -117,7 +121,7 @@ define([
 
             $container.jstree({
                 "core": {
-                    "multiple": isMultiSelection(selector),
+                    "multiple": multiple,
                     "animation": 0,
                     "themes": {"stripes": true},
                     'data': data
@@ -135,7 +139,7 @@ define([
 
             initSearch(selector, $container);
 
-            initBtns(selector, $container);
+            initBtns(selector, $container, multiple);
 
             //Limit selection
             $container.on("select_node.jstree", _.bind(function (e, data) {
@@ -173,7 +177,7 @@ define([
                 var to = false,
                     $filter = self.$el.find('[data-selector="' + selector + '"]').find(s.SELECTOR_FILTER);
 
-                $filter.keyup(function () {
+                $filter.on('change keyup paste mouseup', function () {
                     if (to) {
                         clearTimeout(to);
                     }
@@ -184,10 +188,16 @@ define([
                 });
             }
 
-            function initBtns(selector, $container) {
+            function initBtns(selector, $container, multiple) {
 
                 var $btnSelectAll = self.$el.find('[data-selector="' + selector + '"]').find(s.SELECTOR_BTN_ALL),
                     $btnSelectNone = self.$el.find('[data-selector="' + selector + '"]').find(s.SELECTOR_BTN_NONE);
+
+                if (multiple === false) {
+                    $btnSelectAll.hide();
+                    $btnSelectNone.hide();
+                    return;
+                }
 
                 $btnSelectAll.on('click', function () {
                     $container.jstree("check_all");
@@ -361,7 +371,6 @@ define([
         onSelectorsReady : function () {
 
             this.printDefaultSelection();
-
         },
 
         printDefaultSelection: function () {
@@ -395,6 +404,8 @@ define([
                 });
             }
 
+            this.$filters.val('').trigger('change');
+
         },
 
         /* Event binding and callback */
@@ -402,8 +413,6 @@ define([
         bindEventListeners: function () {
 
             amplify.subscribe(E.SELECTOR_SELECT, this, this.onSelectorSelection);
-
-
         },
 
         onSelectorSelection: function ( selector ) {
