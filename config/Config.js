@@ -12,7 +12,7 @@ define(function ( ) {
 
         //Selectors
         SEL_YEAR_FROM : 2000,
-        SEL_YEAR_TO : 2006,
+        SEL_YEAR_TO : 2015,
         SELECTOR_THRESHOLD : 9999,
 
         DEFAULT_SEL_INDICATOR : [],

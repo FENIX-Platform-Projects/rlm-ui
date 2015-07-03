@@ -3,9 +3,10 @@
 require([
     './submodules/fenix-ui-common/js/Compiler',
     './submodules/fenix-ui-common/js/paths',
+    './submodules/fenix-ui-olap/js/paths',
     //'./submodules/fenix-ui-chart-creator/src/js/paths',
     './submodules/fenix-ui-menu/js/paths'
-], function (Compiler, Common,  Menu) {
+], function (Compiler, Common, Olap, Menu) {
 
     'use strict';
 
@@ -15,10 +16,14 @@ require([
     var commonConfig = Common;
     commonConfig.baseUrl = '../../submodules/fenix-ui-common/js';
 
- /*   var chartCreatorConfig = ChartCreator;
-    chartCreatorConfig.baseUrl = '../../submodules/fenix-ui-chart-creator/src/js';*/
+    var olapConfig = Olap;
+    olapConfig.baseUrl = '../../submodules/fenix-ui-olap/js';
 
-    Compiler.resolve([menuConfig, commonConfig ],
+
+    /*   var chartCreatorConfig = ChartCreator;
+       chartCreatorConfig.baseUrl = '../../submodules/fenix-ui-chart-creator/src/js';*/
+
+    Compiler.resolve([menuConfig, commonConfig, olapConfig ],
         {
             placeholders: {"FENIX_CDN": "//fenixapps.fao.org/repository"},
             config: {

@@ -13,11 +13,11 @@ define([
     'i18n!nls/errors',
     'fx-common/WDSClient',
 
-/*    'pivot',
+    'pivot',
     'pivotRenderers',
     'pivotAggregators',
     'text!pivotDataTest',
-    'pivotDataConfig',*/
+    'pivotDataConfig',
 
     'underscore',
     'q',
@@ -25,11 +25,11 @@ define([
     'amplify'
 //TODO REMOVE
 ], function (Handlebars, View, SelectorsView, Config, Services, E, template, errorTemplate, courtesyMessageTemplate, i18nLabels, i18Errors, WDSClient,
-             //Pivot,
-            // pivotRenderers,
-             //pivotAggregators,
-             //pivotDataTest,
-             //pivotDataConfig,
+             Pivot,
+             pivotRenderers,
+             pivotAggregators,
+             pivotDataTest,
+             pivotDataConfig,
              _) {
 
     'use strict';
@@ -231,9 +231,6 @@ define([
 
         createRequest: function (inputs) {
 
-            console.log("STOP in create REQUEST")
-            return;
-
             this.currentRequest = {
                 inputs: inputs,
                 processedInputs: prepareInputsForWds(inputs)
@@ -254,7 +251,7 @@ define([
             function processArray(input) {
 
                 var result = '',
-                    concat = "','";
+                    concat = ",";
 
                 _.each(input, function (item) {
                     result += item + concat;
@@ -266,9 +263,12 @@ define([
 
         search: function () {
 
-            this.WDSClientOlap.query({
-                queryTmpl: this.currentRequest.inputs.geo_granularity === 'country' ? Services.OLAP_COUNTRY : Services.OLAP_REGION,
-                queryVars: this.currentRequest.processedInputs,
+            this.WDSClientOlap.retrieve({
+                payload: {
+                    query:  Services.DOWNLOAD_SEARCH,
+                    queryVars: this.currentRequest.processedInputs
+                },
+                outputType: 'array',
                 success: _.bind(this.onSearchSuccess, this),
                 error: _.bind(this.onSearchError, this)
             });
@@ -307,7 +307,7 @@ define([
         initOlapCreator: function () {
 
             console.log("Print olap here");
-            return;
+           // return;
 
             this.pivot = new Pivot();
 
@@ -315,7 +315,7 @@ define([
 
             pivotDataConf.rendererDisplay = pivotRenderers;
             pivotDataConf.aggregatorDisplay = pivotAggregators;
-            pivotDataConf.vals.push(this.currentRequest.inputs.status);
+          /*  pivotDataConf.vals.push(this.currentRequest.inputs.status);
             pivotDataConf.derivedAttributes.group_code = function (row) {
 
                 var cl_group_code = amplify.store.sessionStorage("cl_" + row.variable);
@@ -324,9 +324,9 @@ define([
                     return obj ? obj.label : null;
                 }
 
-            };
-
-            this.pivot.render("pivot1", this.currentRequest.processdResponse, pivotDataConf);
+            };           */
+                  console.log("TEST",this.currentRequest.response,pivotDataConf)
+            this.pivot.render("pivot1", this.currentRequest.response, pivotDataConf);
         },
 
         resetResults: function () {
