@@ -22,9 +22,9 @@
           "attrs": {
             "id": "scores"
           },
-          "target": "#download/survey",
+          "target": "#download/indicator",
           "label": {
-            "EN": "Household survey"
+            "EN": "By Indicator"
           }
         },
         {
@@ -33,7 +33,7 @@
           },
           "target": "#download/country",
           "label": {
-            "EN": "Cross Country"
+            "EN": "By Country"
           }
         }
       ]

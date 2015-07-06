@@ -3,12 +3,12 @@ define([
     'chaplin',
     'underscore',
     'controllers/base/controller',
-    'views/download/survey-view'
+    'views/download/indicator-view'
 ], function (Chaplin, _, Controller, View) {
 
     'use strict';
 
-    var DownloadSurveyController = Controller.extend({
+    var DownloadCountryController = Controller.extend({
 
         show: function (params) {
 
@@ -19,5 +19,5 @@ define([
         }
     });
 
-    return DownloadSurveyController;
+    return DownloadCountryController;
 });

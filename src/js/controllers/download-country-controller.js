@@ -3,21 +3,21 @@ define([
     'chaplin',
     'underscore',
     'controllers/base/controller',
-    'views/visualization/table-view'
-], function (Chaplin, _, Controller, VisualizationView) {
+    'views/download/country-view'
+], function (Chaplin, _, Controller, View) {
 
     'use strict';
 
-    var VisualizationTableController = Controller.extend({
+    var DownloadCountryController = Controller.extend({
 
         show: function (params) {
 
-            this.view = new VisualizationView({
+            this.view = new View({
                 region: 'main',
                 params: params
             });
         }
     });
 
-    return VisualizationTableController;
+    return DownloadCountryController;
 });

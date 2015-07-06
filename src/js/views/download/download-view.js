@@ -6,7 +6,7 @@ define([
     'config/Config',
     'config/Services',
     'config/Events',
-    'text!templates/download/survey.hbs',
+    'text!templates/download/download.hbs',
     'text!templates/download/survey-result.hbs',
     'text!templates/common/error.hbs',
     'text!templates/common/courtesy-message.hbs',
@@ -44,6 +44,14 @@ define([
     };
 
     var DownloadSurveyView = View.extend({
+
+        initialize : function( options ) {
+
+            this.section = options.section;
+
+            View.prototype.initialize.call(this, arguments);
+
+        },
 
         // Automatically render after initialize
         autoRender: true,
@@ -86,9 +94,8 @@ define([
             });
 
             this.WDSClientOlap = new WDSClient({
-                serviceUrl: Config.WDS_URL_ARRAY,
-                datasource: Config.DB_NAME
-                //,outputType: Config.WDS_OUTPUT_TYPE
+                datasource: Config.DB_NAME,
+                outputType: Config.WDS_OLAP_OUTPUT_TYPE
             });
 
         },
@@ -114,7 +121,7 @@ define([
 
             View.prototype.render.apply(this, arguments);
 
-            var selectorsView = new SelectorsView({autoRender: true, container: this.$el.find(s.SELECTORS_CONTAINER), section : Config.DOWNLOAD_BY_COUNTRY});
+            var selectorsView = new SelectorsView({autoRender: true, container: this.$el.find(s.SELECTORS_CONTAINER), section : this.section});
 
             this.subview('selectors', selectorsView);
         },
@@ -275,7 +282,6 @@ define([
                     query:  Services.DOWNLOAD_SEARCH,
                     queryVars: this.currentRequest.processedInputs
                 },
-                outputType: 'array',
                 success: _.bind(this.onSearchSuccess, this),
                 error: _.bind(this.onSearchError, this)
             });

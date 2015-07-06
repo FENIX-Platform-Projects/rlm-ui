@@ -7,7 +7,7 @@ define([
     'use strict';
 
     return $.extend(true, {}, Common, {
-        "section_survey" : "Household survey",
-        "section_country" : "Household survey and cross country"
+        "section_one" : "Indicator",
+        "section_two" : "Country"
     });
 });

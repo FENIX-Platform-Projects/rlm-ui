@@ -7738,6 +7738,20 @@ input[type="checkbox"]:checked + label {
   background: none;
   background-color: #fdf5e9; }
 
+.tree-info {
+  position: relative; }
+  .tree-info:before {
+    content: '';
+    background-color: red;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    pointer-events: auto; }
+
 /* Packery _ Fenix */
 /* clearfix */
 #fx-ana-result-container:after {
