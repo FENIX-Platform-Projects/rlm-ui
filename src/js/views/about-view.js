@@ -3,8 +3,9 @@ define([
     'views/base/view',
     'text!templates/about/about.hbs',
     'i18n!nls/about',
+    'config/Events',
     'amplify'
-], function (View, template, i18nLabels) {
+], function (View, template, i18nLabels, E) {
 
     'use strict';
 
@@ -28,8 +29,9 @@ define([
 
             View.prototype.attach.call(this, arguments);
 
+
             //update State
-            amplify.publish('voh.state.change', {menu: 'about'});
+            amplify.publish(E.STATE_CHANGE, {menu: 'about'});
 
         }
     });

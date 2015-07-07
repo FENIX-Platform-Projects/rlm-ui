@@ -1,2 +1,48 @@
 /* RLM - Download */
 
+.rlm-result {
+  width: 50%;
+  height: 305px;
+  padding: 15px;
+  &.w2 {
+    width: 100%;
+  }
+
+  [data-role="header"] {
+    text-transform: uppercase;
+    height: 25px;
+    border-bottom: 1px solid $fenix-light-hr;
+
+    h2{
+      color: $fenix-text;
+      margin-top: 0;
+    }
+
+  }
+
+  [data-role="content"] {
+    height:  250px;
+  }
+}
+
+
+.geo-selector-container {
+  height: 220px;
+  overflow-y: auto;
+}
+
+.geo-granularity-form{
+  height: 30px;
+}
+
+.voh-vis-buttons-holder{
+  height: 50px;
+  background-color: $custom-color2;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  .btn{
+    margin: 12px 3px;
+  }
+
+}
