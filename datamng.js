@@ -2,6 +2,7 @@
 // relative or absolute path of Components' main.js
 require([
     './submodules/fenix-ui-common/js/Compiler',
+    './submodules/fenix-ui-common/js/paths',
     './submodules/fenix-ui-DataEditor/js/paths',
     './submodules/fenix-ui-dataUpload/js/paths',
     './submodules/fenix-ui-DSDEditor/js/paths',
@@ -9,9 +10,12 @@ require([
     './submodules/fenix-ui-catalog/js/paths',
     './submodules/fenix-ui-menu/js/paths',
     './submodules/fenix-ui-data-management/src/js/paths'
-], function (Compiler, DataEditor, DataUpload, DSDEditor, MetadataEditor, Catalog, Menu, DataMng) {
+], function (Compiler, Commons, DataEditor, DataUpload, DSDEditor, MetadataEditor, Catalog, Menu, DataMng) {
 
     'use strict';
+
+    var commonsConfig = Commons;
+    commonsConfig.baseUrl = './submodules/fenix-ui-common/js';
 
     var dataEditorConfig = DataEditor;
     dataEditorConfig.baseUrl = './submodules/fenix-ui-DataEditor/js';
@@ -34,7 +38,7 @@ require([
     var dataMngConfig = DataMng;
     dataMngConfig.baseUrl = './submodules/fenix-ui-data-management/src/js';
 
-    Compiler.resolve([dataEditorConfig, dataUploadConfig, dsdEditorConfig, metadataEditorConfig, catalogConfig, menuConfig, dataMngConfig],
+    Compiler.resolve([commonsConfig, dataEditorConfig, dataUploadConfig, dsdEditorConfig, metadataEditorConfig, catalogConfig, menuConfig, dataMngConfig],
         {
             placeholders: { "FENIX_CDN": "//fenixapps.fao.org/repository" },
             config: {
@@ -52,7 +56,8 @@ require([
                     pnotify: '{FENIX_CDN}/js/pnotify/2.0.1/pnotify.custom.min',
 
                     'fx-d-m/config/config': './config/submodules/fx-data-mng/config',
-
+                    "fx-d-m/routes": "../../submodules/fenix-ui-data-management/src/js/routes/routes_metadataOnly",
+                    'fx-d-m/templates/landing' :"../../submodules/fenix-ui-data-management/src/js/templates/landing_metadataOnly.hbs",
                     'fx-cat-br/config/config': './config/submodules/fx-catalog/config',
 
                     'fx-submodules/config/baseConfig': './config/submodules/config_base'
