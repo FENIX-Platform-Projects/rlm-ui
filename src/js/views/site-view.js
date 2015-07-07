@@ -3,6 +3,7 @@ define([
     'jquery',
     'chaplin',
     'underscore',
+    'config/Config',
     'config/Events',
     'globals/State',
     'views/base/view',
@@ -10,9 +11,15 @@ define([
     'fx-common/AuthManager',
     'i18n!nls/site',
     'text!templates/site.hbs'
-], function ($, Chaplin, _, E, State, View, Menu, AuthManager, i18nLabels, template) {
+], function ($, Chaplin, _, Config, E, State, View, Menu, AuthManager, i18nLabels, template) {
 
     'use strict';
+
+    var s = {
+        TOP_MENU_CONTAINER: '#top-menu-container',
+        BREADCRUMB_CONTAINER: "#breadcrumb-container",
+        FOOTER_MENU_CONTAINER: "#footer-menu-container"
+    };
 
     var SiteView = View.extend({
 
@@ -35,70 +42,72 @@ define([
             View.prototype.attach.call(this, arguments);
 
             this.bindEventListeners();
+
             this.initComponents();
         },
 
-        bindEventListeners : function () {
+        bindEventListeners: function () {
             amplify.subscribe(E.STATE_CHANGE, this, this.onStateUpdate);
         },
 
-        initComponents : function () {
+        initComponents: function () {
 
             var self = this,
                 menuConf = {
-                    url: 'config/submodules/fx-menu/top_menu.json',
+                    url: Config.TOP_MENU_CONFIG,
                     //active: State.menu,
-                    container: '#top-menu-container',
+                    container: s.TOP_MENU_CONTAINER,
                     callback: _.bind(this.onMenuRendered, this),
-                    breadcrumb : {
-                        active : true,
-                        container : "#breadcrumb-container",
-                        showHome : true
+                    breadcrumb: {
+                        active: true,
+                        container: s.BREADCRUMB_CONTAINER,
+                        showHome: true
                     },
-                    footer : {
-                        active : true,
-                        container : "#footer-menu-container"
+                    footer: {
+                        active: true,
+                        container: s.FOOTER_MENU_CONTAINER
                     }
                 },
                 menuConfAuth = _.extend({}, menuConf, {
                     hiddens: ['login']
                 }),
                 menuConfPub = _.extend({}, menuConf, {
-                    hiddens: ['datamng','logout']
+                    hiddens: ['datamng', 'logout']
                 });
 
             this.authManager = new AuthManager({
-                onLogin: function() {
+                onLogin: function () {
                     self.topMenu.refresh(menuConfAuth);
                 },
-                onLogout: function() {
+                onLogout: function () {
                     self.topMenu.refresh(menuConfPub);
                 }
             });
 
             //Top Menu
             this.topMenu = new Menu(this.authManager.isLogged() ? menuConfAuth : menuConfPub);
-
-
         },
 
-        onMenuRendered : function () {
+        onMenuRendered: function () {
 
             this.onMenuUpdate();
-            amplify.subscribe('voh.menu.update', this, this.onMenuUpdate);
+
+            amplify.subscribe(E.MENU_UPDATE, this, this.onMenuUpdate);
         },
 
-        onStateUpdate : function ( s ) {
+        onStateUpdate: function (s) {
 
             State = $.extend(true, State, s);
 
-            amplify.publish("voh.menu.update");
+            amplify.publish(E.MENU_UPDATE);
         },
 
-        onMenuUpdate : function () {
+        onMenuUpdate: function () {
+
+            console.log(State.menu)
+
             this.topMenu.select(State.menu);
         }
-
     });
 
     return SiteView;

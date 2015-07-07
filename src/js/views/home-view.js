@@ -3,6 +3,7 @@ define([
     'views/base/view',
     'config/Config',
     'config/Services',
+    'config/Events',
     'text!templates/home/home.hbs',
     'text!templates/home/database_update_item.hbs',
     'i18n!nls/home',
@@ -12,7 +13,7 @@ define([
     'progressbar',
     'amplify',
     'fenix-ui-map'
-], function (View, Config, Services, template, dbUpdatesTemplate, i18nLabels, Handlebars, dbUpdatesModels, WDSClient, ProgressBar) {
+], function (View, Config, Services, E, template, dbUpdatesTemplate, i18nLabels, Handlebars, dbUpdatesModels, WDSClient, ProgressBar) {
 
     'use strict';
 
@@ -39,7 +40,7 @@ define([
             View.prototype.attach.call(this, arguments);
 
             //update State
-            amplify.publish('voh.state.change', {menu: 'home'});
+            amplify.publish(E.STATE_CHANGE, {menu: 'home'});
 
             this.initVariables();
 

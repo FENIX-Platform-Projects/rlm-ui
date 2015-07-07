@@ -16,6 +16,8 @@ define(function () {
         WDS_OUTPUT_TYPE: 'object',
         WDS_OLAP_OUTPUT_TYPE : 'array',
 
+        TOP_MENU_CONFIG: 'config/submodules/fx-menu/top_menu.json',
+
         //Selectors
         SEL_YEAR_FROM: 2000,
         SEL_YEAR_TO: 2015,

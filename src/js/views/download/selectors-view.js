@@ -142,7 +142,7 @@ define([
                         {width: '20%', value: "info", cellClass: s.SELECTOR_INFO_BTN.substring(1)}
                     ]
                 },
-                "plugins": ["search", "wholerow", "checkbox", "grid"],
+                "plugins": ["search", "wholerow", "checkbox" /*, "grid"*/],
                 "search": {
                     show_only_matches: true
                 }

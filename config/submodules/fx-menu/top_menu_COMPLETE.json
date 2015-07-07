@@ -52,6 +52,24 @@
     },
     {
       "attrs": {
+        "id": "modules"
+      },
+      "target": "#modules",
+      "label": {
+        "EN": "Thematic Modules"
+      }
+    },
+    {
+      "attrs": {
+        "id": "standards"
+      },
+      "target": "#standards",
+      "label": {
+        "EN": "Methods and Standards"
+      }
+    },
+    {
+      "attrs": {
         "id": "about"
       },
       "target": "#about",
