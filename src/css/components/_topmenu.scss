@@ -206,15 +206,15 @@
 #login {
   position: relative;
   left: 10px;
-  &:before{
-    content: '';
-    position: absolute;
-    height:26px;
-    width: 26px;
-    border:2px solid white;
-    top: 12px;
-    left: 12px; /* review - Too hardcoded */
-  }
+  //&:before{
+  //  content: '';
+  //  position: absolute;
+  //  height:26px;
+  //  width: 26px;
+  //  border:2px solid white;
+  //  top: 12px;
+  //  left: 12px; /* review - Too hardcoded */
+  //}
 
   a{
     height: auto;

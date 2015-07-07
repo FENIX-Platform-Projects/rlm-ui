@@ -54,7 +54,10 @@ define([
 
             var self = this,
                 menuConf = {
+
                     url: Config.TOP_MENU_CONFIG,
+                    template: 'fx-menu/templates/blank-fluid.html',
+                    
                     //active: State.menu,
                     container: s.TOP_MENU_CONTAINER,
                     callback: _.bind(this.onMenuRendered, this),
@@ -103,8 +106,6 @@ define([
         },
 
         onMenuUpdate: function () {
-
-            console.log(State.menu)
 
             this.topMenu.select(State.menu);
         }
