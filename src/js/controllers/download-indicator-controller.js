@@ -1,10 +1,10 @@
 /*global define, Backbone*/
 define([
     'chaplin',
-    'underscore',
+    'config/Config',
     'controllers/base/controller',
-    'views/download/indicator-view'
-], function (Chaplin, _, Controller, View) {
+    'views/download/download-view'
+], function (Chaplin, Config, Controller, View) {
 
     'use strict';
 
@@ -14,7 +14,8 @@ define([
 
             this.view = new View({
                 region: 'main',
-                params: params
+                params: params,
+                section : Config.DOWNLOAD_BY_INDICATOR
             });
         }
     });

@@ -50,8 +50,6 @@ define([
 
         manipulateTemplate: function () {
 
-            console.log(this.section)
-
             switch (this.section) {
 
                 case Config.DOWNLOAD_BY_COUNTRY :

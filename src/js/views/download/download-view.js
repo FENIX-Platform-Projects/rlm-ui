@@ -7,7 +7,7 @@ define([
     'config/Services',
     'config/Events',
     'text!templates/download/download.hbs',
-    'text!templates/download/survey-result.hbs',
+    'text!templates/download/download-result.hbs',
     'text!templates/common/error.hbs',
     'text!templates/common/courtesy-message.hbs',
     'i18n!nls/download-survey',
@@ -38,6 +38,8 @@ define([
         SELECTORS_CONTAINER : '.download-selectors-container',
 
         RESULT_OLAP_CONTAINER: '[data-role="pivot-container"]',
+        TAB_DOWNLOAD_BY_COUNTRY : '[data-tab="country"]',
+        TAB_DOWNLOAD_BY_INDICATOR : '[data-tab="indicator"]',
 
         BTN_DOWNLOAD_PIVOT: '[data-download]',
         BTN_REMOVE_RESULT : '[data-control="remove"]'
@@ -74,6 +76,10 @@ define([
             //results
             this.$resultsContainer = this.$el.find(s.RESULTS_CONTAINER);
 
+            //tabs
+            this.$tabDownloadByCountry = this.$el.find(s.TAB_DOWNLOAD_BY_COUNTRY);
+            this.$tabDownloadByIndicator= this.$el.find(s.TAB_DOWNLOAD_BY_INDICATOR);
+
             this.pivots = [];
 
         },
@@ -98,6 +104,17 @@ define([
                 outputType: Config.WDS_OLAP_OUTPUT_TYPE
             });
 
+            switch (this.section){
+                case Config.DOWNLOAD_BY_INDICATOR :
+                    this.$tabDownloadByCountry.removeClass("active");
+                    this.$tabDownloadByIndicator.addClass("active");
+                    break;
+                case Config.DOWNLOAD_BY_COUNTRY :
+                    this.$tabDownloadByCountry.addClass("active");
+                    this.$tabDownloadByIndicator.removeClass("active");
+                    break;
+            }
+
         },
 
         attach: function () {
@@ -105,7 +122,7 @@ define([
             View.prototype.attach.call(this, arguments);
 
             //update State
-            amplify.publish(E.STATE_CHANGE, {menu: 'table'});
+            amplify.publish(E.STATE_CHANGE, {menu: this.section});
 
             this.initVariables();
 
