@@ -133,7 +133,10 @@ define([
                 "core": {
                     "multiple": multiple,
                     "animation": 0,
-                    "themes": {"stripes": true},
+                    "themes": {
+                        //"stripes": true,
+                        "responsive": true
+                    },
                     'data': data
                 },
                 grid: {

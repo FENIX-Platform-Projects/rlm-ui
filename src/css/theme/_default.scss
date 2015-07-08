@@ -25,11 +25,12 @@ body{
 .btn{
   @include fx-border-radius(0);
   height: 25px;
-  min-width: 135px;
+  min-width: 100px;
   padding: 3px 12px;
   font-size: 12px;
   text-transform: uppercase;
   background-color: $fx-cool-blue;
+  margin: 5px;
 
   &:hover{
     background-color: $fx-cool-blue;
