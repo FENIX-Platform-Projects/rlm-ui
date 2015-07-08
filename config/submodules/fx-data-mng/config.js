@@ -9,7 +9,7 @@ define(['jquery',
         $.extend(cfg, config_base);
 
         cfg.TOP_MENU = {
-            url: './config/submodules/fx-menu/top_menu.json',
+            url: './config/submodules/fx-menu/top_menu_data_mng.json',
             active: "datamng"
         };
 

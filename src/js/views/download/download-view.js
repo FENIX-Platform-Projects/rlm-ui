@@ -326,7 +326,11 @@ define([
         /* Results rendering */
         appendResult: function () {
 
-            window.fx_rlm_dynamic_id !== 0 ? window.fx_rlm_dynamic_id = 0 : window.fx_rlm_dynamic_id ++;
+            if(!window.fx_rlm_dynamic_id){
+                window.fx_rlm_dynamic_id = 0;
+            }
+
+            window.fx_rlm_dynamic_id ++  ;
 
             //Add here the result header
             var template = Handlebars.compile(resultTemplate),

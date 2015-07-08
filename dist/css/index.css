@@ -8369,6 +8369,37 @@ footer.voh-footer {
   .input-group-btn .btn:hover {
     border-color: #2395ab; }
 
+/* Jstree Mood */
+.jstree-container-ul {
+  width: calc(100% - 25px); }
+
+.jstree-disabled {
+  opacity: 0.5; }
+
+/* Override Fenix Tree */
+.jstree-default-responsive .jstree-anchor {
+  white-space: normal;
+  height: auto; }
+
+[role='treeitem'] {
+  position: relative; }
+  [role='treeitem'] .jstree-wholerow {
+    height: 100%; }
+  [role='treeitem'] .jstree-wholerow-clicked {
+    height: 100%; }
+  [role='treeitem'][aria-expanded='true'] [role='group'] .jstree-ocl {
+    display: none; }
+  [role='treeitem'][aria-expanded='true'] [role='group'] .jstree-anchor {
+    padding-left: 35px; }
+    [role='treeitem'][aria-expanded='true'] [role='group'] .jstree-anchor .jstree-checkbox {
+      position: absolute;
+      left: 10px; }
+
+.rlm-tree-selector {
+  height: 300px;
+  overflow-y: scroll;
+  overflow-x: hidden; }
+
 /* RLM Subemenu */
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover {
   background-color: #f1f1f1;
@@ -8575,27 +8606,16 @@ footer.voh-footer {
 
 #logout {
   position: relative;
-  left: 10px; }
-  #logout:before {
-    content: '';
-    position: absolute;
-    height: 26px;
-    width: 26px;
-    border: 2px solid white;
-    top: 12px;
-    left: 12px;
-    /* review - Too hardcoded */ }
+  right: 15px; }
   #logout a {
     height: auto;
     padding: 0;
     position: relative;
     text-align: center;
-    top: 50%;
     display: inline-block;
     width: 100%;
-    -ms-transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%); }
+    top: 10px;
+    cursor: pointer; }
     #logout a:before {
       display: none; }
   #logout span {
@@ -8820,34 +8840,6 @@ footer.voh-footer {
       font-size: 35px;
       color: #999999; }
 
-.jstree-container-ul {
-  width: calc(100% - 25px); }
-
-/* Override Fenix Tree */
-.jstree-default-responsive .jstree-anchor {
-  white-space: normal;
-  height: auto; }
-
-[role='treeitem'] {
-  position: relative; }
-  [role='treeitem'] .jstree-wholerow {
-    height: 100%; }
-  [role='treeitem'] .jstree-wholerow-clicked {
-    height: 100%; }
-  [role='treeitem'][aria-expanded='true'] [role='group'] .jstree-ocl {
-    display: none; }
-  [role='treeitem'][aria-expanded='true'] [role='group'] .jstree-anchor {
-    padding-left: 35px; }
-    [role='treeitem'][aria-expanded='true'] [role='group'] .jstree-anchor .jstree-checkbox {
-      position: absolute;
-      left: 10px; }
-
-.rlm-tree-selector {
-  height: 300px;
-  overflow-y: scroll;
-  overflow-x: hidden; }
-
-/*# sourceMappingURL=faostat-tree.css.map */
 /* RLM - Download */
 .rlm-result {
   width: 50%;

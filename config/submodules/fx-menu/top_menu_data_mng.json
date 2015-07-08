@@ -1,0 +1,97 @@
+{
+  "items": [
+    {
+      "attrs": {
+        "id": "home"
+      },
+      "target": "./index.html#home",
+      "a_attrs" : {
+        "rel" : "external"
+      },
+      "label": {
+        "EN": "RLM"
+      }
+    },
+    {
+      "attrs": {
+        "id": "download"
+      },
+      "type": "dropdown",
+      "label": {
+        "EN": "Download"
+      },
+      "children": [
+        {
+          "attrs": {
+            "id": "indicator"
+          },
+          "target": "./index.html#download/indicator",
+          "a_attrs" : {
+            "rel" : "external"
+          },
+          "label": {
+            "EN": "By Indicator"
+          }
+        },
+        {
+          "attrs": {
+            "id": "country"
+          },
+          "target": "./index.html#download/country",
+          "a_attrs" : {
+            "rel" : "external"
+          },
+          "label": {
+            "EN": "By Country"
+          }
+        }
+      ]
+    },
+    {
+      "attrs": {
+        "id": "datamng"
+      },
+      "a_attrs": {
+        "rel": "external"
+      },
+      "target": "./datamng.html",
+      "label": {
+        "EN": "Data Management"
+      }
+    },
+    {
+      "attrs": {
+        "id": "about"
+      },
+      "target": "./index.html#about",
+      "a_attrs" : {
+        "rel" : "external"
+      },
+      "label": {
+        "EN": "About"
+      }
+    }
+  ],
+  "rightItems": [
+    {
+      "attrs": {
+        "id": "login"
+      },
+      "label": {
+        "EN": "LOGIN"
+      }
+    },
+    {
+      "attrs": {
+        "id": "logout"
+      },
+      "label": {
+        "EN": "LOGOUT"
+      }
+    }
+  ],
+  "type": "static-top",
+  "brand": {
+    "target": "#"
+  }
+}
