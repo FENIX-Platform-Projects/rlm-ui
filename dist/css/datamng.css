@@ -5205,10 +5205,10 @@ button_new_2:before {
 /* Fenix Typography */
 body {
   color: #666666;
-  font: normal normal 300 13px/normal "Roboto"; }
+  font: normal normal 300 12px/normal "Roboto"; }
 
 a {
-  color: #2c87b8; }
+  color: red; }
   a:focus {
     outline: none; }
   a:active {
@@ -5219,25 +5219,25 @@ a {
   color: #666666; }
 
 h1 {
-  font: normal normal 300 16px/normal "Roboto";
-  color: #2c87b8; }
+  font: normal normal 300 18px/normal "Roboto";
+  color: red; }
 
 h2 {
-  font: normal normal 300 12px/normal "Roboto";
-  color: #4e7d96; }
+  font: normal normal 300 14px/normal "Roboto";
+  color: #d92626; }
 
 h3 {
   font: normal normal 500 12px/normal "Roboto";
-  color: #65767f; }
+  color: #bf4040; }
 
 h4 {
   font: normal normal 300 11px/normal "Roboto";
-  color: #727272; }
+  color: #a65959; }
 
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small, h1 .small, h2 .small, h3 .small, h4 .small, h5 .small, h6 .small, .h1 .small, .h2 .small, .h3 .small, .h4 .small, .h5 .small, .h6 .small {
   font-family: Roboto;
   font-weight: 700;
-  color: #2c87b8;
+  color: red;
   text-transform: uppercase;
   font-size: 12px; }
 
@@ -5269,18 +5269,18 @@ input[type="button"]::-moz-focus-inner {
   border: 0; }
 
 .btn {
-  background-color: #2c87b8;
+  background-color: red;
   color: white;
   border-color: transparent;
-  font: normal normal 300 13px/normal "Roboto"; }
+  font: normal normal 300 12px/normal "Roboto"; }
   .btn:hover {
     background-color: transparent;
-    color: #2c87b8;
-    border-color: #2c87b8; }
+    color: red;
+    border-color: red; }
   .btn:active {
     background-color: transparent;
-    color: #2c87b8;
-    border-color: #2c87b8;
+    color: red;
+    border-color: red;
     -webkit-box-shadow: 0 0 0 white;
     -moz-box-shadow: 0 0 0 white;
     box-shadow: 0 0 0 white; }
@@ -5289,7 +5289,7 @@ input[type="button"]::-moz-focus-inner {
   background-color: transparent;
   color: #666666;
   border-color: transparent;
-  font: normal normal 300 13px/normal "Roboto"; }
+  font: normal normal 300 12px/normal "Roboto"; }
   .fx-button-reset:hover {
     background-color: transparent;
     color: #666666;
@@ -5317,8 +5317,8 @@ input[type="button"]::-moz-focus-inner {
 , .btn-primary.disabled.active
 , .btn-primary[disabled].active
 , fieldset[disabled] .btn-primary.active {
-  background-color: #65767f;
-  border-color: #65767f; }
+  background-color: #bf4040;
+  border-color: #bf4040; }
 
 /* Fenix - Circle Number Component */
 .fx-circle-number {
@@ -5329,7 +5329,7 @@ input[type="button"]::-moz-focus-inner {
   width: 20px;
   line-height: 20px;
   text-align: center;
-  background-color: #2c87b8;
+  background-color: red;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
   -ms-border-radius: 100%;
@@ -5347,9 +5347,9 @@ input[type="button"]::-moz-focus-inner {
     -ms-border-radius: 0;
     border-radius: 0; }
   .datepicker .datepicker-days .day.active {
-    background-color: #2c87b8; }
+    background-color: red; }
   .datepicker .datepicker-days .day.today:before {
-    border-bottom-color: #2c87b8; }
+    border-bottom-color: red; }
   .datepicker .datepicker-days .day.active.today:before {
     border-bottom-color: white; }
 
@@ -5445,7 +5445,7 @@ input[type=text]::-ms-clear {
 
 /* Fenix - Labels Component */
 label {
-  font: normal normal 300 13px/normal "Roboto"; }
+  font: normal normal 300 12px/normal "Roboto"; }
 
 /* Fenix - Legend Component */
 legend {
@@ -5524,7 +5524,7 @@ legend {
   top: 4px;
   left: 30px;
   font-weight: 300;
-  color: #65767f; }
+  color: #bf4040; }
 
 .fx-catalog-modular-form-content {
   padding: 10px 10px 10px 10px;
@@ -5548,17 +5548,17 @@ div[data-module="sector"] .fx-catalog-modular-form-content {
   border-width: 0; }
 
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
-  border-color: #2c87b8; }
+  border-color: red; }
 
 .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
   background-color: transparent;
   color: #666666; }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-  color: #2c87b8; }
+  color: red; }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-  border-bottom: 1px solid #2c87b8; }
+  border-bottom: 1px solid red; }
 
 /* Fenix - Object Box Component */
 .obj-box, .obj-box-radius10, .obj-box-title {
@@ -5588,7 +5588,7 @@ div[data-module="sector"] .fx-catalog-modular-form-content {
 .obj-box-title {
   padding-top: 5px; }
   .obj-box-title h4 {
-    color: #2c87b8;
+    color: red;
     font: normal normal 300 11px/normal "Roboto"; }
 
 /* Fenix - Panel Component */
@@ -5627,12 +5627,12 @@ div[data-module="sector"] .fx-catalog-modular-form-content {
         .panel-group .panel-heading .panel-title a:focus {
           text-decoration: none; }
   .panel-group .panel-heading.fx-active-panel .panel-title a {
-    color: #2c87b8; }
+    color: red; }
   .panel-group .panel-body .btn {
     background-color: transparent;
     color: #666666;
     border-color: transparent;
-    font: normal normal 300 13px/normal "Roboto";
+    font: normal normal 300 12px/normal "Roboto";
     text-align: left;
     position: relative; }
     .panel-group .panel-body .btn:hover {
@@ -5720,13 +5720,13 @@ input[type="radio"] + label {
     -moz-border-radius: 100%;
     -ms-border-radius: 100%;
     border-radius: 100%;
-    border: 0 solid #2c87b8;
+    border: 0 solid red;
     position: relative;
     top: 4px;
     left: -4px; }
 
 input[type="radio"]:checked + label {
-  color: #2c87b8; }
+  color: red; }
   input[type="radio"]:checked + label:before {
     border-width: 5px; }
 
@@ -5765,13 +5765,13 @@ input[type="checkbox"] + label {
     -moz-border-radius: 100%;
     -ms-border-radius: 100%;
     border-radius: 100%;
-    border: 0 solid #2c87b8;
+    border: 0 solid red;
     position: relative;
     top: 4px;
     left: -4px; }
 
 input[type="checkbox"]:checked + label {
-  color: #2c87b8; }
+  color: red; }
   input[type="checkbox"]:checked + label:before {
     border-width: 5px; }
 
@@ -5802,7 +5802,7 @@ input[type="checkbox"]:checked + label {
   min-height: 60px; }
 
 .fx-resume-title {
-  color: #2c87b8;
+  color: red;
   padding-left: 15px;
   padding-top: 5px;
   font: normal normal 400 10px/normal "Roboto";
@@ -5817,7 +5817,7 @@ input[type="checkbox"]:checked + label {
 #fx-catalog-submit-btn {
   color: white;
   text-transform: uppercase;
-  background-color: #2c87b8;
+  background-color: red;
   width: 150px;
   position: absolute;
   bottom: 0;
@@ -5840,7 +5840,7 @@ input[type="checkbox"]:checked + label {
     padding-left: 15px; }
     .fx-resume-item-selected .fx-resume-module-title em {
       font: normal normal 400 10px/normal "Roboto";
-      color: #2c87b8;
+      color: red;
       font-size: 12px;
       /* Not expected */
       position: absolute;
@@ -5897,7 +5897,7 @@ input[type="checkbox"]:checked + label {
       position: absolute;
       width: calc(100% - 20px);
       height: 2px;
-      background-color: #2c87b8;
+      background-color: red;
       left: 10px;
       bottom: -2px;
       pointer-events: none; }
@@ -5953,14 +5953,14 @@ input[type="checkbox"]:checked + label {
 
 .bs-docs-sidebar .nav > li > a:hover, .bs-docs-sidebar .nav > li > a:focus {
   background-color: transparent;
-  border-left: 1px solid #2c87b8;
-  color: #2c87b8;
+  border-left: 1px solid red;
+  color: red;
   text-decoration: none; }
 
 .bs-docs-sidebar .nav > .active > a, .bs-docs-sidebar .nav > .active:hover > a, .bs-docs-sidebar .nav > .active:focus > a {
   background-color: transparent;
-  border-left: 1px solid #2c87b8;
-  color: #2c87b8;
+  border-left: 1px solid red;
+  color: red;
   font-weight: 700; }
 
 .bs-docs-sidebar .nav .nav {
@@ -6126,9 +6126,9 @@ input[type="checkbox"]:checked + label {
       .fx-widget .nav-tabs > li > a:hover, .fx-widget .nav-tabs > li > a:active, .fx-widget .nav-tabs > li > a:focus, .fx-widget .nav-tabs > li > a:visited {
         border-color: transparent;
         background-color: transparent;
-        color: #2c87b8; }
+        color: red; }
   .fx-widget .nav-tabs > li.active > a {
-    color: #2c87b8; }
+    color: red; }
     .fx-widget .nav-tabs > li.active > a:hover, .fx-widget .nav-tabs > li.active > a:active, .fx-widget .nav-tabs > li.active > a:focus, .fx-widget .nav-tabs > li.active > a:visited {
       border-color: transparent;
       background-color: transparent; }
@@ -6136,7 +6136,7 @@ input[type="checkbox"]:checked + label {
     content: '';
     width: 100%;
     height: 3px;
-    background-color: #2c87b8;
+    background-color: red;
     position: absolute;
     bottom: -7px; }
 
@@ -6161,7 +6161,7 @@ input[type="checkbox"]:checked + label {
     text-transform: uppercase;
     font-weight: 700;
     font-size: 11px;
-    color: #65767f; }
+    color: #bf4040; }
 
 .fx-widget:before {
   content: "";
@@ -6259,15 +6259,15 @@ input[type="checkbox"]:checked + label {
   display: none; }
 
 .fx-closepanel-container {
-  border-bottom: 1px solid #2c87b8;
+  border-bottom: 1px solid red;
   padding: 5px 10px; }
   .fx-closepanel-container .fx-widget-icons {
-    color: #2c87b8;
+    color: red;
     margin-right: 5px;
     cursor: pointer; }
   .fx-closepanel-container #fx-ws-close-btn {
     text-transform: uppercase;
-    color: #2c87b8;
+    color: red;
     cursor: pointer;
     line-height: 1;
     display: inline-block;
@@ -6292,7 +6292,7 @@ input[type="checkbox"]:checked + label {
   list-style-type: none;
   padding: 16px 16px 35px 16px;
   position: relative;
-  border-bottom: 1px solid #2c87b8; }
+  border-bottom: 1px solid red; }
 
 .fx-sessionstore-item-title {
   text-transform: uppercase;
@@ -6337,7 +6337,7 @@ input[type="checkbox"]:checked + label {
   width: 20px;
   line-height: 20px;
   text-align: center;
-  background-color: #2c87b8;
+  background-color: red;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
   -ms-border-radius: 100%;
@@ -6356,12 +6356,12 @@ input[type="checkbox"]:checked + label {
 
 .introjs-button:hover, .introjs-button:active, .introjs-button:focus {
   text-shadow: none;
-  color: #2c87b8;
+  color: red;
   text-decoration: none; }
 
 /* Fenix - JQwidgets */
 .jqx-widget {
-  font: normal normal 300 13px/normal "Roboto"; }
+  font: normal normal 300 12px/normal "Roboto"; }
 
 .jqx-widget-content {
   color: #666666;
@@ -6373,14 +6373,14 @@ input[type="checkbox"]:checked + label {
   color: #666666;
   text-shadow: none;
   border-color: transparent;
-  background-color: #fdf5e9;
-  background-image: -moz-linear-gradient(top, #fdf5e9, #fdf5e9);
-  background-image: -ms-linear-gradient(top, #fdf5e9, #fdf5e9);
-  background-image: -o-linear-gradient(top, #fdf5e9, #fdf5e9);
-  background-image: -webkit-gradient(linear, center top, center bottom, from(#fdf5e9), to(#fdf5e9));
-  background-image: -webkit-linear-gradient(top, #fdf5e9, #fdf5e9);
-  background-image: linear-gradient(top, #fdf5e9, #fdf5e9);
-  background-image: linear-gradient(to bottom, #fdf5e9, #fdf5e9);
+  background-color: #ffd6d6;
+  background-image: -moz-linear-gradient(top, #ffd6d6, #ffd6d6);
+  background-image: -ms-linear-gradient(top, #ffd6d6, #ffd6d6);
+  background-image: -o-linear-gradient(top, #ffd6d6, #ffd6d6);
+  background-image: -webkit-gradient(linear, center top, center bottom, from(#ffd6d6), to(#ffd6d6));
+  background-image: -webkit-linear-gradient(top, #ffd6d6, #ffd6d6);
+  background-image: linear-gradient(top, #ffd6d6, #ffd6d6);
+  background-image: linear-gradient(to bottom, #ffd6d6, #ffd6d6);
   -moz-background-clip: padding;
   background-clip: padding-box;
   -webkit-background-clip: padding-box;
@@ -6447,14 +6447,14 @@ input[type="checkbox"]:checked + label {
   color: #666666;
   text-shadow: none;
   border-color: transparent;
-  background-color: #fdf5e9;
-  background-image: -moz-linear-gradient(top, #fdf5e9, #fdf5e9);
-  background-image: -ms-linear-gradient(top, #fdf5e9, #fdf5e9);
-  background-image: -o-linear-gradient(top, #fdf5e9, #fdf5e9);
-  background-image: -webkit-gradient(linear, center top, center bottom, from(#fdf5e9), to(#fdf5e9));
-  background-image: -webkit-linear-gradient(top, #fdf5e9, #fdf5e9);
-  background-image: linear-gradient(top, #fdf5e9, #fdf5e9);
-  background-image: linear-gradient(to bottom, #fdf5e9, #fdf5e9);
+  background-color: #ffd6d6;
+  background-image: -moz-linear-gradient(top, #ffd6d6, #ffd6d6);
+  background-image: -ms-linear-gradient(top, #ffd6d6, #ffd6d6);
+  background-image: -o-linear-gradient(top, #ffd6d6, #ffd6d6);
+  background-image: -webkit-gradient(linear, center top, center bottom, from(#ffd6d6), to(#ffd6d6));
+  background-image: -webkit-linear-gradient(top, #ffd6d6, #ffd6d6);
+  background-image: linear-gradient(top, #ffd6d6, #ffd6d6);
+  background-image: linear-gradient(to bottom, #ffd6d6, #ffd6d6);
   -moz-background-clip: padding;
   background-clip: padding-box;
   -webkit-background-clip: padding-box;
@@ -6780,7 +6780,7 @@ input[type="checkbox"]:checked + label {
 
 .jstree-default .jstree-wholerow-hovered {
   background: none;
-  background-color: #fdf5e9; }
+  background-color: #ffd6d6; }
 
 /* Packery _ Fenix */
 /* clearfix */
@@ -6850,7 +6850,7 @@ input[type="checkbox"]:checked + label {
     transition: all 0.3s ease 0s;
     margin: 5px; }
     .datamng-welcome .datamng-welcome-btn:hover {
-      border-color: #2c87b8; }
+      border-color: red; }
     .datamng-welcome .datamng-welcome-btn a {
       display: inline-block;
       position: relative;
@@ -6894,15 +6894,18 @@ input[type="checkbox"]:checked + label {
 body {
   background-color: #f1f1f1; }
 
-.voh-logo-blue {
-  width: 100%;
-  height: auto; }
+.rlm-logo-blue {
+  width: 117px;
+  height: 55px; }
 
 .truncate {
   min-width: 250px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis; }
+
+.upper {
+  text-transform: uppercase; }
 
 .btn {
   -webkit-border-radius: 0;
@@ -6914,14 +6917,14 @@ body {
   padding: 3px 12px;
   font-size: 12px;
   text-transform: uppercase;
-  background-color: #2c87b8; }
+  background-color: red; }
   .btn:hover {
-    background-color: #2c87b8;
+    background-color: red;
     border-color: transparent;
     color: white; }
 
 .btn-table-go, .btn-scores-go {
-  background-color: #2c87b8; }
+  background-color: red; }
   .btn-table-go:hover, .btn-scores-go:hover {
     background-color: #27729a;
     border-color: transparent;
@@ -6966,9 +6969,9 @@ footer.voh-footer {
   min-height: 160px;
   color: white;
   position: relative; }
-  footer.voh-footer .voh-logo-white {
-    width: 68px;
-    height: 33px;
+  footer.voh-footer .rlm-logo-white {
+    width: 56px;
+    height: 26px;
     margin-bottom: 10px; }
 
 .voh-footer-upper {
@@ -6992,11 +6995,11 @@ footer.voh-footer {
     border-radius: 100%;
     cursor: pointer; }
   .voh-footer-social .voh-footer-social-facebook {
-    background-color: #48649f; }
+    background-color: white; }
   .voh-footer-social .voh-footer-social-youtube {
-    background-color: #cc181e; }
+    background-color: white; }
   .voh-footer-social .voh-footer-social-twitter {
-    background-color: #61a8d8; }
+    background-color: white; }
 
 .voh-footer-bottom {
   padding-top: 15px;
@@ -7034,7 +7037,7 @@ footer.voh-footer {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-  border: 2px solid #2c87b8;
+  border: 2px solid red;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
@@ -7048,12 +7051,12 @@ footer.voh-footer {
     -moz-box-shadow: none;
     box-shadow: none;
     outline: none;
-    border: 2px solid #2c87b8; }
+    border: 2px solid red; }
 
 .input-group-btn .btn {
   border-left: 0; }
   .input-group-btn .btn:hover {
-    border-color: #2c87b8; }
+    border-color: red; }
 
 /* RLM Subemenu */
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover {
@@ -7092,19 +7095,18 @@ footer.voh-footer {
     .dropdown .dropdown-menu > li:last-child {
       border-bottom-color: transparent; }
     .dropdown .dropdown-menu > li:hover {
-      background-color: #fdf5e9; }
+      background-color: #ffd6d6; }
       .dropdown .dropdown-menu > li:hover:before {
         content: '';
         position: absolute;
         width: 5px;
         height: 100%;
-        background-color: #f2a940;
+        background-color: red;
         right: 0;
         top: 0; }
     .dropdown .dropdown-menu > li > a {
       text-transform: uppercase;
       color: #666666;
-      font: normal normal 300 12px/normal "Roboto";
       position: relative;
       top: 50%;
       height: 100%;
@@ -7161,7 +7163,7 @@ footer.voh-footer {
     position: absolute;
     width: 100%;
     height: 5px;
-    background-color: #f2a940;
+    background-color: red;
     left: 0;
     bottom: -5px;
     pointer-events: none; }
@@ -7193,7 +7195,6 @@ footer.voh-footer {
       height: 40px; }
 
 .navbar-brand {
-  background-image: url("img/afo-ico.svg");
   height: 40px;
   width: 40px;
   background-size: 80% 80%;
@@ -7216,7 +7217,7 @@ footer.voh-footer {
   color: white; }
 
 .navbar-header {
-  background-color: #f2a940; }
+  background-color: red; }
 
 .navbar-default .navbar-toggle {
   border-color: transparent; }
@@ -7240,23 +7241,20 @@ footer.voh-footer {
 .fx-menu .navbar-right {
   margin: 0; }
   .fx-menu .navbar-right > li {
-    border-right: 0;
-    border-left: 1px solid white; }
+    border-right: 0; }
 
 #login {
   position: relative;
-  left: 10px; }
+  right: 15px; }
   #login a {
     height: auto;
     padding: 0;
     position: relative;
     text-align: center;
-    top: 50%;
     display: inline-block;
     width: 100%;
-    -ms-transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%); }
+    top: 10px;
+    cursor: pointer; }
     #login a:before {
       display: none; }
   #login span {
@@ -7326,7 +7324,7 @@ footer.voh-footer {
         position: absolute;
         width: 100%;
         height: 2px;
-        background-color: #2c87b8;
+        background-color: red;
         left: 0;
         bottom: -2px;
         pointer-events: none;
@@ -7334,7 +7332,7 @@ footer.voh-footer {
         -webkit-transform: scaleX(0);
         transform: scaleX(0); }
     .voh-tabs .nav-tabs > li.active > a {
-      color: #2c87b8; }
+      color: red; }
       .voh-tabs .nav-tabs > li.active > a:before {
         -webkit-transition: all 0.3s ease 0s;
         -moz-transition: all 0.3s ease 0s;

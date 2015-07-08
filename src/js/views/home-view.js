@@ -72,10 +72,10 @@ define([
         configurePage: function () {
 
             var c ={
-                color: '#f0e352',
+                color: '#2ab896',
                 strokeWidth: 10,
                 trailWidth: 9,
-                trailColor: "rgba(255,255,255,0.2)",
+                trailColor: "#ededed",
                 duration: 1500,
                 easing : 'easeOut',
                 text: {

@@ -6,9 +6,9 @@ body{
 
 }
 
-.voh-logo-blue{
-  width: 100%;
-  height: auto;
+.rlm-logo-blue{
+  width: 117px;
+  height: 55px;
 }
 
 .truncate {
@@ -16,6 +16,10 @@ body{
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.upper{
+  text-transform: uppercase;
 }
 
 .btn{
