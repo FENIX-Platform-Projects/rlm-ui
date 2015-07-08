@@ -21,6 +21,8 @@ define(['jquery',
         cfg.DSD_EDITOR_CONTEXT_SYSTEM = "RLM";
         cfg.DSD_EDITOR_DATASOURCES = ["D3S"];
 
+        cfg.FAKE_AUTHENTICATION = false;
+
 
         //cfg.DATA_MANAGEMENT_NOT_LOGGEDIN_URL="index.html"
 
