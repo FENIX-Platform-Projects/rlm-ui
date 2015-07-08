@@ -4,7 +4,6 @@ require([
     './submodules/fenix-ui-common/js/Compiler',
     './submodules/fenix-ui-common/js/paths',
     './submodules/fenix-ui-olap/js/paths',
-    //'./submodules/fenix-ui-chart-creator/src/js/paths',
     './submodules/fenix-ui-menu/js/paths'
 ], function (Compiler, Common, Olap, Menu) {
 
@@ -18,10 +17,6 @@ require([
 
     var olapConfig = Olap;
     olapConfig.baseUrl = '../../submodules/fenix-ui-olap/js';
-
-
-    /*   var chartCreatorConfig = ChartCreator;
-       chartCreatorConfig.baseUrl = '../../submodules/fenix-ui-chart-creator/src/js';*/
 
     Compiler.resolve([menuConfig, commonConfig, olapConfig ],
         {
@@ -136,7 +131,7 @@ require([
                             'jquery.power.tip',
                             'jquery.i18n.properties',
                             'import-dependencies',
-                            'jquery.hoverIntent',
+                            'jquery.hoverIntent'
                             //'chosen'
                         ]
                     },
@@ -175,7 +170,7 @@ require([
         var app = new Application({
             routes: routes,
             controllerSuffix: '-controller',
-            root: '/voh/',
+            root: '/rlm/',
             pushState: false,
             scrollTo : false
         });

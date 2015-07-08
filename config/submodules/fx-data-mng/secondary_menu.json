@@ -51,28 +51,6 @@
             "EN": "Metadata",
             "FR": "PI"
           }
-        },
-        {
-          "type": "item",
-          "attrs": {
-            "id": "dsd"
-          },
-          "target": "#dsd",
-          "label": {
-            "EN": "DSD",
-            "FR": "PI"
-          }
-        },
-        {
-          "type": "item",
-          "attrs": {
-            "id": "data"
-          },
-          "target": "#data",
-          "label": {
-            "EN": "Data",
-            "FR": "PI"
-          }
         }
       ]
     },

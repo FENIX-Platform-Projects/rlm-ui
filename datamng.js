@@ -56,8 +56,10 @@ require([
                     pnotify: '{FENIX_CDN}/js/pnotify/2.0.1/pnotify.custom.min',
 
                     'fx-d-m/config/config': './config/submodules/fx-data-mng/config',
-                    "fx-d-m/routes": "../../submodules/fenix-ui-data-management/src/js/routes/routes_metadataOnly",
-                    'fx-d-m/templates/landing' :"../../submodules/fenix-ui-data-management/src/js/templates/landing_metadataOnly.hbs",
+
+                    "fx-d-m/routes": "./submodules/fenix-ui-data-management/src/js/routes/routes_metadataOnly",
+                    'fx-d-m/templates/landing' :"./submodules/fenix-ui-data-management/src/js/templates/landing_metadataOnly.hbs",
+
                     'fx-cat-br/config/config': './config/submodules/fx-catalog/config',
 
                     'fx-submodules/config/baseConfig': './config/submodules/config_base'
