@@ -30,6 +30,10 @@ define(['jquery',
         cfg.DSD_EDITOR_CONTEXT_SYSTEM = "RLM";
         cfg.DSD_EDITOR_DATASOURCES = ["D3S"];
 
+
+        //cfg.DATA_MANAGEMENT_NOT_LOGGEDIN_URL="index.html"
+
+
         //cfg.METADATA_EDITOR_AJAX_EVENT_CALL = "config/submodules/metadataEditor/fx-editor-ajax-config_PROD.json";
         //cfg.METADATA_EDITOR_AJAX_EVENT_CALL = "config/submodules/metadataEditor/fx-editor-ajax-config_DEMO.json";
 
