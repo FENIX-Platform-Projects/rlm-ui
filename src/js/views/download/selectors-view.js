@@ -125,12 +125,7 @@ define([
 
             });
 
-            //Clear jsTree
-            $container.jstree('destroy');
-
-            $container.empty();
-
-            $container.jstree({
+            var jstree_conf = {
                 "core": {
                     "multiple": multiple,
                     "animation": 0,
@@ -165,23 +160,50 @@ define([
                     show_only_matches: true
                 }
 
-            });
+            };
+
+            if (selector.toUpperCase() === 'INDICATOR') {
+                $.extend(true,
+                    jstree_conf,
+                    {
+                        checkbox: {
+                            two_state: true,
+                            real_checkboxes: true
+                        }
+                    });
+            }
+
+            //Clear jsTree
+            $container.jstree('destroy');
+
+            $container.empty();
+
+            $container.jstree(jstree_conf);
 
             $container.on('ready.jstree', function () {
                 self.onJsTreeReady();
                 initInfoButtons($container);
             });
 
-            //Limit selection
+            //Limit selection e select only leafs for indicators
             $container.on("select_node.jstree", _.bind(function (e, data) {
 
                 if (data.selected.length > Config.SELECTOR_THRESHOLD) {
                     $container.jstree(true).deselect_node(data.node);
-                } else {
-                    amplify.publish(E.SELECTOR_SELECT, selector, data.node);
+                    return;
                 }
 
+                if (selector.toUpperCase() === 'INDICATOR' && !data.instance.is_leaf(data.node)) {
+                    $container.jstree(true).deselect_node(data.node);
+                    $container.jstree(true).toggle_node(data.node);
+                    return;
+                }
+
+                amplify.publish(E.SELECTOR_SELECT, selector, data.node);
+
             }, this));
+
+
 
             initSearch(selector, $container);
 
@@ -278,7 +300,13 @@ define([
         disableJsTree: function ($c) {
 
             var nodes,
-                $container = typeof $c === 'string' ? this.selector2$node[$c] : $c;
+                $container = typeof $c === 'string' ? this.selector2$node[$c] : $c,
+                $btnSelectAll = this.$el.find('[data-selector="' + $c + '"]').find(s.SELECTOR_BTN_ALL),
+                $btnSelectNone = this.$el.find('[data-selector="' + $c + '"]').find(s.SELECTOR_BTN_NONE);
+
+            //disable btns
+            $btnSelectAll.attr("disabled", true);
+            $btnSelectNone.attr("disabled", true);
 
             $container.jstree("uncheck_all");
 
@@ -293,8 +321,15 @@ define([
         enableJsTree: function ($c) {
 
             var nodes,
-                $container = typeof $c === 'string' ? this.selector2$node[$c] : $c;
+                $container = typeof $c === 'string' ? this.selector2$node[$c] : $c,
+                $btnSelectAll = this.$el.find('[data-selector="' + $c + '"]').find(s.SELECTOR_BTN_ALL),
+                $btnSelectNone = this.$el.find('[data-selector="' + $c + '"]').find(s.SELECTOR_BTN_NONE);
 
+            //disable btns
+            $btnSelectAll.removeAttr("disabled");
+            $btnSelectNone.removeAttr("disabled");
+
+            //disable tree nodes
             nodes = $container.jstree(true).get_json(null, {flat: true});
 
             _.each(nodes, function (n) {

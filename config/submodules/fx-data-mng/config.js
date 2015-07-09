@@ -10,11 +10,13 @@ define(['jquery',
 
         cfg.TOP_MENU = {
             url: './config/submodules/fx-menu/top_menu_data_mng.json',
-            active: "datamng"
+            active: "datamng",
+            container: "#top-menu-container"
         };
 
         cfg.SECONDARY_MENU = {
             url: './config/submodules/fx-data-mng/secondary_menu.json',
+            template: 'fx-menu/templates/blank-fluid.html',
             disable: ['delete', 'close']
         };
 
