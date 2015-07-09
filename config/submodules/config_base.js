@@ -11,7 +11,8 @@ define([], function () {
         //SERVICE_BASE_ADDRESS: 'http://fenix.fao.org/d3s_fenix/msd'
         //SERVICE_BASE_ADDRESS: "http://fenix.fao.org/d3s_dev/msd"
         //demo
-        SERVICE_BASE_ADDRESS: "http://fenix.fao.org/d3s/msd",
+        //SERVICE_BASE_ADDRESS: "http://fenix.fao.org/d3s/msd",
+        SERVICE_BASE_ADDRESS: "http://faostat3.fao.org:7744/v2/msd",
         DSD_EDITOR_CODELISTS: "config/submodules/DSDEditor/CodelistsCstatAFG.json"
     };
 

@@ -151,6 +151,10 @@ define([
                     },
                     "External" : {
                         "icon" : "glyphicon glyphicon-ok"
+                    },
+                    "disabled" : {
+                        "check_node" : false,
+                        "uncheck_node" : false
                     }
                 },
                 "plugins": ["types", "wholerow", "search", "checkbox" /*, "grid"*/],
@@ -279,6 +283,10 @@ define([
 
             _.each(nodes, function (n) {
                 $container.jstree(true).disable_node(n);
+/*                console.log(n)
+                $container.jstree(true).set_type("disabled", n.id);
+                $container.jstree(true).set_type("disabled", n);
+                $container.jstree(true).set_type( n, "disabled");*/
             });
 
         },
@@ -292,6 +300,7 @@ define([
 
             _.each(nodes, function (n) {
                 $container.jstree(true).enable_node(n);
+                //$container.jstree(true).set_type("default", n);
             });
         },
 
