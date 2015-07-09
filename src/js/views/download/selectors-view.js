@@ -28,7 +28,7 @@ define([
 
         SELECTOR_FILTER: '[data-role="filter"]',
 
-        SELECTOR_INFO_BTN : '.fx-selector-info'
+        SELECTOR_INFO_BTN: '.fx-selector-info'
     };
 
     var SelectorsView = View.extend({
@@ -146,17 +146,17 @@ define([
                         {width: '20%', value: "info", cellClass: s.SELECTOR_INFO_BTN.substring(1)}
                     ]
                 },
-                "types" : {
-                    "default" : {
-                        "icon" : "glyphicon glyphicon-flash"
+                "types": {
+                    "default": {
+                        "icon": "glyphicon glyphicon-flash"
                     },
-                    "External" : {
-                        "icon" : "glyphicon glyphicon-ok"
+                    "External": {
+                        "icon": "glyphicon glyphicon-ok"
                     },
-                    "types" : {
-                        "disabled" : {
-                            "check_node" : false,
-                            "uncheck_node" : false
+                    "types": {
+                        "disabled": {
+                            "check_node": false,
+                            "uncheck_node": false
                         }
                     }
                 },
@@ -205,11 +205,11 @@ define([
                      selected: boolean  // is the node selected
                      },*/
                     //children    : [],  // array of strings or objects
-                    li_attr: { }  // attributes for the generated LI node
+                    li_attr: {}  // attributes for the generated LI node
                     //a_attr: {}  // attributes for the generated A node
                 };
 
-                return  item.code ? config : null;
+                return item.code ? config : null;
             }
 
             function initSearch(selector, $container) {
@@ -255,7 +255,7 @@ define([
 
             function initInfoButtons($container) {
 
-                $container.find(s.SELECTOR_INFO_BTN).on('click', function(e){
+                $container.find(s.SELECTOR_INFO_BTN).on('click', function (e) {
                     e.preventDefault();
                     e.stopPropagation();
 
@@ -282,7 +282,7 @@ define([
 
             $container.jstree("uncheck_all");
 
-            nodes = $container.jstree(true).get_json( null, {flat:true});
+            nodes = $container.jstree(true).get_json(null, {flat: true});
 
             _.each(nodes, function (n) {
                 $container.jstree(true).disable_node(n);
@@ -295,7 +295,7 @@ define([
             var nodes,
                 $container = typeof $c === 'string' ? this.selector2$node[$c] : $c;
 
-            nodes = $container.jstree(true).get_json( null, {flat:true});
+            nodes = $container.jstree(true).get_json(null, {flat: true});
 
             _.each(nodes, function (n) {
                 $container.jstree(true).enable_node(n);
