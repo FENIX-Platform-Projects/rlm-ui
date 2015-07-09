@@ -387,13 +387,11 @@ define([
             this.$modalMetadata.modal('show');
 
             loadMetadata('Pov_Inc').then(function (data) {
-                console.log("fullfile")
-                console.log(data)
                 var metadata = new MetadataViewer();
 
                 metadata.init({
                     lang: 'en',
-                    data : data,
+                    data : JSON.parse(data),
                     //domain: request.inputs.indicator[0],
                     placeholder : self.$modalMetadata.find(s.MODAL_METADATAVIEWER_CONTAINER)
                 });
@@ -401,12 +399,10 @@ define([
 
             function loadMetadata( id ) {
 
-                console.log("call")
-
                 return Q.Promise(function(resolve, reject, notify) {
                     var request = new XMLHttpRequest();
 
-                    request.open("GET", Config.SERVICE_BASE_ADDRESS + '/resources/metadata/uid/'+ id, true);
+                    request.open("GET", Config.SERVICE_BASE_ADDRESS + '/resources/metadata/uid/'+ id + '?full=true', true);
                     request.onload = onload;
                     request.onerror = onerror;
                     request.onprogress = onprogress;
