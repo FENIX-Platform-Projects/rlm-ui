@@ -7443,20 +7443,26 @@ footer.voh-footer {
 .fx-catalog-form-module {
   border-color: #f1f1f1; }
 
-.fx-catalog-welcome {
-  text-align: left; }
-  .fx-catalog-welcome .catalog-ico {
-    display: block;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    background: url(../../src/css/img/catalog-ico.svg) no-repeat;
-    background-size: contain;
-    width: 50px;
-    /* Width of new image */
-    height: 50px;
-    /* Height of new image */
-    padding-left: 50px;
-    /* Equal to width of new image */ }
+.fx-catalog-welcome .catalog-ico {
+  /*display: block;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: url(../../src/css/img/catalog-ico.svg) no-repeat;
+  background-size: contain;
+  width: 50px; /!* Width of new image *!/
+  height: 50px; /!* Height of new image *!/
+  padding-left: 50px; /!* Equal to width of new image *!/*/ }
+
+/*TEMPORARY*/
+#fx-catalog-submit-btn.disabled {
+  color: #2395ab; }
+
+#fx-catalog-submit-btn {
+  color: white; }
+
+.fenix-result {
+  height: 250px;
+  overflow-y: hidden; }
 
 .fx-catalog-modular-filter-container {
   background-color: #f1f1f1; }
@@ -7471,6 +7477,6 @@ footer.voh-footer {
     .data-mng-secondary-menu-container .fx-menu .navbar-nav > li > a {
       text-transform: none;
       height: 32px;
-      color: #666666; }
+      color: #666666 !important; }
     .data-mng-secondary-menu-container .fx-menu > .container-fluid {
       padding: 0; }
