@@ -4,8 +4,10 @@ require([
     './submodules/fenix-ui-common/js/Compiler',
     './submodules/fenix-ui-common/js/paths',
     './submodules/fenix-ui-olap/js/paths',
+    './submodules/fenix-ui-metadata-viewer/js/paths',
+    './submodules/fenix-ui-metadata-viewer/submodules/json-editor-faostat-theme/js/paths',
     './submodules/fenix-ui-menu/js/paths'
-], function (Compiler, Common, Olap, Menu) {
+], function (Compiler, Common, Olap, MetadataViewer, FAOSTAT_THEME, Menu) {
 
     'use strict';
 
@@ -18,7 +20,13 @@ require([
     var olapConfig = Olap;
     olapConfig.baseUrl = '../../submodules/fenix-ui-olap/js';
 
-    Compiler.resolve([menuConfig, commonConfig, olapConfig ],
+    var metadataViewerConfig = MetadataViewer;
+    metadataViewerConfig.baseUrl = '../../submodules/fenix-ui-metadata-viewer/js';
+
+    var faostatThemeConfig = FAOSTAT_THEME;
+    faostatThemeConfig.baseUrl = '../../submodules/fenix-ui-metadata-viewer/submodules/json-editor-faostat-theme/js';
+
+    Compiler.resolve([menuConfig, commonConfig, olapConfig, metadataViewerConfig, faostatThemeConfig],
         {
             placeholders: {"FENIX_CDN": "//fenixapps.fao.org/repository"},
             config: {

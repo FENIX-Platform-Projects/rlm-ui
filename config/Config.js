@@ -1,5 +1,9 @@
 /*global define*/
-define(function () {
+define([
+        'jquery',
+        'config/submodules/config_base'
+    ],
+    function ($, config_base) {
 
     'use strict';
 
@@ -8,7 +12,7 @@ define(function () {
         sel_year = 'year',
         sel_qualifier='qualifier';
 
-    return {
+    return $.extend(true, {}, config_base, {
 
         //WDS and Data
         DB_NAME: 'rlm',
@@ -91,5 +95,5 @@ define(function () {
             }
         }
 
-    };
+    });
 });

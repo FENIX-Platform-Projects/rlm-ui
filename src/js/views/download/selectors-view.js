@@ -130,7 +130,6 @@ define([
                     "multiple": multiple,
                     "animation": 0,
                     "themes": {
-                        //"stripes": true,
                         "responsive": true
                     },
                     'data': data
@@ -143,7 +142,6 @@ define([
                 },
                 "types": {
                     "default": {
-                        "icon": "glyphicon glyphicon-flash"
                     },
                     "External": {
                         "icon": "glyphicon glyphicon-ok"
@@ -167,10 +165,10 @@ define([
                     jstree_conf,
                     {
                         checkbox: {
-                            two_state: true,
-                            real_checkboxes: true
+                            three_state: false
                         }
                     });
+
             }
 
             //Clear jsTree
@@ -188,6 +186,7 @@ define([
             //Limit selection e select only leafs for indicators
             $container.on("select_node.jstree", _.bind(function (e, data) {
 
+
                 if (data.selected.length > Config.SELECTOR_THRESHOLD) {
                     $container.jstree(true).deselect_node(data.node);
                     return;
@@ -203,8 +202,6 @@ define([
 
             }, this));
 
-
-
             initSearch(selector, $container);
 
             initBtns(selector, $container, multiple);
@@ -218,9 +215,9 @@ define([
                     text: item.label, // node text
                     data: {
                         info: "info",
-                        type: item.s
+                        type: item.source || 'default'
                     },
-                    icon: item.s, // string for custom
+                    icon: item.source, // string for custom
                     /* state: {
                      opened: boolean,  // is the node open
                      disabled: boolean,  // is the node disabled
@@ -262,10 +259,13 @@ define([
 
                 $btnSelectAll.on('click', function () {
                     $container.jstree("check_all");
+                    amplify.publish(E.SELECTOR_SELECT, selector);
+
                 });
 
                 $btnSelectNone.on('click', function () {
                     $container.jstree("uncheck_all");
+                    amplify.publish(E.SELECTOR_SELECT, selector);
                 });
             }
 
@@ -501,8 +501,6 @@ define([
                 toRefresh = settings ? settings.REFRESH : [],
                 self = this;
 
-            this.refreshState = state;
-
             callActionOnJstree(toEnable, this.enableJsTree);
 
             callActionOnJstree(toDisable, this.disableJsTree);
@@ -520,7 +518,6 @@ define([
                 }
             }
         },
-
 
         /* Event binding and callback */
 

@@ -25,3 +25,6 @@
 [submodule "submodules/fenix-ui-DSDEditor"]
 	path = submodules/fenix-ui-DSDEditor
 	url = https://github.com/FENIX-Platform/fenix-ui-DSDEditor
+[submodule "submodules/fenix-ui-metadata-viewer"]
+	path = submodules/fenix-ui-metadata-viewer
+	url = https://github.com/FENIX-Platform/fenix-ui-metadata-viewer

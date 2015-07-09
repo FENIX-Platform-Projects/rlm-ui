@@ -13,6 +13,7 @@ define([
     'i18n!nls/download-survey',
     'i18n!nls/errors',
     'fx-common/WDSClient',
+    'FENIX_UI_METADATA_VIEWER',
     'pivot',
     'pivotRenderers',
     'pivotAggregators',
@@ -24,7 +25,7 @@ define([
     'q',
     'jstree',
     'amplify'
-], function (Handlebars, View, SelectorsView, Config, Services, E, template, resultTemplate, errorTemplate, courtesyMessageTemplate, i18nLabels, i18Errors, WDSClient, Pivot, pivotRenderers, pivotAggregators, pivotDataTest, pivotDataConfig, _, Packery, bridget) {
+], function (Handlebars, View, SelectorsView, Config, Services, E, template, resultTemplate, errorTemplate, courtesyMessageTemplate, i18nLabels, i18Errors, WDSClient, MetadataViewer, Pivot, pivotRenderers, pivotAggregators, pivotDataTest, pivotDataConfig, _, Packery, bridget, Q) {
 
     'use strict';
 
@@ -42,7 +43,11 @@ define([
         TAB_DOWNLOAD_BY_INDICATOR : '[data-tab="indicator"]',
 
         BTN_DOWNLOAD_PIVOT: '[data-download]',
-        BTN_REMOVE_RESULT : '[data-control="remove"]'
+        BTN_REMOVE_RESULT : '[data-control="remove"]',
+        BTN_METADATA : '[data-control="metadata"]',
+
+        MODAL_METADATA : '#rlm-metadata-modal',
+        MODAL_METADATAVIEWER_CONTAINER : '[data-content="metadata-viewer-container"]'
     };
 
     var DownloadSurveyView = View.extend({
@@ -79,6 +84,8 @@ define([
             //tabs
             this.$tabDownloadByCountry = this.$el.find(s.TAB_DOWNLOAD_BY_COUNTRY);
             this.$tabDownloadByIndicator= this.$el.find(s.TAB_DOWNLOAD_BY_INDICATOR);
+
+            this.$modalMetadata = this.$el.find(s.MODAL_METADATA);
 
             this.pivots = [];
 
@@ -343,10 +350,12 @@ define([
 
             pivot = this.initOlapCreator(id);
 
-            this.bindResultEventListeners($result, pivot);
+            this.bindResultEventListeners($result, pivot,  this.currentRequest);
         },
 
-        bindResultEventListeners : function ($result, pivot) {
+        bindResultEventListeners : function ($result, pivot, currentRequest) {
+
+            var request = $.extend(true, {}, currentRequest);
 
             $result.find(s.BTN_DOWNLOAD_PIVOT).on('click', _.bind(function (e) {
                 this.onClickDownloadPivot($(e.currentTarget).data('download'), pivot);
@@ -355,6 +364,10 @@ define([
             $result.find(s.BTN_REMOVE_RESULT).on('click', _.bind(function () {
                 this.removeResult($result);
                 pivot.destroy();
+            }, this));
+
+            $result.find(s.BTN_METADATA).on('click', _.bind(function () {
+                this.onModalMetadataBtnClick(request);
             }, this));
 
         },
@@ -367,6 +380,57 @@ define([
             }
         },
 
+        onModalMetadataBtnClick : function (request) {
+
+            var self = this;
+
+            this.$modalMetadata.modal('show');
+
+            loadMetadata('Pov_Inc').then(function (data) {
+                console.log("fullfile")
+                console.log(data)
+                var metadata = new MetadataViewer();
+
+                metadata.init({
+                    lang: 'en',
+                    data : data,
+                    //domain: request.inputs.indicator[0],
+                    placeholder : self.$modalMetadata.find(s.MODAL_METADATAVIEWER_CONTAINER)
+                });
+            });
+
+            function loadMetadata( id ) {
+
+                console.log("call")
+
+                return Q.Promise(function(resolve, reject, notify) {
+                    var request = new XMLHttpRequest();
+
+                    request.open("GET", Config.SERVICE_BASE_ADDRESS + '/resources/metadata/uid/'+ id, true);
+                    request.onload = onload;
+                    request.onerror = onerror;
+                    request.onprogress = onprogress;
+                    request.send();
+
+                    function onload() {
+                        if (request.status === 200) {
+                            resolve(request.responseText);
+                        } else {
+                            reject(new Error("Status code was " + request.status));
+                        }
+                    }
+
+                    function onerror() {
+                        reject(new Error("Can't XHR " + JSON.stringify(url)));
+                    }
+
+                    function onprogress(event) {
+                        notify(event.loaded / event.total);
+                    }
+                });
+            }
+
+        },
         removeResult : function ($item){
 
             this.$resultsContainer.packery('remove', $item);
