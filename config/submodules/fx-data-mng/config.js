@@ -11,6 +11,7 @@ define(['jquery',
         cfg.TOP_MENU = {
             url: './config/submodules/fx-menu/top_menu_data_mng.json',
             active: "datamng",
+            template: 'fx-menu/templates/blank-fluid.html',
             container: "#top-menu-container"
         };
 
