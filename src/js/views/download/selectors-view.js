@@ -127,6 +127,7 @@ define([
 
             //Clear jsTree
             $container.jstree('destroy');
+
             $container.empty();
 
             $container.jstree({
@@ -152,9 +153,11 @@ define([
                     "External" : {
                         "icon" : "glyphicon glyphicon-ok"
                     },
-                    "disabled" : {
-                        "check_node" : false,
-                        "uncheck_node" : false
+                    "types" : {
+                        "disabled" : {
+                            "check_node" : false,
+                            "uncheck_node" : false
+                        }
                     }
                 },
                 "plugins": ["types", "wholerow", "search", "checkbox" /*, "grid"*/],
@@ -169,10 +172,6 @@ define([
                 initInfoButtons($container);
             });
 
-            initSearch(selector, $container);
-
-            initBtns(selector, $container, multiple);
-
             //Limit selection
             $container.on("select_node.jstree", _.bind(function (e, data) {
 
@@ -183,6 +182,10 @@ define([
                 }
 
             }, this));
+
+            initSearch(selector, $container);
+
+            initBtns(selector, $container, multiple);
 
             function createNode(item) {
 
@@ -279,14 +282,10 @@ define([
 
             $container.jstree("uncheck_all");
 
-            nodes = $container.jstree(true).get_json();
+            nodes = $container.jstree(true).get_json( null, {flat:true});
 
             _.each(nodes, function (n) {
                 $container.jstree(true).disable_node(n);
-/*                console.log(n)
-                $container.jstree(true).set_type("disabled", n.id);
-                $container.jstree(true).set_type("disabled", n);
-                $container.jstree(true).set_type( n, "disabled");*/
             });
 
         },
@@ -296,11 +295,10 @@ define([
             var nodes,
                 $container = typeof $c === 'string' ? this.selector2$node[$c] : $c;
 
-            nodes = $container.jstree(true).get_json();
+            nodes = $container.jstree(true).get_json( null, {flat:true});
 
             _.each(nodes, function (n) {
                 $container.jstree(true).enable_node(n);
-                //$container.jstree(true).set_type("default", n);
             });
         },
 
@@ -467,6 +465,8 @@ define([
                 toDisable = settings ? settings.DISABLE : [],
                 toRefresh = settings ? settings.REFRESH : [],
                 self = this;
+
+            this.refreshState = state;
 
             callActionOnJstree(toEnable, this.enableJsTree);
 
