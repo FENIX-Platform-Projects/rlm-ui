@@ -7147,6 +7147,8 @@ footer.voh-footer {
   background-color: #f1f1f1;
   border-right-color: transparent; }
 
+.dropdown.open .dropdown-menu {
+  z-index: 2; }
 .dropdown .dropdown-menu {
   -moz-border-radius-topleft: 0;
   -webkit-border-top-left-radius: 0;
@@ -7211,7 +7213,7 @@ footer.voh-footer {
 .afo-dropdown-toggle {
   margin-top: 0; }
 
-/* Voh Top Menu */
+/* Top Menu */
 .fao-header {
   height: 105px;
   position: relative; }
@@ -7227,10 +7229,10 @@ footer.voh-footer {
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%); }
 
-.voh-topmenu .container-fluid {
+.topmenu .container-fluid {
   padding: 0; }
 
-.voh-topmenu-buttons-holder {
+.topmenu-buttons-holder {
   padding-left: 0;
   padding-right: 0; }
 
@@ -7422,3 +7424,25 @@ footer.voh-footer {
 /* Third parties */
 /* Pages */
 /* RLM - Data Management */
+#fx-catalog-submit-btn {
+  color: #2395ab; }
+
+.fx-catalog-form-module {
+  border-color: #f1f1f1; }
+
+.fx-catalog-modular-filter-container {
+  background-color: #f1f1f1; }
+
+.data-mng-secondary-menu-container {
+  padding: 0;
+  position: relative;
+  z-index: 2; }
+  .data-mng-secondary-menu-container .fx-menu {
+    background-image: none;
+    background-color: #ededed; }
+    .data-mng-secondary-menu-container .fx-menu .navbar-nav > li > a {
+      text-transform: none;
+      height: 32px;
+      color: #666666; }
+    .data-mng-secondary-menu-container .fx-menu > .container-fluid {
+      padding: 0; }

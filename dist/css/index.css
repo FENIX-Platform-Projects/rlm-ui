@@ -7118,6 +7118,8 @@ ul[role="group"] {
   background-color: #f1f1f1;
   border-right-color: transparent; }
 
+.dropdown.open .dropdown-menu {
+  z-index: 2; }
 .dropdown .dropdown-menu {
   -moz-border-radius-topleft: 0;
   -webkit-border-top-left-radius: 0;
@@ -7182,7 +7184,7 @@ ul[role="group"] {
 .afo-dropdown-toggle {
   margin-top: 0; }
 
-/* Voh Top Menu */
+/* Top Menu */
 .fao-header {
   height: 105px;
   position: relative; }
@@ -7198,10 +7200,10 @@ ul[role="group"] {
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%); }
 
-.voh-topmenu .container-fluid {
+.topmenu .container-fluid {
   padding: 0; }
 
-.voh-topmenu-buttons-holder {
+.topmenu-buttons-holder {
   padding-left: 0;
   padding-right: 0; }
 

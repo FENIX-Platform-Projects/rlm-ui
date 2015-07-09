@@ -1,1 +1,54 @@
 /* RLM - Data Management */
+
+#fx-catalog-submit-btn{
+  color: $fx-cool-blue;
+}
+
+
+.fx-catalog-form-module{
+  border-color: $fenix-light-bg;
+}
+
+.fx-catalog-modular-filter-container{
+  background-color:$fenix-light-bg ;
+}
+
+.data-mng-secondary-menu-container{
+  padding: 0;
+  position: relative;
+  z-index:2;
+
+
+
+  .fx-menu{
+
+    background-image: none;
+    background-color: $rlm-box-bg;
+
+    .navbar-nav > li {
+
+
+//        border-right: 1px solid $fenix-dark-bg;
+
+      > a{
+        text-transform: none;
+        height: 32px;
+        color: $fenix-text;
+      }
+
+
+
+    }
+
+
+    >.container-fluid{
+      padding: 0;
+
+
+
+
+    }
+  }
+
+
+}
