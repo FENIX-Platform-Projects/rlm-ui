@@ -24,6 +24,24 @@ ul[role="group"]{
 
 }
 
+.jstree-icon.External{
+  display: inline-block;
+  background-image: none;
+
+  &:before{
+    content: 'E';
+    font-style: normal;
+    background-color: $fenix-text;
+    display: inline-block;
+    color: white;
+    line-height: 15px;
+    width: 15px;
+    height: 15px;
+
+
+  }
+}
+
 .jstree-disabled{
   opacity: 0.5;
 }
