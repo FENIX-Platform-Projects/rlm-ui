@@ -21,27 +21,10 @@
 }
 
 .rlm-result {
-  width: 50%;
-  height: 305px;
-  padding: 15px;
+
+
   &.w2 {
     width: 100%;
-  }
-
-  [data-role="header"] {
-    text-transform: uppercase;
-    height: 25px;
-    border-bottom: 1px solid $fenix-light-hr;
-
-    h2{
-      color: $fenix-text;
-      margin-top: 0;
-    }
-
-  }
-
-  [data-role="content"] {
-    height:  250px;
   }
 }
 
