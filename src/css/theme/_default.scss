@@ -23,28 +23,34 @@ body{
 }
 
 .btn{
-  @include fx-border-radius(0);
+  @include fx-border-radius(5);
   height: 25px;
   min-width: 100px;
   padding: 3px 12px;
   font-size: 12px;
   text-transform: uppercase;
-  background-color: $fx-cool-blue;
-  margin: 5px;
+  background-color: transparent;
+  border: 1px solid $rlm-buttons;
+  color: $rlm-buttons;
+  margin: 3px;
 
   &:hover{
-    background-color: $fx-cool-blue;
-    border-color: transparent;
-    color: white;
+    background-color: $rlm-superlight-gray;
+    //border-color: transparent;
+    border: 1px solid $rlm-buttons;
+    color: $rlm-buttons;
   }
 
 }
 
 
 .btn-table-go, .btn-scores-go{
-  background-color: $fx-cool-blue;
-  &:hover{
-    background-color: $custom-color5;
+  background-color: $rlm-buttons;
+  color: white;
+
+
+  &:hover, &:active, &:visited, &:focus{
+    background-color: $rlm-buttons;
     border-color: transparent;
     color: white;
   }
@@ -52,11 +58,12 @@ body{
 }
 
 .btn-reset{
-  background-color: $custom-color3;
+  background-color: white;
   color: $fenix-text;
+  border-color: transparent;
 
-  &:hover{
-    background-color: $custom-color4;
+  &:hover, &:active, &:visited, &:focus{
+    background-color: white;
     border-color: transparent;
     color: $fenix-text;
   }

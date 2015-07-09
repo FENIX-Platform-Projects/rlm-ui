@@ -1,6 +1,19 @@
 /* Jstree Mood */
 
 
+li[role="treeitem"]{
+
+  &:nth-child(odd){
+    background-color: $rlm-superlight-gray !important;
+  }
+
+}
+
+ul[role="group"]{
+  background-color: white;
+}
+
+
 .jstree-container-ul{
   width: calc(100% - 25px);
 }

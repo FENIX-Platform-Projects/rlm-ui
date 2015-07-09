@@ -9,10 +9,12 @@
 
   outline: none;
 
+  background-color: $rlm-box-bg;
+
   @include fx-noshadow;
 
-  border: 2px solid $fx-cool-blue;
-  @include fx-border-radius(0);
+  border-color: transparent;
+  @include fx-border-radius(5);
   font-weight: 500;
   padding: 3px 12px;
   font-size: 12px;
@@ -21,8 +23,7 @@
   &:focus{
     @include fx-noshadow;
     outline: none;
-    border: 2px solid $fx-cool-blue;
-  }
+    border-color: $rlm-buttons;  }
 
 }
 
@@ -32,9 +33,9 @@
     border-left: 0;
 
     &:hover{
-      border-color:$fx-cool-blue;
-
+      border-color: transparent;
     }
+
 
   }
 

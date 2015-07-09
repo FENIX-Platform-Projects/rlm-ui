@@ -1,5 +1,25 @@
 /* RLM - Download */
 
+
+.download-selectors{
+  h1{
+    font-size: 12px;
+    display: inline-block;
+    background: $rlm-box-bg;
+    color: $fenix-text;
+    padding: 3px 5px;
+    margin-top: 3px;
+    margin-bottom: 15px;
+  }
+
+  .input.form-control{
+    width: 60%;
+    display: inline-block;
+    float: right;
+  }
+
+}
+
 .rlm-result {
   width: 50%;
   height: 305px;
@@ -35,9 +55,9 @@
   height: 30px;
 }
 
-.voh-vis-buttons-holder{
+.rlm-buttons-holder{
   height: 50px;
-  background-color: $custom-color2;
+  background-color: $rlm-box-bg;
   margin-top: 20px;
   margin-bottom: 20px;
 
