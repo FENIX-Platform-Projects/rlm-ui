@@ -7008,6 +7008,8 @@ footer.voh-footer {
 .voh-footer-bottom {
   padding-top: 15px;
   font: normal normal 300 11px/normal "Roboto"; }
+  .voh-footer-bottom .pull-right a {
+    color: white !important; }
 
 .footer-menu-container ul {
   list-style: none;

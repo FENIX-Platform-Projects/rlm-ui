@@ -7087,6 +7087,8 @@ footer.voh-footer {
 .voh-footer-bottom {
   padding-top: 15px;
   font: normal normal 300 11px/normal "Roboto"; }
+  .voh-footer-bottom .pull-right a {
+    color: white !important; }
 
 .footer-menu-container ul {
   list-style: none;
@@ -7429,6 +7431,19 @@ footer.voh-footer {
 
 .fx-catalog-form-module {
   border-color: #f1f1f1; }
+
+.fx-catalog-welcome .catalog-ico {
+  display: block;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: url(../../src/css/img/catalog-ico.svg) no-repeat;
+  background-size: contain;
+  width: 50px;
+  /* Width of new image */
+  height: 50px;
+  /* Height of new image */
+  padding-left: 50px;
+  /* Equal to width of new image */ }
 
 .fx-catalog-modular-filter-container {
   background-color: #f1f1f1; }

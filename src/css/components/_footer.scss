@@ -57,6 +57,15 @@ footer.voh-footer{
 .voh-footer-bottom{
   padding-top: 15px;
   font: $fx-text-h4;
+
+  .pull-right{
+
+    a{
+      color: white !important;
+    }
+
+  }
+
 }
 
 
