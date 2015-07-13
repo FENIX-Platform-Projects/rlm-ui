@@ -1,7 +1,7 @@
 /*global define*/
 define({
     "rows": [
-        ["Indicator_label","Indicator"], ["Source label","Source"],["Country_label","Country"],
+        ["Indicator_label","Indicator"], ["Source_label","Source"],["Country_label","Country"],
         ["Qualifier_label","Qualifier"]
     ],
     "cols": ["Year"],
@@ -22,7 +22,7 @@ define({
     },
     linkedAttributes:[["Qualifier","Qualifier_label"],
         ["Indicator_label","Indicator"],
-        ["Source label","Source"],["Country","Country_label"]],
+        ["Source_label","Source"],["Country","Country_label"]],
     "showAgg": false,
     "showRender": false,
     "showUnit":false,
