@@ -136,8 +136,8 @@ define([
                 },
                 grid: {
                     columns: [
-                        {width: '80%'},
-                        {width: '20%', value: "info", cellClass: s.SELECTOR_INFO_BTN.substring(1)}
+                        {width: '80px'},
+                        {width: '20px', value: "info", cellClass: s.SELECTOR_INFO_BTN.substring(1)}
                     ]
                 },
                 "types": {
@@ -145,15 +145,10 @@ define([
                     },
                     "External": {
                         "icon": "glyphicon glyphicon-ok"
-                    },
-                    "types": {
-                        "disabled": {
-                            "check_node": false,
-                            "uncheck_node": false
-                        }
                     }
+
                 },
-                "plugins": ["types", "wholerow", "search", "checkbox" /*, "grid"*/],
+                "plugins": ["types", "wholerow", "search", "checkbox" /*, "grid" */],
                 "search": {
                     show_only_matches: true
                 }
@@ -183,9 +178,14 @@ define([
                 initInfoButtons($container);
             });
 
+            $container.on('select_cell.jstree-grid', function (e, data) {
+
+                console.log($(data.node).attr('id'))
+
+            });
+
             //Limit selection e select only leafs for indicators
             $container.on("select_node.jstree", _.bind(function (e, data) {
-
 
                 if (data.selected.length > Config.SELECTOR_THRESHOLD) {
                     $container.jstree(true).deselect_node(data.node);
@@ -193,12 +193,38 @@ define([
                 }
 
                 if (selector.toUpperCase() === 'INDICATOR' && !data.instance.is_leaf(data.node)) {
-                    $container.jstree(true).deselect_node(data.node);
+                    self.indicatorSelectorParentDeselection = true;
+                    $container.jstree(true).deselect_node(data.node, true);
                     $container.jstree(true).toggle_node(data.node);
                     return;
                 }
 
                 amplify.publish(E.SELECTOR_SELECT, selector, data.node);
+
+            }, this));
+
+            $container.on("deselect_node.jstree", _.bind(function (e, data) {
+
+                if (self.indicatorSelectorParentDeselection === true) {
+                    self.indicatorSelectorParentDeselection = false;
+                    return;
+                }
+
+                var previousState,
+                    sequence = $.map(self.refreshSettings.SEQUENCE || [], function(item) {
+                        return item.toUpperCase();
+                    }),
+                    currentStateIndex = sequence.indexOf(selector.toUpperCase()),
+                    previousStateIndex = currentStateIndex > 0 ? currentStateIndex - 1 : 0;
+
+                previousState = sequence[previousStateIndex];
+
+                if (data.selected.length === 0) {
+
+                    amplify.publish(E.SELECTOR_SELECT, previousState, data.node);
+                } else {
+                    amplify.publish(E.SELECTOR_SELECT, selector, data.node);
+                }
 
             }, this));
 
@@ -240,8 +266,8 @@ define([
                         clearTimeout(to);
                     }
                     to = setTimeout(function () {
-                        var v = $filter.val();
-                        $container.jstree(true).search(v);
+                        var v = $filter.val() || '';
+                        $container.jstree(true).search(String(v).toLocaleLowerCase());
                     }, 250);
                 });
             }
@@ -257,14 +283,16 @@ define([
                     return;
                 }
 
-                $btnSelectAll.on('click', function () {
-                    $container.jstree("check_all");
+                //Remove previous handlers and then apply them again
+
+                $btnSelectAll.off().on('click', function () {
+                    $container.jstree("select_all", true);
                     amplify.publish(E.SELECTOR_SELECT, selector);
 
                 });
 
-                $btnSelectNone.on('click', function () {
-                    $container.jstree("uncheck_all");
+                $btnSelectNone.off().on('click', function () {
+                    $container.jstree("deselect_all", true);
                     amplify.publish(E.SELECTOR_SELECT, selector);
                 });
             }
@@ -308,7 +336,7 @@ define([
             $btnSelectAll.attr("disabled", true);
             $btnSelectNone.attr("disabled", true);
 
-            $container.jstree("uncheck_all");
+            $container.jstree("deselect_all");
 
             nodes = $container.jstree(true).get_json(null, {flat: true});
 
@@ -329,6 +357,8 @@ define([
             $btnSelectAll.removeAttr("disabled");
             $btnSelectNone.removeAttr("disabled");
 
+            $container.jstree("deselect_all");
+
             //disable tree nodes
             nodes = $container.jstree(true).get_json(null, {flat: true});
 
@@ -347,7 +377,9 @@ define([
                     queryVars: this.prepareInputsForWds(this.getInputs())
                 },
                 success: function (data) {
-                    self.initJsTreeSelector(selector, data);
+                    if (Array.isArray(data)) {
+                        self.initJsTreeSelector(selector, data);
+                    }
                 },
                 error: _.bind(this.onPreloadCodelistError, this)
 
@@ -362,7 +394,7 @@ define([
                 //Check if codelist is cached otherwise query
                 var stored = amplify.store.sessionStorage(cd);
 
-                if (stored === undefined) {
+                if (stored === undefined || stored.length < 2) {
 
                     this.WDSClient.retrieve({
                         payload: {query: this.codelists_conf[cd]},

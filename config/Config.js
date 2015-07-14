@@ -16,7 +16,7 @@ define([
 
         //WDS and Data
         DB_NAME: 'rlm',
-        WDS_URL: 'http://fenixapps2.fao.org/wds_5.2/rest/crud',
+        WDS_URL: 'http://hqlprfenixapp2.hq.un.fao.org:10100/wds-5.2.1/rest/crud',
         WDS_OUTPUT_TYPE: 'object',
         WDS_OLAP_OUTPUT_TYPE : 'array',
 
@@ -48,24 +48,25 @@ define([
                 },
                 COUNTRY: {
                     REFRESH: [sel_indicator],
-                    ENABLE: [sel_country, sel_indicator],
+                    ENABLE: [sel_indicator],
                     DISABLE: [sel_year, sel_qualifier]
                 },
                 INDICATOR: {
                     REFRESH: [sel_year],
-                    ENABLE: [sel_country, sel_indicator, sel_year],
+                    ENABLE: [sel_year],
                     DISABLE: [sel_qualifier]
                 },
                 YEAR: {
                     REFRESH: [sel_qualifier],
-                    ENABLE: [sel_country, sel_indicator, sel_year, sel_qualifier],
+                    ENABLE: [ sel_qualifier],
                     DISABLE: []
                 },
                 QUALIFIER: {
                     REFRESH: [],
                     ENABLE: [],
                     DISABLE: []
-                }
+                },
+                SEQUENCE : ['INIT', sel_country, sel_indicator, sel_year, sel_qualifier]
             },
             INDICATOR: {
                 INIT : {
@@ -91,7 +92,8 @@ define([
                     REFRESH: [],
                     ENABLE: [],
                     DISABLE: []
-                }
+                },
+                SEQUENCE : ['INIT', sel_indicator, sel_country, sel_year, sel_qualifier]
             }
         }
 
