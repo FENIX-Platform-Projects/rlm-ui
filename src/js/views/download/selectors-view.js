@@ -196,6 +196,7 @@ define([
                     self.indicatorSelectorParentDeselection = true;
                     $container.jstree(true).deselect_node(data.node, true);
                     $container.jstree(true).toggle_node(data.node);
+                    console.log("Select 3")
                     return;
                 }
 
@@ -493,28 +494,28 @@ define([
         printDefaultSelection: function () {
             var self = this;
 
-            this.$selectorIndicator.jstree("uncheck_all");
+            this.$selectorIndicator.jstree("deselect_all");
             if (Config.DEFAULT_SEL_INDICATOR && Array.isArray(Config.DEFAULT_SEL_INDICATOR)) {
                 _.each(Config.DEFAULT_SEL_INDICATOR, function (v) {
                     self.$selectorIndicator.jstree(true).select_node({id: v});
                 });
             }
 
-            this.$selectorCountry.jstree("uncheck_all");
+            this.$selectorCountry.jstree("deselect_all");
             if (Config.DEFAULT_SEL_COUNTRY && Array.isArray(Config.DEFAULT_SEL_COUNTRY)) {
                 _.each(Config.DEFAULT_SEL_COUNTRY, function (v) {
                     self.$selectorCountry.jstree(true).select_node({id: v});
                 });
             }
 
-            this.$selectorYear.jstree("uncheck_all");
+            this.$selectorYear.jstree("deselect_all");
             if (Config.DEFAULT_SEL_YEAR && Array.isArray(Config.DEFAULT_SEL_YEAR)) {
                 _.each(Config.DEFAULT_SEL_YEAR, function (v) {
                     self.$selectorYear.jstree(true).select_node({id: v});
                 });
             }
 
-            this.$selectorQualifier.jstree("uncheck_all");
+            this.$selectorQualifier.jstree("deselect_all");
             if (Config.DEFAULT_SEL_QUALIFIER && Array.isArray(Config.DEFAULT_SEL_QUALIFIER)) {
                 _.each(Config.DEFAULT_SEL_QUALIFIER, function (v) {
                     self.$selectorYear.jstree(true).select_node({id: v});
@@ -617,7 +618,7 @@ define([
         processArray: function (input) {
 
             var result = '',
-                concat = "','";
+                concat = ",";
 
             _.each(input, function (item) {
                 result += item + concat;

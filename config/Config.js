@@ -75,17 +75,17 @@ define([
                 },
                 INDICATOR: {
                     REFRESH: [sel_country],
-                    ENABLE: [sel_country, sel_indicator],
+                    ENABLE: [sel_country],
                     DISABLE: [sel_year, sel_qualifier]
                 },
                 COUNTRY: {
                     REFRESH: [sel_year],
-                    ENABLE: [sel_country, sel_indicator, sel_year],
+                    ENABLE: [sel_year],
                     DISABLE: [sel_qualifier]
                 },
                 YEAR: {
                     REFRESH: [sel_qualifier],
-                    ENABLE: [sel_country, sel_indicator, sel_year, sel_qualifier],
+                    ENABLE: [sel_qualifier],
                     DISABLE: []
                 },
                 QUALIFIER: {
