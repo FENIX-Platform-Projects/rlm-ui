@@ -52,6 +52,16 @@
     },
     {
       "attrs": {
+        "id": "upload"
+      },
+
+      "target": "#upload",
+      "label": {
+        "EN": "Bulk Upload"
+      }
+    },
+    {
+      "attrs": {
         "id": "about"
       },
       "target": "#about",

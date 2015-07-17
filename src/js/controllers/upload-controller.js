@@ -1,11 +1,11 @@
 /*global define*/
 define([
     'controllers/base/controller',
-    'views/about-view'
+    'views/upload-view'
 ], function (Controller, View) {
     'use strict';
 
-    var HomeController = Controller.extend({
+    var UploadController = Controller.extend({
 
         show: function (params) {
 
@@ -15,5 +15,5 @@ define([
         }
     });
 
-    return HomeController;
+    return UploadController;
 });
