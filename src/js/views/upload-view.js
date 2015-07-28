@@ -5,17 +5,17 @@ define([
     'text!templates/upload/upload.hbs',
     'i18n!nls/upload',
     'config/Events',
-    'jquery.fileupload',
+    'fx-common/fx-upload-client',
     'amplify'
-], function ($, View, template, i18nLabels, E) {
+], function ($, View, template, i18nLabels, E, Uploader) {
 
     'use strict';
 
     var s = {
-        INPUT_UPLOAD: '#fileupload'
+        UPLOAD_CONTAINER: '#uploader-container'
     };
 
-    var AboutView = View.extend({
+    var UploadView = View.extend({
 
         // Automatically render after initialize
         autoRender: true,
@@ -35,7 +35,6 @@ define([
 
             View.prototype.attach.call(this, arguments);
 
-
             //update State
             amplify.publish(E.STATE_CHANGE, {menu: 'upload'});
 
@@ -45,20 +44,15 @@ define([
 
         initUploadComponent: function() {
 
-            $(s.INPUT_UPLOAD).fileupload({
+            this.uploader = new Uploader();
 
-                dataType: 'json',
-
-                url : "/my_upload_url",
-
-                done: function (e, data) {
-                    $.each(data.result.files, function (index, file) {
-                        $('<p/>').text(file.name).appendTo(document.body);
-                    });
-                }
+            this.uploader.render({
+                container : s.UPLOAD_CONTAINER
             });
+
+
         }
     });
 
-    return AboutView;
+    return UploadView;
 });

@@ -66,13 +66,6 @@ require([
                     q : '{FENIX_CDN}/js/q/1.1.2/q',
                     progressbar : '{FENIX_CDN}/js/progressbar/0.8.1/progressbar.min',
 
-                    //file upload
-                    'jquery.ui.widget' : '{FENIX_CDN}/js/jquery-file-upload/9.10.4/js/vendor/jquery.ui.widget',
-                    'jquery.fileupload' : '{FENIX_CDN}/js/jquery-file-upload/9.10.4/js/jquery.fileupload',
-                    'jquery.fileupload-ui' : '{FENIX_CDN}/js/jquery-file-upload/9.10.4/js/jquery.fileupload-ui',
-                    'jquery.iframe-transport' : '{FENIX_CDN}/js/jquery-file-upload/9.10.4/js/jquery.iframe-transport',
-
-
                     // fenix-map-js
                     'import-dependencies': '{FENIX_CDN}/js/FENIX/utils/import-dependencies-1.0',
                     leaflet: '{FENIX_CDN}/js/leaflet/0.7.3/leaflet',
@@ -109,9 +102,6 @@ require([
                 shim: {
                     bootstrap: {
                         deps: ["jquery"]
-                    },
-                    'jquery.fileupload': {
-                        deps: ["jquery", "jquery.ui.widget"]
                     },
                     'bootstrap-list-filter': {
                         deps: ["jquery"]
