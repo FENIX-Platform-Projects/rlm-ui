@@ -11,8 +11,8 @@
 /* Eldorado  */
 @font-face {
   font-family: 'eldorado_stroke';
-  src: url("http://fenixrepo.fao.org/cdn/css/fenix-ui-common/css/fonts/eldorado/eldorado_stroke.eot");
-  src: url("http://fenixrepo.fao.org/cdn/css/fenix-ui-common/css/fonts/eldorado/eldorado_stroke.eot?#iefix") format("embedded-opentype"), url("http://fenixrepo.fao.org/cdn/css/fenix-ui-common/css/fonts/eldorado/eldorado_stroke.woff") format("woff"), url("http://fenixrepo.fao.org/cdn/css/fenix-ui-common/css/fonts/eldorado/eldorado_stroke.ttf") format("truetype"), url("http://fenixrepo.fao.org/cdn/css/fenix-ui-common/css/fonts/eldorado/eldorado_stroke.svg#RobotoRegular") format("svg");
+  src: url("http://fenixapps.fao.org/repository/fenix-ui-common/css/fonts/eldorado/eldorado_stroke.eot");
+  src: url("http://fenixapps.fao.org/repository/fenix-ui-common/css/fonts/eldorado/eldorado_stroke.eot?#iefix") format("embedded-opentype"), url("http://fenixapps.fao.org/repository/fenix-ui-common/css/fonts/eldorado/eldorado_stroke.woff") format("woff"), url("http://fenixapps.fao.org/repository/fenix-ui-common/css/fonts/eldorado/eldorado_stroke.ttf") format("truetype"), url("http://fenixapps.fao.org/repository/fenix-ui-common/css/fonts/eldorado/eldorado_stroke.svg#RobotoRegular") format("svg");
   font-weight: normal;
   font-style: normal; }
 [class^="icojam_"], [class*=" icojam_"] {
@@ -5516,7 +5516,7 @@ legend {
   -moz-border-right-colors: none;
   -moz-border-top-colors: none;
   background-color: white;
-  border-color: #d8d8d8;
+  border-color: #cccccc;
   border-image: none;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -5619,7 +5619,7 @@ div[data-module="sector"] .fx-catalog-modular-form-content {
   -moz-border-right-colors: none;
   -moz-border-top-colors: none;
   background-color: white;
-  border-color: #d8d8d8;
+  border-color: #cccccc;
   border-image: none;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -5653,7 +5653,7 @@ div[data-module="sector"] .fx-catalog-modular-form-content {
     border-radius: 0;
     background-color: transparent;
     border: none;
-    border-bottom: 1px solid #d8d8d8; }
+    border-bottom: 1px solid #cccccc; }
   .panel-group .panel-default {
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
@@ -5907,7 +5907,7 @@ input[type="checkbox"]:checked + label {
       -moz-border-radius: 0;
       -ms-border-radius: 0;
       border-radius: 0;
-      border: 1px solid #d8d8d8; }
+      border: 1px solid #cccccc; }
 
 .fx-resume-obj-close {
   display: inline-block;
@@ -5956,36 +5956,6 @@ input[type="checkbox"]:checked + label {
     .fx-section-switcher > li.active > a:first-child:before {
       left: 0;
       width: calc(100% - 10px); }
-
-/* Fenix - Top Menu Component */
-.navbar ul {
-  list-style: outside none none;
-  padding-left: 0; }
-
-.navbar .container {
-  position: relative; }
-
-.nav-pills li a {
-  color: #666666; }
-
-.navbar-brand {
-  background-position: 0 3px;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  display: block; }
-
-.navbar .lang_picker {
-  text-transform: uppercase; }
-
-.navbar .lang_picker li {
-  cursor: pointer; }
-
-.navbar .lang_picker li a, .navbar .lang_picker li a:hover {
-  text-align: center;
-  text-decoration: none; }
-
-.navbar .lang_picker li:last-child {
-  border-right: medium none; }
 
 /* Fenix - Sidebar Component */
 .bs-docs-sidebar.affix {
@@ -6196,6 +6166,97 @@ input[type="checkbox"]:checked + label {
 .fx-tabs li {
   margin: 12px 0; }
 
+/* Fenix - Top Menu Component */
+.navbar ul {
+  list-style: outside none none;
+  padding-left: 0; }
+
+.navbar .container {
+  position: relative; }
+
+.nav-pills li a {
+  color: #666666; }
+
+.navbar-brand {
+  background-position: 0 3px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: block; }
+
+.navbar .lang_picker {
+  text-transform: uppercase; }
+
+.navbar .lang_picker li {
+  cursor: pointer; }
+
+.navbar .lang_picker li a, .navbar .lang_picker li a:hover {
+  text-align: center;
+  text-decoration: none; }
+
+.navbar .lang_picker li:last-child {
+  border-right: medium none; }
+
+/* Fenix Upload Component */
+.fx-uploader-container .fx-uploader-header {
+  padding: 10px 0;
+  border-bottom: 1px solid #cccccc; }
+.fx-uploader-container #fx-uploader-input {
+  display: none; }
+.fx-uploader-container .fx-widget-icons {
+  cursor: pointer; }
+
+.fx-uploader-item {
+  margin-top: 15px;
+  position: relative; }
+  .fx-uploader-item .uploader-item-header {
+    background-color: #f1f1f1;
+    padding: 15px; }
+  .fx-uploader-item .item-title {
+    display: inline-block;
+    font-weight: 300;
+    font-size: 16px;
+    margin-top: 0; }
+  .fx-uploader-item .file-type {
+    position: relative;
+    top: -2px;
+    left: 5px;
+    text-transform: uppercase;
+    font-weight: 300; }
+  .fx-uploader-item .file-description {
+    color: #999999; }
+  .fx-uploader-item .fx-uploader-item-remove {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    cursor: pointer; }
+  .fx-uploader-item .fx-uploader-item-list-container {
+    height: 20px;
+    overflow: hidden;
+    padding-bottom: 15px;
+    background-color: #f1f1f1;
+    border-top: 1px solid #cccccc;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -ms-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s; }
+    .fx-uploader-item .fx-uploader-item-list-container[data-status="error"] {
+      background-color: red;
+      color: white; }
+    .fx-uploader-item .fx-uploader-item-list-container ul {
+      position: relative;
+      -webkit-transition: all 0.3s ease 0s;
+      -moz-transition: all 0.3s ease 0s;
+      -ms-transition: all 0.3s ease 0s;
+      -o-transition: all 0.3s ease 0s;
+      transition: all 0.3s ease 0s; }
+      .fx-uploader-item .fx-uploader-item-list-container ul li {
+        height: 20px;
+        padding: 0 15px;
+        line-height: 20px; }
+        .fx-uploader-item .fx-uploader-item-list-container ul li .step-icon {
+          margin-right: 5px; }
+
 /* Fenix - Well Component */
 .well {
   background-color: transparent;
@@ -6232,8 +6293,8 @@ input[type="checkbox"]:checked + label {
   -moz-border-radius: 0;
   -ms-border-radius: 0;
   border-radius: 0;
-  border: 1px solid #d8d8d8;
-  border-bottom: 3px solid #d8d8d8;
+  border: 1px solid #cccccc;
+  border-bottom: 3px solid #cccccc;
   position: relative; }
   .fx-widget [data-role="pivot-container"] * {
     -webkit-box-sizing: content-box;
@@ -6278,7 +6339,7 @@ input[type="checkbox"]:checked + label {
   border-radius: 0;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  border: 1px solid #d8d8d8;
+  border: 1px solid #cccccc;
   padding: 3px 10px; }
   .fx-dataset-details-container .fx-dataset-details {
     width: 100%;
@@ -6291,7 +6352,7 @@ input[type="checkbox"]:checked + label {
 .fx-widget:before {
   content: "";
   height: 1px;
-  background-color: #d8d8d8;
+  background-color: #cccccc;
   width: 100%;
   position: absolute;
   top: 42px;
@@ -6320,7 +6381,7 @@ input[type="checkbox"]:checked + label {
   border-radius: 0;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  border: 1px solid #d8d8d8; }
+  border: 1px solid #cccccc; }
   .fx-handle:before {
     content: '';
     position: absolute;
@@ -6371,7 +6432,7 @@ input[type="checkbox"]:checked + label {
 
 .extruder-content {
   border: 0 !important;
-  border-left: 1px solid #d8d8d8 !important;
+  border-left: 1px solid #cccccc !important;
   background-color: rgba(255, 255, 255, 0.9) !important; }
 
 .extruder.right .ext_wrapper {
@@ -6491,7 +6552,7 @@ input[type="checkbox"]:checked + label {
 .jqx-widget-content {
   color: #666666;
   text-shadow: none;
-  border-color: #d8d8d8;
+  border-color: #cccccc;
   background: white; }
 
 .jqx-widget-header, .jqx-grid .jqx-widget-header {
@@ -6555,7 +6616,7 @@ input[type="checkbox"]:checked + label {
   background-repeat: no-repeat; }
 
 .jqx-grid-selectionarea {
-  border-color: #d8d8d8;
+  border-color: #cccccc;
   background-color: #dddddd; }
 
 .jqx-widget .jqx-grid-cell-sort, .jqx-widget .jqx-grid-cell-filter, .jqx-widget .jqx-grid-cell-pinned, .jqx-grid-cell-sort, .jqx-grid-cell-filter, .jqx-grid-cell-pinned {
@@ -6622,7 +6683,7 @@ input[type="checkbox"]:checked + label {
 .jqx-tabs-title-selected-top, .jqx-tabs-selection-tracker-top {
   color: #666666;
   text-shadow: none;
-  border-color: #d8d8d8;
+  border-color: #cccccc;
   border-bottom: 1px solid white;
   background-image: none;
   background-color: white; }
@@ -6630,16 +6691,16 @@ input[type="checkbox"]:checked + label {
 .jqx-tabs-title-selected-bottom, .jqx-tabs-selection-tracker-bottom {
   color: #666666;
   text-shadow: none;
-  border-color: #d8d8d8;
+  border-color: #cccccc;
   border-top: 1px solid white;
   background-image: none;
   background-color: white; }
 
 .jqx-splitter-splitbar-hover {
-  background: #d8d8d8; }
+  background: #cccccc; }
 
 .jqx-splitter-splitbar-vertical, .jqx-splitter-splitbar-horizontal, .jqx-slider-track-horizontal, .jqx-slider-track-vertical {
-  background: #d8d8d8; }
+  background: #cccccc; }
 
 .jqx-splitter-collapse-button-horizontal, .jqx-splitter-collapse-button-vertical, .jqx-slider-rangebar {
   background: #dddddd; }
@@ -6864,7 +6925,7 @@ input[type="checkbox"]:checked + label {
 .jqx-combobox-content, .jqx-input {
   color: #666666;
   text-shadow: none;
-  border-color: #d8d8d8;
+  border-color: #cccccc;
   background-color: white; }
 
 .jqx-combobox-input {
