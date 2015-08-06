@@ -63,7 +63,9 @@
       "attrs": {
         "id": "upload"
       },
-
+      "a_attrs" : {
+        "rel" : "external"
+      },
       "target": "./index.html#upload",
       "label": {
         "EN": "Bulk Upload"

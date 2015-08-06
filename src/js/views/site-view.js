@@ -75,7 +75,7 @@ define([
                     hiddens: ['login']
                 }),
                 menuConfPub = _.extend({}, menuConf, {
-                    hiddens: ['datamng', 'logout']
+                    hiddens: ['datamng', 'upload', 'logout']
                 });
 
             this.authManager = new AuthManager({
