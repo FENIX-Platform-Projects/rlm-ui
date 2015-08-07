@@ -59,6 +59,7 @@ require([
 
                     "fx-d-m/routes": "./submodules/fenix-ui-data-management/src/js/routes/routes_metadataOnly",
                     'fx-d-m/templates/landing' :"./submodules/fenix-ui-data-management/src/js/templates/landing_metadataOnly.hbs",
+                    'fx-d-m/templates/resume' :"./submodules/fenix-ui-data-management/src/js/templates/resume_metadataOnly.hbs",
 
                     'fx-d-m/templates/site' : "./src/js/templates/site.hbs",
 
