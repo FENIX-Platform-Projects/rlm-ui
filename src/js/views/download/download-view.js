@@ -386,7 +386,7 @@ define([
 
             this.$modalMetadata.modal('show');
 
-            loadMetadata("rlm_" + request.inputs.indicator[0].split(".")).then(function (data) {
+            loadMetadata("rlm_" + request.inputs.indicator[0]).then(function (data) {
                 var metadata = new MetadataViewer();
 
                 metadata.init({
