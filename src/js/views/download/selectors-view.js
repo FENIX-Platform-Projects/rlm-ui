@@ -196,7 +196,6 @@ define([
                     self.indicatorSelectorParentDeselection = true;
                     $container.jstree(true).deselect_node(data.node, true);
                     $container.jstree(true).toggle_node(data.node);
-                    console.log("Select 3")
                     return;
                 }
 
@@ -592,11 +591,16 @@ define([
 
         getInputs: function () {
 
+            var indicator = this.$selectorIndicator.jstree(true).get_selected();
+
             return {
-                indicator: this.$selectorIndicator.jstree(true).get_selected(),
+                indicator: indicator,
                 country: this.$selectorCountry.jstree(true).get_selected(),
                 year: this.$selectorYear.jstree(true).get_selected(),
-                qualifier: this.$selectorQualifier.jstree(true).get_selected()
+                qualifier: this.$selectorQualifier.jstree(true).get_selected(),
+                labels : {
+                    indicator : this.$selectorIndicator.jstree(true).get_node(indicator).text
+                }
             };
 
         },

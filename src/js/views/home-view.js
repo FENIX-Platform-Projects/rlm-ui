@@ -60,7 +60,7 @@ define([
 
         initComponents: function () {
 
-            this.initDatabaseUpdatesList();
+            //this.initDatabaseUpdatesList();
 
             this.WDSClient = new WDSClient({
                 serviceUrl: Config.WDS_URL,

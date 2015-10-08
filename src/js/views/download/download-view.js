@@ -337,14 +337,12 @@ define([
                 window.fx_rlm_dynamic_id = 0;
             }
 
-            console.log(this.currentRequest)
-
             window.fx_rlm_dynamic_id ++  ;
 
             //Add here the result header
             var template = Handlebars.compile(resultTemplate),
                 id = 'rlm-dynamic-pivot-' +  window.fx_rlm_dynamic_id,
-                $result = this.appendDynamicId($(template()), id),
+                $result = this.appendDynamicId($(template(this.currentRequest.inputs.labels)), id),
                 pivot;
 
             // add to packery layout
@@ -388,13 +386,13 @@ define([
 
             this.$modalMetadata.modal('show');
 
-            loadMetadata('Pov_Inc').then(function (data) {
+            loadMetadata("RLM_" + request.inputs.indicator[0].split(".")).then(function (data) {
                 var metadata = new MetadataViewer();
 
                 metadata.init({
                     lang: 'en',
                     data : JSON.parse(data),
-                    //domain: request.inputs.indicator[0],
+                    //domain: "rlm_" + request.inputs.indicator[0],
                     placeholder : self.$modalMetadata.find(s.MODAL_METADATAVIEWER_CONTAINER)
                 });
             });
