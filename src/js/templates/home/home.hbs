@@ -1,52 +1,30 @@
 <!-- Logo + Contacts -->
 <div class="row intro-text">
-    <div class="intro-logo-holder col-sm-2">
-        <div><img class="rlm-logo-blue" src='src/css/img/logo.png'></div>
+    <div class="col-sm-3">
+        <h1>Rural Livelihoods Monitor</h1>
     </div>
-    <div class="col-xs-12 col-sm-10 ">
-        <div class="row home-contacts">
-            <div class="col-sm-2">
-                <h5 class="upper">{{{ home_header_contacts }}}</h5>
-            </div>
-            <div class="col-sm-3 left-line">
-                <h5>Piero Conforti</h5>
+    <div class="col-sm-3">
+        <h2>Overal Goal</h2>
 
-                <p>Delivery Manager,</p>
-
-                <p>Statistics Division (ESS)</p>
-
-                <p>Email: Piero.Conforti@fao.org</p>
-            </div>
-            <div class="col-sm-3 left-line">
-                <h5>Erdgin Mane</h5>
-
-                <p>Delivery Manager,</p>
-
-                <p>Statistics Division (ESS)</p>
-
-                <p>Email: Erdgin.Mane@fao.org</p>
-            </div>
-            <div class="col-sm-4">
-                <h5 class="upper">More information</h5>
-
-                <p>http://www.fao.org/about/what-we-do/</p>
-            </div>
-        </div>
-
+        <p>Shed light on where and how poor people make a living in rural areas, to help improving their condition.</p>
     </div>
+    <div class="col-sm-3">
+        <h2>Making a difference</h2>
+
+        <p>The Rural Livelihoods Monitor brings together data and indicators on agriculture and rural development
+            relevant for the monitoring of rural poverty and inequalities and rural livelihood conditions more in
+            general.</p>
+    </div>
+    <div class="col-sm-3">
+        <h2>Scope for doing more and better</h2>
+
+        <p>The Rural Livelihoods Monitor provides information that helps improving the well-being of rural poor people
+            around the world resulting in an innovative combination of different outcomes.</p>
+    </div>
+
 </div>
+
 <br>
-
-<div class="row">
-    <div class="col-sm-4">
-        <h1> {{ home_welcome_title }}</h1>
-        <br>
-    </div>
-
-
-</div>
-
-
 
 <!--Welcome text -->
 <div class="row home-main-content">
@@ -87,8 +65,9 @@
 
         <div class="col-sm-8 col-sm-height col-sm-bottom home-map-container">
 
-            <h5>SURVEY AVAILABLE DATA</h5>
+            <h5>AVAILABLE DATA</h5>
 
+            <!--
             <div class="chart-container">
 
                 <div class="home-stats"><h5>MAIN</h5>
@@ -99,39 +78,33 @@
 
                     <div id="pie-chart-prevalence" class="pie-container"></div>
                 </div>
-
-
             </div>
-
+            -->
 
             <div class="home-map-legenda">
+
                 <ul class="list-inline">
                     <li>NO DATA</li>
-                    <li>NATIONAL</li>
-                    <li>HOUSEHOLD + NATIONAL</li>
+                    <li>EXTERNAL DATA SOURCE</li>
+                    <li>HOUSEHOLD SURVEY DATA + EXTERNAL DATA SOURCE</li>
                 </ul>
 
             </div>
-
 
         </div>
     </div>
 </div>
 
 <br><br>
-<!-- Database updates + In practice-->
 
+<!-- Documentation + In practice-->
 
 <div class="row">
     <div class="col-sm-4">
-        <h2>Database Updates</h2>
-        <!--<h1> {{ database_update_title }}</h1> Not rendered-->
+        <h2>Documentation</h2>
         <br>
     </div>
-
-
 </div>
-
 
 <div class="row home-main-content">
     <div class="row-height">
@@ -142,41 +115,65 @@
                 <ul id="db-updates-list" class="db-updates-list list-unstyled"></ul>
             </div>
         </div>
-        <div class="col-sm-8 col-sm-height home-practice-container">
+        <div class="col-sm-6 col-sm-height home-practice-container">
 
             <div class="practice-content">
                 <h1>In practice</h1>
 
-                <p class="text-justify">Rural income poverty will be the key impact indicator of the RLM and will be defined in accordance with
-                impact
-                indicators used to monitor progress towards the Millennium Development Goals (MDGs) and the Sustainable
-                Development Goals that will be proposed by the post-2015 development agenda.</p>
+                <p class="text-justify">Adequate disaggregation of data is critical. As much as possible, indicators are
+                    identified by areas and regions within countries and by socio-demographic and economic
+                    characteristics of population groups, in particular by income quintiles, gender groups, farm size,
+                    and participation in agriculture.</p>
 
-                <p class="text-justify">Adequate disaggregation of data is critical. As much as possible, impacts will be identified by areas
-                and
-                regions within countries and by socio-demographic and economic characteristics of population groups, in
-                particular by gender, age groups, ethnicity and type of employment. The indicators of the RLM will be
-                organized
-                along six key dimensions:</p>
+                <p class="text-justify">The indicators of the RLM are organized in nine groups:</p>
 
                 <div class="row home-practice-pillars">
                     <div class="col-sm-6">
                         <ul class="list-unstyled">
-                            <li>Social capital</li>
-                            <li>Natural capital</li>
-                            <li>Knowledge capital and market access</li>
+                            <li>Employment, Health and Education</li>
+                            <li>Land and Natural Resources</li>
+                            <li>Livestock</li>
+                            <li>Infrastructure and Services</li>
+                            <li>Inputs and Technology</li>
                         </ul>
                     </div>
                     <div class="col-sm-6">
                         <ul class="list-unstyled">
-                            <li>Access to rural infrastructure</li>
-                            <li>Human development</li>
-                            <li>Access to social protection</li>
+                            <li>Income, Productivity an inequality</li>
+                            <li>Social Protection</li>
+                            <li>Community Characteristics</li>
+                            <li>Household Characteristics</li>
                         </ul>
                     </div>
 
 
                 </div>
+            </div>
+
+        </div>
+
+        <div class="col-xs-2 col-sm-height">
+            <div class="row home-contacts">
+                <div class="col-sm-12">
+                    <h5 class="upper">{{{ home_header_contacts }}}</h5>
+                </div>
+
+                <div class="col-sm-12 ">
+
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <a href="mailto:piero.conforti@fao.org"><h5>Piero Conforti</h5>
+
+                                <p>Delivery Manager</p></a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="mailto:Erdgin.Mane@fao.org"><h5>Erdgin Mane</h5></a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
             </div>
 
         </div>

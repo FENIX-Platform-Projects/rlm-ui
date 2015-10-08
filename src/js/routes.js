@@ -12,7 +12,7 @@ define(function () {
         match('country', 'country#show');
         match('modules', 'modules#show');
         match('standards(/)(:id)', 'standards#show');
-        match('about', 'about#show');
+        //match('about', 'about#show');
         match('upload', 'upload#show');
         match('*anything', '404#show');
     };

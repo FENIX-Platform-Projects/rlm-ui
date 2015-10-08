@@ -337,6 +337,8 @@ define([
                 window.fx_rlm_dynamic_id = 0;
             }
 
+            console.log(this.currentRequest)
+
             window.fx_rlm_dynamic_id ++  ;
 
             //Add here the result header
@@ -350,7 +352,7 @@ define([
 
             pivot = this.initOlapCreator(id);
 
-            this.bindResultEventListeners($result, pivot,  this.currentRequest);
+            this.bindResultEventListeners($result, pivot, this.currentRequest);
         },
 
         bindResultEventListeners : function ($result, pivot, currentRequest) {

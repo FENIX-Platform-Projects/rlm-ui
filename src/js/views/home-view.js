@@ -71,6 +71,11 @@ define([
 
         configurePage: function () {
 
+         //this.renderPieCharts();
+
+        },
+
+        renderPieCharts: function () {
             var c ={
                 color: '#2ab896',
                 strokeWidth: 10,

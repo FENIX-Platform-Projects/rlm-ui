@@ -1,38 +1,65 @@
 /*global require*/
 
+var projectRoot = ".";
+
+require.config({
+    config: {
+        text: {
+            useXhr: function (url, protocol, hostname, port) {
+                return true;
+            }
+        }
+    },
+    paths : {
+        compilerPaths : projectRoot + '/submodules/fenix-ui-common/js/Compiler',
+        commonPaths : projectRoot + '/submodules/fenix-ui-common/js/paths',
+        olapPaths : projectRoot + '/submodules/fenix-ui-olap/js/paths',
+        menuPaths: projectRoot + '/submodules/fenix-ui-menu/js/paths',
+        metadataPaths :projectRoot + '/submodules/fenix-ui-metadata-viewer/js/paths',
+        reportPaths :projectRoot + '/submodules/fenix-ui-reports/src/js/paths',
+        faostatThemePaths :projectRoot + '/submodules/json-editor-faostat-theme/src/js/paths'
+    }
+});
+
 require([
-    './submodules/fenix-ui-common/js/Compiler',
-    './submodules/fenix-ui-common/js/paths',
-    './submodules/fenix-ui-olap/js/paths',
-    './submodules/fenix-ui-metadata-viewer/js/paths',
-    './submodules/fenix-ui-reports/src/js/paths',
-    './submodules/fenix-ui-metadata-viewer/submodules/json-editor-faostat-theme/js/paths',
-    './submodules/fenix-ui-menu/js/paths'
+    'compilerPaths',
+    'commonPaths',
+    'olapPaths',
+    'metadataPaths',
+    'reportPaths',
+    'faostatThemePaths',
+    'menuPaths'
 ], function (Compiler, Common, Olap, MetadataViewer, Report, FAOSTAT_THEME, Menu) {
 
     'use strict';
 
+    var submodules_path = projectRoot + '/../../submodules';
+
     var menuConfig = Menu;
-    menuConfig.baseUrl = '../../submodules/fenix-ui-menu/js';
+    menuConfig.baseUrl = submodules_path + '/fenix-ui-menu/js';
 
     var commonConfig = Common;
-    commonConfig.baseUrl = '../../submodules/fenix-ui-common/js';
+    commonConfig.baseUrl = submodules_path + '/fenix-ui-common/js';
 
     var olapConfig = Olap;
-    olapConfig.baseUrl = '../../submodules/fenix-ui-olap/js';
+    olapConfig.baseUrl = submodules_path + '/fenix-ui-olap/js';
 
     var metadataViewerConfig = MetadataViewer;
-    metadataViewerConfig.baseUrl = '../../submodules/fenix-ui-metadata-viewer/js';
+    metadataViewerConfig.baseUrl = submodules_path + '/fenix-ui-metadata-viewer/js';
 
     var reportConfig = Report;
-    reportConfig.baseUrl = '../../submodules/fenix-ui-reports/src/js';
+    reportConfig.baseUrl = submodules_path + '/fenix-ui-reports/src/js';
 
     var faostatThemeConfig = FAOSTAT_THEME;
-    faostatThemeConfig.baseUrl = '../../submodules/fenix-ui-metadata-viewer/submodules/json-editor-faostat-theme/js';
+    faostatThemeConfig.baseUrl = submodules_path + '/json-editor-faostat-theme/src/js';
 
     Compiler.resolve([menuConfig, commonConfig, olapConfig, metadataViewerConfig, reportConfig, faostatThemeConfig],
         {
-            placeholders: {"FENIX_CDN": "//fenixapps.fao.org/repository"},
+            placeholders: {
+                //"FENIX_CDN": "http://www.fao.org/fenixrepo/cdn",
+                "FENIX_CDN": "http://fenixrepo.fao.org/cdn"
+            },
+
             config: {
 
                 //Set the config for the i18n
@@ -45,28 +72,25 @@ require([
 
                 // Specify the paths of vendor libraries
                 paths: {
+
+                    bootstrap: "{FENIX_CDN}/js/bootstrap/3.3.4/js/bootstrap.min",
                     domReady: "{FENIX_CDN}/js/requirejs/plugins/domready/2.0.1/domReady",
                     i18n: "{FENIX_CDN}/js/requirejs/plugins/i18n/2.0.4/i18n",
-                    nls: "../../i18n",
-                    bootstrap: "//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min",
-
-                    'fx-common/config/auth_users' : '../../config/auth_users.json',
-
                     underscore: "{FENIX_CDN}/js/underscore/1.7.0/underscore.min",
                     backbone: "{FENIX_CDN}/js/backbone/1.1.2/backbone.min",
                     handlebars: "{FENIX_CDN}/js/handlebars/2.0.0/handlebars",
-                    chaplin: "{FENIX_CDN}/js/chaplin/1.0.1/chaplin.min",
+                    chaplin: "{FENIX_CDN}/js/chaplin/1.0.1/chaplin",
 
 
                     config: "../../config",
                     json: "../../json",
+                    nls: "../../i18n",
 
                     amplify: '{FENIX_CDN}/js/amplify/1.1.2/amplify.min',
                     packery : '{FENIX_CDN}/js/packery/1.4.1/packery.pkgd.min',
                     jqueryBridget : '{FENIX_CDN}/js/jquery.bridget/1.1.0/jquery.bridget',
                     jstree : '{FENIX_CDN}/js/jstree/3.0.8/dist/jstree.min',
                     jstreegrid: '{FENIX_CDN}/js/jstree/plugins/jstreegrid/3.2.3/jstreegrid',
-                    //,swiper: '{FENIX_CDN}/js/swiper/3.07/dist/js/swiper.jquery.min'
                     q : '{FENIX_CDN}/js/q/1.1.2/q',
                     progressbar : '{FENIX_CDN}/js/progressbar/0.8.1/progressbar.min',
 
@@ -120,9 +144,6 @@ require([
                     handlebars: {
                         exports: 'Handlebars'
                     },
-                   /* swiper: {
-                        deps: ['jquery']
-                    },*/
                     amplify: {
                         deps: ['jquery'],
                         exports: 'amplifyjs'

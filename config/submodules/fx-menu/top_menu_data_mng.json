@@ -70,18 +70,6 @@
       "label": {
         "EN": "Bulk Upload"
       }
-    },
-    {
-      "attrs": {
-        "id": "about"
-      },
-      "target": "./index.html#about",
-      "a_attrs" : {
-        "rel" : "external"
-      },
-      "label": {
-        "EN": "About"
-      }
     }
   ],
   "rightItems": [

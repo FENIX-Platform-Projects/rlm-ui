@@ -77,15 +77,6 @@
       "label": {
         "EN": "Methods and Standards"
       }
-    },
-    {
-      "attrs": {
-        "id": "about"
-      },
-      "target": "#about",
-      "label": {
-        "EN": "About"
-      }
     }
   ],
   "rightItems": [

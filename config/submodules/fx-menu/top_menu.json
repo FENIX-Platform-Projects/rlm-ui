@@ -6,7 +6,7 @@
       },
       "target": "#home",
       "label": {
-        "EN": "RLM"
+        "EN": "Home"
       }
     },
     {
@@ -58,15 +58,6 @@
       "target": "#upload",
       "label": {
         "EN": "Bulk Upload"
-      }
-    },
-    {
-      "attrs": {
-        "id": "about"
-      },
-      "target": "#about",
-      "label": {
-        "EN": "About"
       }
     }
   ],
