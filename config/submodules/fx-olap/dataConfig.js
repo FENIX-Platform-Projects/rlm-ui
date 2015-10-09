@@ -1,15 +1,15 @@
 /*global define*/
 define({
     "rows": [
-        ["Indicator_label","Indicator"], ["Source_label","Source"],["Country_label","Country"],
-        ["Qualifier_label","Qualifier"]
+        ["Indicator","Indicator_Code"], ["Source","Source_Code"],["Country","Country_Code"],
+        ["Qualifier","Qualifier_Code"]
     ],
     "cols": ["Year"],
     "vals": [
         "Value","Flag"  ,"Unit"
     ],
     "hiddenAttributes": [
-        "Value","Flag","Year_label","Unit"
+        "Value","Flag","Year_Code","Unit"
     ],
     "InstanceRenderers": [
         {label: "Grid", func: "Table"}
@@ -20,9 +20,9 @@ define({
     derivedAttributes: {
 
     },
-    linkedAttributes:[["Qualifier","Qualifier_label"],
-        ["Indicator_label","Indicator"],
-        ["Source_label","Source"],["Country","Country_label"]],
+    linkedAttributes:[["Qualifier","Qualifier_Code"],
+        ["Indicator_Code","Indicator"],
+        ["Source_Code","Source"],["Country","Country_Code"]],
     "showAgg": false,
     "showRender": false,
     "showUnit":false,
