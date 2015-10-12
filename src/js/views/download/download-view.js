@@ -373,10 +373,10 @@ define([
         },
 
         onClickDownloadPivot : function (output, pivot){
-
+			//this.pivots[0].originalData[1][1]//IndicatorLAbel
             switch (output.toUpperCase()) {
-                case 'CSV': pivot.exportCSV(); break;
-                case 'XLS': pivot.exportExcel(); break;
+                case 'CSV': pivot.exportCSV(this.pivots[0].originalData[1][1]); break;
+                case 'XLS': pivot.exportExcel(JSON.stringify(this.pivots[0].originalData[1][1])); break;
             }
         },
 
