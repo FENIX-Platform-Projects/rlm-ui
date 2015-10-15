@@ -134,12 +134,6 @@ define([
                     },
                     'data': data
                 },
-                grid: {
-                    columns: [
-                        {width: '80px'},
-                        {width: '20px', value: "info", cellClass: s.SELECTOR_INFO_BTN.substring(1)}
-                    ]
-                },
                 "types": {
                     "default": {
                     },
@@ -154,6 +148,7 @@ define([
                 }
 
             };
+
 
             if (selector.toUpperCase() === 'INDICATOR') {
                 $.extend(true,

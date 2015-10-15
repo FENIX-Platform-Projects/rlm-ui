@@ -5368,7 +5368,6 @@ input[type="button"]::-moz-focus-inner {
   -ms-border-radius: 0;
   border-radius: 0;
   margin-bottom: 20px;
-  min-height: 100px;
   padding: 19px 0 16px 19px; }
 
 /*========= HEADER =========*/
@@ -5411,6 +5410,9 @@ input[type="button"]::-moz-focus-inner {
 .jstree-holder {
   height: 209px;
   overflow-y: auto; }
+
+.fx_result_icon {
+  font-size: 30px; }
 
 /*========= RESULTS */
 /*========= COMMONS =========*/
@@ -5880,6 +5882,31 @@ div[data-module="sector"] .fx-catalog-modular-form-content {
   width: 15px;
   background: url("../../submodules/fenix-ui-common/css/img/fenix-catalog-sprite-small.svg") no-repeat -75px -15px;
   background-size: 150px 30px; }
+
+.metadata-container .btn {
+  min-width: 0;
+  border-color: transparent; }
+  .metadata-container .btn:link, .metadata-container .btn:visited, .metadata-container .btn:hover, .metadata-container .btn:focus, .metadata-container .btn:active {
+    border-color: transparent; }
+.metadata-container .form-control {
+  -moz-border-radius-topleft: 0;
+  -webkit-border-top-left-radius: 0;
+  border-top-left-radius: 0;
+  -moz-border-radius-topright: 0;
+  -webkit-border-top-right-radius: 0;
+  border-top-right-radius: 0;
+  -moz-border-radius-bottomright: 0;
+  -webkit-border-bottom-right-radius: 0;
+  border-bottom-right-radius: 0;
+  -moz-border-radius-bottomleft: 0;
+  -webkit-border-bottom-left-radius: 0;
+  border-bottom-left-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0; }
+.metadata-container .btn-success, .metadata-container .btn-warning {
+  border-color: #2395ab; }
 
 /* Fenix Popover Component */
 .popover {
@@ -6487,7 +6514,7 @@ input[type="checkbox"]:checked + label {
     .fx-widget .nav-tabs > li {
       position: relative; }
       .fx-widget .nav-tabs > li > a {
-        padding: 3px 3px 6px 3px;
+        padding: 6px 3px 6px 3px;
         border-color: transparent;
         cursor: pointer;
         color: #666666; }
@@ -6582,6 +6609,12 @@ input[type="checkbox"]:checked + label {
 
 .fx-widget-icons {
   font-size: 24px; }
+
+.small-icons-analysis .pull-right span {
+  font-size: 18px;
+  position: relative;
+  top: -33px;
+  left: 5px; }
 
 /* Fenix - Widgets Stack Component */
 #fx-widgets-stack {
@@ -7701,35 +7734,28 @@ ul[role="group"] {
 [data-page='home'] .breadcrumb {
   opacity: 0; }
 
-.home-contacts {
-  font-size: 10px; }
-  .home-contacts h5 {
-    font-size: 10px;
-    color: black;
-    margin-bottom: 5px; }
-  .home-contacts p {
-    margin-bottom: 0; }
-  .home-contacts:before {
+.home-contacts h5 {
+  margin-bottom: 5px; }
+.home-contacts p {
+  margin-bottom: 0; }
+.home-contacts small {
+  font-size: 10px;
+  color: #666666;
+  margin-left: 10px;
+  text-transform: uppercase; }
+.home-contacts .left-line {
+  position: relative; }
+  .home-contacts .left-line:before {
     content: '';
-    position: relative;
-    width: calc(100% - 30px);
-    height: 1px;
-    left: 15px;
-    top: -7px;
+    position: absolute;
+    display: block;
+    width: 1px;
+    height: calc(100% - 15px);
+    left: 0;
+    top: 12px;
     background-color: #2395ab; }
-  .home-contacts .left-line {
-    position: relative; }
-    .home-contacts .left-line:before {
-      content: '';
-      position: absolute;
-      display: block;
-      width: 1px;
-      height: calc(100% - 15px);
-      left: 0;
-      top: 12px;
-      background-color: #2395ab; }
-  .home-contacts .col-sm-4 {
-    text-align: right; }
+.home-contacts .col-sm-4 {
+  text-align: right; }
 
 .charts-container {
   position: absolute;
@@ -7838,7 +7864,11 @@ ul[role="group"] {
     position: absolute; }
   .home-practice-container .home-practice-pillars {
     text-transform: uppercase;
-    color: #2395ab; }
+    color: #2395ab;
+    margin-top: 25px; }
+    .home-practice-container .home-practice-pillars li {
+      margin-bottom: 10px;
+      font-weight: 700; }
 
 .db-updates-list-holder {
   height: 100%;
@@ -7880,6 +7910,8 @@ ul[role="group"] {
 
 .rlm-result.w2 {
   width: 100%; }
+.rlm-result.fx-visualization-box {
+  min-height: 650px; }
 
 .geo-selector-container {
   height: 220px;

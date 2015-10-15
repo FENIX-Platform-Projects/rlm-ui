@@ -26,8 +26,11 @@
   &.w2 {
     width: 100%;
   }
-}
 
+  &.fx-visualization-box {
+    min-height: 650px;
+  }
+}
 
 .geo-selector-container {
   height: 220px;
