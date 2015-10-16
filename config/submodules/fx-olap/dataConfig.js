@@ -27,7 +27,7 @@ define({
     "showRender": false,
     "showUnit":false,
     "showCode":false,
-    "showFlags":false,
+    "showFlags":true,
 	 "csvText": "RLM"
 
 });
