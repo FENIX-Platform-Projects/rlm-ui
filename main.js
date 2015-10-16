@@ -11,7 +11,7 @@ require.config({
         commonPaths : projectRoot + '/submodules/fenix-ui-common/js/paths',
         olapPaths : projectRoot + '/submodules/fenix-ui-olap/js/paths',
         menuPaths: projectRoot + '/submodules/fenix-ui-menu/js/paths',
-        metadataPaths :projectRoot + '/submodules/fenix-ui-metadata-viewer/js/paths',
+        metadataPaths :projectRoot + '/submodules/fenix-ui-metadata-viewer/src/js/paths',
         reportPaths :projectRoot + '/submodules/fenix-ui-reports/src/js/paths',
         faostatThemePaths :projectRoot + '/submodules/json-editor-faostat-theme/src/js/paths'
     }
@@ -41,7 +41,7 @@ require([
     olapConfig.baseUrl = submodules_path + '/fenix-ui-olap/js';
 
     var metadataViewerConfig = MetadataViewer;
-    metadataViewerConfig.baseUrl = submodules_path + '/fenix-ui-metadata-viewer/js';
+    metadataViewerConfig.baseUrl = submodules_path + '/fenix-ui-metadata-viewer/src/js';
 
     var reportConfig = Report;
     reportConfig.baseUrl = submodules_path + '/fenix-ui-reports/src/js';
