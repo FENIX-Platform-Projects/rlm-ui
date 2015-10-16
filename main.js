@@ -4,11 +4,7 @@ var projectRoot = ".";
 
 require.config({
     config: {
-        text: {
-            useXhr: function (url, protocol, hostname, port) {
-                return true;
-            }
-        }
+        text: {useXhr: function (url, protocol, hostname, port) {return true;}}
     },
     paths : {
         compilerPaths : projectRoot + '/submodules/fenix-ui-common/js/Compiler',
@@ -158,7 +154,7 @@ require([
                     'fenix-ui-map': {
                         deps: [
                             'jquery',
-                            'jquery-ui',
+                            //'jquery-ui',
                             'leaflet',
                             'fenix-ui-map-config',
                             'jquery.power.tip',
