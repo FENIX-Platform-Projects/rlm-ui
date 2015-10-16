@@ -52,3 +52,27 @@
   }
 
 }
+
+.fx-dataset-details-container{
+  right: 0;
+  left: 10px;
+  width: calc(100% - 20px);
+}
+
+.gt-hd-split{
+  background-color: white;
+  position: relative;
+  overflow: visible;
+
+
+  &:before{
+    position: absolute;
+    content: '';
+    width: 1px;
+    height: 100%;
+    background-color: white;
+    top: 0;
+    left: -2px;
+  }
+
+}

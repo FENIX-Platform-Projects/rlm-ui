@@ -6480,7 +6480,7 @@ input[type="checkbox"]:checked + label {
   padding: 22px 10px 10px 10px; }
   .fx-visualization-box [data-control="remove"] {
     position: relative;
-    top: -18px;
+    top: -31px;
     right: -5px;
     color: #666666;
     cursor: pointer; }
@@ -7799,7 +7799,8 @@ ul[role="group"] {
   background-image: url("../../src/css/img/home-map.png");
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: 50% 55%; }
+  background-position: 50% 50%;
+  height: 300px; }
   .home-map-container > h5 {
     position: absolute;
     top: 0;
@@ -7927,3 +7928,21 @@ ul[role="group"] {
   margin-bottom: 20px; }
   .rlm-buttons-holder .btn {
     margin: 12px 3px; }
+
+.fx-dataset-details-container {
+  right: 0;
+  left: 10px;
+  width: calc(100% - 20px); }
+
+.gt-hd-split {
+  background-color: white;
+  position: relative;
+  overflow: visible; }
+  .gt-hd-split:before {
+    position: absolute;
+    content: '';
+    width: 1px;
+    height: 100%;
+    background-color: white;
+    top: 0;
+    left: -2px; }

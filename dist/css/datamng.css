@@ -6480,7 +6480,7 @@ input[type="checkbox"]:checked + label {
   padding: 22px 10px 10px 10px; }
   .fx-visualization-box [data-control="remove"] {
     position: relative;
-    top: -18px;
+    top: -31px;
     right: -5px;
     color: #666666;
     cursor: pointer; }
@@ -7289,6 +7289,16 @@ input[type="checkbox"]:checked + label {
   .fx-datamng-holder .metadata-view .container {
     padding: 0;
     width: 100%; }
+
+.datamng-btn {
+  font-size: 35px;
+  margin-top: 10px;
+  display: inline-block; }
+
+.txt-btn {
+  display: inline-block;
+  height: 100%;
+  line-height: 70px; }
 
 /* Base */
 /* RLM - Base style File */

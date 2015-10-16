@@ -389,6 +389,8 @@ define([
             loadMetadata("rlm_" + request.inputs.indicator[0]).then(function (data) {
                 var metadata = new MetadataViewer();
 
+                self.$modalMetadata.find(s.MODAL_METADATAVIEWER_CONTAINER).empty();
+
                 metadata.init({
                     lang: 'en',
                     data : JSON.parse(data),
