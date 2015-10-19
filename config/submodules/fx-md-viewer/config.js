@@ -16,8 +16,8 @@ define(function () {
             seSecondaryDataCollection : true,
             organization : true*/
         },
-/*
+
         HAS_EXPORT : true
-*/
+
     };
 });

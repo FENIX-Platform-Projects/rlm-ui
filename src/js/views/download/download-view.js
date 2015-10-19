@@ -376,14 +376,18 @@ define([
         },
 
         onClickDownloadPivot : function (output, pivot){
+
+            var fileName = this.pivots[0].originalData[1][1].replace(/[^a-z0-9]/gi, '_').toLowerCase();
 			//this.pivots[0].originalData[1][1]//IndicatorLAbel
             switch (output.toUpperCase()) {
-                case 'CSV': pivot.exportCSV(this.pivots[0].originalData[1][1]); break;
-                case 'XLS': pivot.exportExcel(JSON.stringify(this.pivots[0].originalData[1][1])); break;
+                case 'CSV': pivot.exportCSV(fileName); break;
+                case 'XLS': pivot.exportExcel(fileName); break;
             }
         },
 
-        _listenToExport : function(dataParsed){
+        _listenToExport : function(dataParsed, indicator){
+
+            var fileName = indicator.replace(/[^a-z0-9]/gi, '_').toLowerCase();
 
             var self = this;
             $(s.BTN_REPORT).on('click', function(){
@@ -397,9 +401,10 @@ define([
                    output: {
                        config:{
                            lang : 'en'.toUpperCase(),
+                           fileName: fileName+'.pdf'
                        }
                    }
-               }
+               };
 
                 self.$metadataReport.init('metadataExport');
                 self.$metadataReport.exportData(payload,Config.MD_EXPORT_URL);
@@ -429,7 +434,7 @@ define([
 
                 var dataParsed = JSON.parse(data);
 
-               self._listenToExport(dataParsed);
+               self._listenToExport(dataParsed, request.inputs.labels.indicator);
             });
 
             function loadMetadata( id ) {

@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /* Dist - Index */
 /* RLM - Variables */
 /* RLM Variables */
@@ -12,8 +11,8 @@
 /* Eldorado  */
 @font-face {
   font-family: 'eldorado_stroke';
-  src: url("http://fenixapps.fao.org/repository/fenix-ui-common/css/fonts/eldorado/eldorado_stroke.eot");
-  src: url("http://fenixapps.fao.org/repository/fenix-ui-common/css/fonts/eldorado/eldorado_stroke.eot?#iefix") format("embedded-opentype"), url("http://fenixapps.fao.org/repository/fenix-ui-common/css/fonts/eldorado/eldorado_stroke.woff") format("woff"), url("http://fenixapps.fao.org/repository/fenix-ui-common/css/fonts/eldorado/eldorado_stroke.ttf") format("truetype"), url("http://fenixapps.fao.org/repository/fenix-ui-common/css/fonts/eldorado/eldorado_stroke.svg#RobotoRegular") format("svg");
+  src: url("http://fenixrepo.fao.org/cdn/css/fenix-ui-common/css/fonts/eldorado/eldorado_stroke.eot");
+  src: url("http://fenixrepo.fao.org/cdn/css/fenix-ui-common/css/fonts/eldorado/eldorado_stroke.eot?#iefix") format("embedded-opentype"), url("http://fenixrepo.fao.org/cdn/css/fenix-ui-common/css/fonts/eldorado/eldorado_stroke.woff") format("woff"), url("http://fenixrepo.fao.org/cdn/css/fenix-ui-common/css/fonts/eldorado/eldorado_stroke.ttf") format("truetype"), url("http://fenixrepo.fao.org/cdn/css/fenix-ui-common/css/fonts/eldorado/eldorado_stroke.svg#RobotoRegular") format("svg");
   font-weight: normal;
   font-style: normal; }
 [class^="icojam_"], [class*=" icojam_"] {
@@ -5038,7 +5037,7 @@ button_new_2:before {
 
 .fa-border {
   padding: .2em .25em .15em;
-  border: solid 0.08em #eee;
+  border: solid 0.08em #eeeeee;
   border-radius: .1em; }
 
 .pull-right {
@@ -5060,6 +5059,7 @@ button_new_2:before {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg); }
+
   100% {
     -webkit-transform: rotate(359deg);
     transform: rotate(359deg); } }
@@ -5067,6 +5067,7 @@ button_new_2:before {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg); }
+
   100% {
     -webkit-transform: rotate(359deg);
     transform: rotate(359deg); } }
@@ -5128,78 +5129,78 @@ button_new_2:before {
   font-size: 2em; }
 
 .fa-inverse {
-  color: #fff; }
+  color: white; }
 
 /* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
    readers do not read off random characters that represent icons */
 .fa-search:before {
-  content: ""; }
+  content: "\f002"; }
 
 .fa-th:before {
-  content: ""; }
+  content: "\f00a"; }
 
 .fa-th-list:before {
-  content: ""; }
+  content: "\f00b"; }
 
 .fa-home:before {
-  content: ""; }
+  content: "\f015"; }
 
 .fa-clock-o:before {
-  content: ""; }
+  content: "\f017"; }
 
 .fa-refresh:before {
-  content: ""; }
+  content: "\f021"; }
 
 .fa-lock:before {
-  content: ""; }
+  content: "\f023"; }
 
 .fa-barcode:before {
-  content: ""; }
+  content: "\f02a"; }
 
 .fa-map-marker:before {
-  content: ""; }
+  content: "\f041"; }
 
 .fa-calendar:before {
-  content: ""; }
+  content: "\f073"; }
 
 .fa-twitter-square:before {
-  content: ""; }
+  content: "\f081"; }
 
 .fa-facebook-square:before {
-  content: ""; }
+  content: "\f082"; }
 
 .fa-globe:before {
-  content: ""; }
+  content: "\f0ac"; }
 
 .fa-wrench:before {
-  content: ""; }
+  content: "\f0ad"; }
 
 .fa-google-plus-square:before {
-  content: ""; }
+  content: "\f0d4"; }
 
 .fa-google-plus:before {
-  content: ""; }
+  content: "\f0d5"; }
 
 .fa-caret-down:before {
-  content: ""; }
+  content: "\f0d7"; }
 
 .fa-caret-up:before {
-  content: ""; }
+  content: "\f0d8"; }
 
 .fa-caret-left:before {
-  content: ""; }
+  content: "\f0d9"; }
 
 .fa-caret-right:before {
-  content: ""; }
+  content: "\f0da"; }
 
 .fa-rss-square:before {
-  content: ""; }
+  content: "\f143"; }
 
 .fa-slack:before {
-  content: ""; }
+  content: "\f198"; }
 
 .fa-database:before {
-  content: ""; }
+  content: "\f1c0"; }
 
 /* Fenix Typography */
 body {
@@ -5227,7 +5228,7 @@ h2 {
 
 h3 {
   font: normal normal 500 12px/normal "Roboto";
-  color: #577278; }
+  color: #577277; }
 
 h4 {
   font: normal normal 300 11px/normal "Roboto";
@@ -5316,8 +5317,8 @@ input[type="button"]::-moz-focus-inner {
 , .btn-primary.disabled.active
 , .btn-primary[disabled].active
 , fieldset[disabled] .btn-primary.active {
-  background-color: #577278;
-  border-color: #577278; }
+  background-color: #577277;
+  border-color: #577277; }
 
 /* Fenix UI Catalog */
 .fx-catalog-welcome {
@@ -5713,7 +5714,7 @@ legend {
   top: 4px;
   left: 30px;
   font-weight: 300;
-  color: #577278; }
+  color: #577277; }
 
 .fx-catalog-modular-form-content {
   padding: 10px 10px 10px 10px;
@@ -6555,7 +6556,7 @@ input[type="checkbox"]:checked + label {
     text-transform: uppercase;
     font-weight: 700;
     font-size: 11px;
-    color: #577278; }
+    color: #577277; }
 
 .fx-widget:before {
   content: "";
@@ -7997,5 +7998,3 @@ ul[role="group"] {
     font: normal normal 300 12px/normal "Roboto"; }
   .fx-md-viewer-wrapper .popover-content {
     font: normal normal 300 12px/normal "Roboto"; }
-
-/*# sourceMappingURL=index.css.map */
