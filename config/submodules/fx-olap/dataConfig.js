@@ -28,7 +28,20 @@ define({
     "showUnit":false,
     "showCode":false,
     "showFlags":true,
-	 "csvText": "RLM"
-
+	 "csvText": "RLM",
+	
+	 "cellrnderfonction":function(v1,v2,v3,su,sf){
+		 
+		// ret=inputOpts.cellrnderfonction(addSeparators(r.tree[ligne][coldInd].value()[0],r.tree[ligne][coldInd].value()[1],r.tree[ligne][coldInd].value()[2],options.showUnit, options.showFlags);
+												ret="";
+											
+											 ret+=v1;
+											
+											if(su){ret+=" ["+v2+"]";}
+											if(sf){ret+=" ("+v3+") ";}
+											
+		 return ret
+		 
+	 }
 });
 
