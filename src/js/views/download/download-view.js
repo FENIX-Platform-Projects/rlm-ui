@@ -14,6 +14,7 @@ define([
     'i18n!nls/errors',
     'fx-common/WDSClient',
     'FENIX_UI_METADATA_VIEWER',
+    'fx-report',
     'pivot',
     'pivotRenderers',
     'pivotAggregators',
@@ -25,7 +26,7 @@ define([
     'q',
     'jstree',
     'amplify'
-], function (Handlebars, View, SelectorsView, Config, Services, E, template, resultTemplate, errorTemplate, courtesyMessageTemplate, i18nLabels, i18Errors, WDSClient, MetadataViewer, Pivot, pivotRenderers, pivotAggregators, pivotDataTest, pivotDataConfig, _, Packery, bridget, Q) {
+], function (Handlebars, View, SelectorsView, Config, Services, E, template, resultTemplate, errorTemplate, courtesyMessageTemplate, i18nLabels, i18Errors, WDSClient, MetadataViewer,MetadataReport, Pivot, pivotRenderers, pivotAggregators, pivotDataTest, pivotDataConfig, _, Packery, bridget, Q) {
 
     'use strict';
 
@@ -47,7 +48,9 @@ define([
         BTN_METADATA : '[data-control="metadata"]',
 
         MODAL_METADATA : '#rlm-metadata-modal',
-        MODAL_METADATAVIEWER_CONTAINER : '[data-content="metadata-viewer-container"]'
+        MODAL_METADATAVIEWER_CONTAINER : '[data-content="metadata-viewer-container"]',
+
+        BTN_REPORT : '.fx-md-report-btn'
     };
 
     var DownloadSurveyView = View.extend({
@@ -380,6 +383,30 @@ define([
             }
         },
 
+        _listenToExport : function(dataParsed){
+
+            var self = this;
+            $(s.BTN_REPORT).on('click', function(){
+
+                var payload = {
+                   input:{
+                       config:{
+                           uid: dataParsed.uid
+                       }
+                   },
+                   output: {
+                       config:{
+                           lang : 'en'.toUpperCase(),
+                       }
+                   }
+               }
+
+                self.$metadataReport.init('metadataExport');
+                self.$metadataReport.exportData(payload,Config.MD_EXPORT_URL);
+            });
+
+        },
+
         onModalMetadataBtnClick : function (request) {
 
             var self = this;
@@ -389,6 +416,8 @@ define([
             loadMetadata("rlm_" + request.inputs.indicator[0]).then(function (data) {
                 var metadata = new MetadataViewer();
 
+                self.$metadataReport = new MetadataReport();
+
                 self.$modalMetadata.find(s.MODAL_METADATAVIEWER_CONTAINER).empty();
 
                 metadata.init({
@@ -397,6 +426,10 @@ define([
                     //domain: "rlm_" + request.inputs.indicator[0],
                     placeholder : self.$modalMetadata.find(s.MODAL_METADATAVIEWER_CONTAINER)
                 });
+
+                var dataParsed = JSON.parse(data);
+
+               self._listenToExport(dataParsed);
             });
 
             function loadMetadata( id ) {

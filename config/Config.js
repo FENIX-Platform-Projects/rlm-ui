@@ -17,6 +17,7 @@ define([
         //WDS and Data
         DB_NAME: 'rlm',
         WDS_URL: 'http://fenixapps2.fao.org/wds-5.2.1/rest/crud',
+        MD_EXPORT_URL : 'http://fenixapps2.fao.org/fenixExport',
         WDS_OUTPUT_TYPE: 'object',
         WDS_OLAP_OUTPUT_TYPE : 'array',
 

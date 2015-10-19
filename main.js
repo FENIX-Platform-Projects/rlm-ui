@@ -118,7 +118,12 @@ require([
 					pivotAggregatorsFuncs: "../../submodules/fenix-ui-olap/js/rend/function_aggregators",
 					pivotAggregators:      "../../submodules/fenix-ui-olap/js/rend/aggregators",
 					pivotDataConfig:         '../../config/submodules/fx-olap/dataConfig',
-					pivotDataTest:       '../../submodules/fenix-ui-olap/tests/data/test.json'
+					pivotDataTest:       '../../submodules/fenix-ui-olap/tests/data/test.json',
+
+                    // METADATA VIEWER CONFIG
+                    'fx-mdviewer/config/config': '../../config/submodules/fx-md-viewer/config',
+                    'fx-report/config/md-export/config' : '../../config/submodules/fx-report/md-export/config',
+
                 },
 
                 // Underscore and Backbone are not AMD-capable per default,
