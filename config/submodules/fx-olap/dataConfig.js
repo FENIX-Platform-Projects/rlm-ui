@@ -30,7 +30,7 @@ define({
     "showFlags":true,
 	 "csvText": "RLM",
 	
-	 "cellrnderfonction":function(v1,v2,v3,su,sf){
+	 "cellRenderFunction":function(v1,v2,v3,su,sf){
 		 ret="";
 		 ret+=v1;
 		 if(su){ret+=" ["+v2+"]";}
