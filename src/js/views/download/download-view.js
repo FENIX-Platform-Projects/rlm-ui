@@ -349,7 +349,7 @@ define([
                 pivot;
 
             // add to packery layout
-            this.$resultsContainer.append($result).packery('appended', $result);
+            this.$resultsContainer.append($result).packery('prepended', $result);
 
             pivot = this.initOlapCreator(id);
 
