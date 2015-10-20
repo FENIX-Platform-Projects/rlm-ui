@@ -73,7 +73,7 @@
 .home-map-legenda {
   display: inline-block;
   position: absolute;
-  bottom: -30px;
+  bottom: 0px;
   right: 15px;
 
   ul {
@@ -263,3 +263,29 @@
   }
 }
 
+
+/*//////////////////////////////////////////// Navbar Media queries */
+
+/* Ipad */
+@media (min-width: 768px) and (max-width: 990px) {
+
+  .home-map-legenda {
+    bottom: -30px;
+  }
+
+  .home-map-container {
+    background-position: 50% 150%;
+  }
+
+
+}
+
+/* Iphone */
+
+@media (max-width: 767px) {
+
+
+
+  /* End of the iPhone media query*/
+
+}
