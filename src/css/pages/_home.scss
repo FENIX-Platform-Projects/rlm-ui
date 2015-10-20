@@ -73,7 +73,7 @@
 .home-map-legenda {
   display: inline-block;
   position: absolute;
-  bottom: 0;
+  bottom: -30px;
   right: 15px;
 
   ul {
@@ -100,12 +100,12 @@
 
     li:nth-child(1) {
       &:before {
-        background-color: #d3eaee;
+        background-color: #e2e1e1;
       }
     }
     li:nth-child(2) {
       &:before {
-        background-color: #2395ab;
+        background-color: #d3eaee;
       }
     }
     li:nth-child(3) {
@@ -123,7 +123,7 @@
   background-image: url('../../src/css/img/home-map.png');
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: 50% 50%;
+  background-position: 50% 150%;
   height: 300px;
 
   > h5 {
