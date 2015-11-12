@@ -15,7 +15,7 @@
       },
       "type": "dropdown",
       "label": {
-        "EN": "Download"
+        "EN": "Data"
       },
       "children": [
         {
