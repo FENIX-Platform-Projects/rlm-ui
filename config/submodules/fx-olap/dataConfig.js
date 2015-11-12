@@ -1,7 +1,7 @@
 /*global define*/
 define({
     "rows": [
-        ["Indicator", "Indicator_Code"], ["Source", "Source_Code"], ["Country", "Country_Code"],
+        ["Indicator", "Indicator_Code"], ["Source_Type", "Source_Code"], ["Country", "Country_Code"],
         ["Qualifier", "Qualifier_Code"]
     ],
     "cols": ["Year"],
@@ -27,14 +27,16 @@ define({
     "showCode": false,
     "showFlags": true,
     "csvText": "RLM",
-
     "cellRenderFunction": function (value, unit, flag, showUnit, showFlag) {
         var ret = "";
         ret += value;
+		
+		
         if (showUnit) {
             ret += " [" + unit + "]";
         }
         if (showFlag) {
+			
             ret += " (" + flag + ") ";
         }
         return ret;
