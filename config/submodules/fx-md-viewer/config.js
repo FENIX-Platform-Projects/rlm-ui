@@ -17,7 +17,13 @@ define(function () {
             organization : true*/
         },
 
-        HAS_EXPORT : true
+        HAS_EXPORT : true,
+
+        EXPAND_RECURSIVE : ['meContent'],
+
+/*
+        EXPAND_SINGLE : ['meAccessibility']
+*/
 
     };
 });
