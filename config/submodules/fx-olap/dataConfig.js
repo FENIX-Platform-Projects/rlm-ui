@@ -35,7 +35,7 @@ define({
         if (showUnit) {
             ret += " [" + unit + "]";
         }
-        if (showFlag) {
+        if (showFlag && flag!="") {
 			
             ret += " (" + flag + ") ";
         }
