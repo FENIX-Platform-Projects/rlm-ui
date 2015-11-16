@@ -360,8 +360,8 @@ define([
 
             var request = $.extend(true, {}, currentRequest);
 
-            $result.find(s.BTN_DOWNLOAD_PIVOT).on('click', _.bind(function (e) {
-                this.onClickDownloadPivot($(e.currentTarget).data('download'), pivot);
+            $result.find(s.BTN_DOWNLOAD_PIVOT).on('click', {request : this.currentRequest}, _.bind(function (e) {
+                this.onClickDownloadPivot($(e.currentTarget).data('download'), pivot, e.data.request);
             }, this));
 
             $result.find(s.BTN_REMOVE_RESULT).on('click', _.bind(function () {
@@ -375,10 +375,16 @@ define([
 
         },
 
-        onClickDownloadPivot : function (output, pivot){
+        onClickDownloadPivot : function (output, pivot, request){
 
-            var fileName = this.pivots[0].originalData[1][1].replace(/[^a-z0-9]/gi, '_').toLowerCase();
-			//this.pivots[0].originalData[1][1]//IndicatorLAbel
+            var fileName = "rlm_download",
+                tempName;
+
+            try {
+                tempName = request.inputs.labels.indicator.replace(/[^a-z0-9]/gi, '_').toLowerCase();
+                fileName = tempName;
+            } catch (e) {}
+
             switch (output.toUpperCase()) {
                 case 'CSV': pivot.exportCSV(fileName); break;
                 case 'XLS': pivot.exportExcel(fileName); break;

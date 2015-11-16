@@ -49,6 +49,15 @@
     },
     {
       "attrs": {
+        "id": "bulk"
+      },
+      "target": "./index.html#bulk",
+      "label": {
+        "EN": "Bulk download"
+      }
+    },
+    {
+      "attrs": {
         "id": "datamng"
       },
       "a_attrs": {

@@ -9,9 +9,10 @@ define(function () {
         match('home', 'home#show');
         match('download/indicator', 'download-indicator#show');
         match('download/country', 'download-country#show');
-        match('country', 'country#show');
-        match('modules', 'modules#show');
-        match('standards(/)(:id)', 'standards#show');
+        match('bulk', 'bulk#show');
+        //match('country', 'country#show');
+        //match('modules', 'modules#show');
+        //match('standards(/)(:id)', 'standards#show');
         //match('about', 'about#show');
         match('upload', 'upload#show');
         match('*anything', '404#show');
