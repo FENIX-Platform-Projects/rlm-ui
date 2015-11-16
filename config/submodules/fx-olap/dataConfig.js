@@ -29,16 +29,17 @@ define({
     "csvText": "RLM",
     "cellRenderFunction": function (value, unit, flag, showUnit, showFlag) {
         var ret = "";
-        ret += value;
-		
-		
+
+        ret += "<span class='pull-left result-value'> " + value + "</span>";
+
         if (showUnit) {
             ret += " [" + unit + "]";
         }
+
         if (showFlag && flag!="") {
-			
-            ret += " (" + flag + ") ";
+            ret += "<span class='pull-right result-amount'>(" + flag + ")</span>";
         }
+
         return ret;
     }
 });

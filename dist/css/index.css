@@ -7539,24 +7539,6 @@ ul[role="group"] {
   opacity: 0.5; }
 
 /* Override Fenix Tree */
-.jstree-default-responsive .jstree-anchor {
-  white-space: normal;
-  height: auto; }
-
-[role='treeitem'] {
-  position: relative; }
-  [role='treeitem'] .jstree-wholerow {
-    height: 100%; }
-  [role='treeitem'] .jstree-wholerow-clicked {
-    height: 100%; }
-  [role='treeitem'][aria-expanded='true'] [role='group'] .jstree-ocl {
-    display: none; }
-  [role='treeitem'][aria-expanded='true'] [role='group'] .jstree-anchor {
-    padding-left: 35px; }
-    [role='treeitem'][aria-expanded='true'] [role='group'] .jstree-anchor .jstree-checkbox {
-      position: absolute;
-      left: 10px; }
-
 .rlm-tree-selector {
   height: 300px;
   overflow-y: scroll;
@@ -7882,7 +7864,12 @@ ul[role="group"] {
   bottom: 0px;
   right: 15px; }
   .home-map-legenda ul {
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    /*    li:nth-child(1) {
+          &:before {
+            background-color: #e2e1e1;
+          }
+        }*/ }
     .home-map-legenda ul li {
       padding-left: 20px;
       font-size: 10px;
@@ -7901,10 +7888,8 @@ ul[role="group"] {
         background-color: #2395ab;
         left: 0; }
     .home-map-legenda ul li:nth-child(1):before {
-      background-color: #e2e1e1; }
-    .home-map-legenda ul li:nth-child(2):before {
       background-color: #d3eaee; }
-    .home-map-legenda ul li:nth-child(3):before {
+    .home-map-legenda ul li:nth-child(2):before {
       background-color: #2ab896; }
 
 .home-map-container {
@@ -8122,3 +8107,33 @@ ul[role="group"] {
     font: normal normal 300 12px/normal "Roboto"; }
   .fx-md-viewer-wrapper .popover-content {
     font: normal normal 300 12px/normal "Roboto"; }
+
+[data-control="metadata"] span {
+  text-transform: uppercase;
+  border: 1px solid #666666;
+  padding: 4px;
+  font-size: 10px;
+  position: relative;
+  top: 1px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px; }
+  [data-control="metadata"] span:hover {
+    border: 1px solid #2395ab; }
+
+.result-amount {
+  margin-right: 5px; }
+
+.result-value {
+  margin-left: 5px; }
+
+.nota-bene {
+  padding: 3px 5px;
+  background-color: #2395ab;
+  color: white;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+  margin-right: 10px; }

@@ -48,66 +48,62 @@ ul[role="group"]{
 
 /* Override Fenix Tree */
 .jstree-default-responsive .jstree-anchor {
-  white-space: normal;
+  //white-space: normal;
   //line-height: normal;
-  height: auto;
+  //height: auto;
 }
 
 
-[role='treeitem']{
-  position: relative;
+//[role='treeitem']{
+//  position: relative;
+//
+//  &:nth-child(even){
+//    // background-color: black;
+//  }
+//
+//  .jstree-wholerow{
+//    height: 100%;
+//  }
+//
+//
+//
+//  .jstree-wholerow-clicked{
+//    height: 100%;
+//  }
+//
+//  &[aria-expanded='true']{
+//    //background-color: white;
+//
+//    [role='group']{
+//
+//      .jstree-ocl{
+//        display: none;
+//      }
+//
+//      .jstree-anchor{
+//        padding-left: 35px;
+//        .jstree-checkbox{
+//          position: absolute;
+//          left: 10px;
+//        }
+//
+//      }
+//
+//    }
+//
+//  }
 
-  &:nth-child(even){
-    // background-color: black;
-  }
-
-  .jstree-wholerow{
-    height: 100%;
-  }
-
-
-
-  .jstree-wholerow-clicked{
-    height: 100%;
-  }
-
-  &[aria-expanded='true']{
-    //background-color: white;
-
-    [role='group']{
-
-      .jstree-ocl{
-        display: none;
-      }
-
-      .jstree-anchor{
-        padding-left: 35px;
-        .jstree-checkbox{
-          position: absolute;
-          left: 10px;
-        }
-
-      }
-
-    }
-
-  }
-
-}
-
+//}
 
 .jstree-default .jstree-wholerow{
 
 }
-
 
 .rlm-tree-selector{
   height: 300px;
   overflow-y: scroll;
   overflow-x: hidden;
 }
-
-
 
 .jstree-default .jstree-wholerow-clicked{
 

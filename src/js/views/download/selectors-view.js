@@ -239,11 +239,11 @@ define([
                         type: item.source || 'default'
                     },
                     icon: item.source, // string for custom
-                    /* state: {
-                     opened: boolean,  // is the node open
-                     disabled: boolean,  // is the node disabled
-                     selected: boolean  // is the node selected
-                     },*/
+                    state: {
+                        opened: false,  // is the node open
+                        disabled: false,  // is the node disabled
+                        selected: false  // is the node selected
+                     },
                     //children    : [],  // array of strings or objects
                     li_attr: {}  // attributes for the generated LI node
                     //a_attr: {}  // attributes for the generated A node

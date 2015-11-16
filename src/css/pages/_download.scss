@@ -163,4 +163,37 @@
 
 }
 
+[data-control="metadata"]{
 
+  span{
+    text-transform: uppercase;
+    border: 1px solid $fenix-text;
+    padding: 4px;
+    font-size: 10px;
+    position: relative;
+    top: 1px;
+    @include fx-border-radius(3px);
+
+    &:hover{
+      border: 1px solid $fx-cool-blue;
+    }
+  }
+
+}
+
+
+.result-amount{
+  margin-right: 5px;
+}
+
+.result-value   {
+  margin-left: 5px;
+}
+
+.nota-bene{
+  padding: 3px 5px;
+  background-color: $fx-cool-blue;
+  color: white;
+  @include fx-border-radius(3px);
+  margin-right: 10px;
+}
