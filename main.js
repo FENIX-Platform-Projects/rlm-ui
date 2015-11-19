@@ -119,6 +119,7 @@ require([
 					pivotAggregators:      "../../submodules/fenix-ui-olap/js/rend/aggregators",
 					pivotDataConfig:         '../../config/submodules/fx-olap/dataConfig',
 					pivotDataTest:       '../../submodules/fenix-ui-olap/tests/data/test.json',
+                    'fx-olap/config/gridoption': '../../config/submodules/fx-olap/gridoption',
 
                     // METADATA VIEWER CONFIG
                     'fx-mdviewer/config/config': '../../config/submodules/fx-md-viewer/config',
