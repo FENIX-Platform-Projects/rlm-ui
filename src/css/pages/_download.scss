@@ -183,11 +183,15 @@
 
 
 .result-amount{
-  margin-right: 5px;
+  width: 50%;
+  float: left;
+  text-align: right;
 }
 
-.result-value   {
-  margin-left: 5px;
+.result-value{
+  width: 50%;
+  float: left;
+  text-align: right;
 }
 
 .nota-bene{

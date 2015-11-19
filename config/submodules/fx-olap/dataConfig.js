@@ -30,17 +30,17 @@ define({
     "cellRenderFunction": function (value, unit, flag, showUnit, showFlag) {
         var ret = "";
 
-        ret += "<span class='pull-left result-value'> " + value + "</span>";
+        ret += "<div class='result-value'>" + value + "</div>";
 
         if (showUnit) {
             ret += " [" + unit + "]";
         }
 
         if (showFlag && flag!="") {
-            ret += "<span class='pull-right result-amount'>(" + flag + ")</span>";
+            ret += "<div class='result-amount'>(" + flag + ")</div>";
         }
 
-        return ret;
+        return ret + "";
     }
 });
 
