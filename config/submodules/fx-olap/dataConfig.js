@@ -24,7 +24,7 @@ define({
         ["Indicator_Code", "Indicator"],
         ["Source_Code", "Source"], ["Country", "Country_Code"]],
     "showAgg": false,
-    "showRender": true,
+    "showRender": false,
     "showUnit": false,
     "showCode": false,
     "showFlags": true,
