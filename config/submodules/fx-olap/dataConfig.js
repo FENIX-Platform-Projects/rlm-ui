@@ -12,7 +12,9 @@ define({
         "Value", "Flag", "Year_Code", "Unit"
     ],
     "InstanceRenderers": [
-        {label: "Grid", func: "Table"}
+        {label: "Grid", func: "Table"},
+		{label: "OLAP", func: "OLAP"},
+		{label: "Area", func: "Area"}
     ],
     "InstanceAggregators": [
         {label: "SumUnit", func: "Sum2"}
@@ -22,7 +24,7 @@ define({
         ["Indicator_Code", "Indicator"],
         ["Source_Code", "Source"], ["Country", "Country_Code"]],
     "showAgg": false,
-    "showRender": false,
+    "showRender": true,
     "showUnit": false,
     "showCode": false,
     "showFlags": true,
