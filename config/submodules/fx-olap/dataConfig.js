@@ -19,7 +19,10 @@ define({
     "InstanceAggregators": [
         {label: "SumUnit", func: "Sum2"}
     ],
-    derivedAttributes: {},
+    derivedAttributes: {
+        "Qualifier":function(mp){return "<span class=ordre>" + mp["qualifierOrder"] + "</span>" + mp["Qualifier_"];}
+
+    },
     linkedAttributes: [["Qualifier", "Qualifier_Code"],
         ["Indicator_Code", "Indicator"],
         ["Source_Code", "Source"], ["Country", "Country_Code"]],
