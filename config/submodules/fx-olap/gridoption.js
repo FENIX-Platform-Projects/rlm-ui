@@ -7,8 +7,8 @@ define({
     //dataset: dsOption,
     //resizable: false,
     //columns: colsOption,
-    pageSize: 150
-    //pageSizeList: [15, 25, 50, 150],
+    pageSize: 150,
+    pageSizeList: [15, 25, 50, 150,200]
     //SigmaGridPath: 'grid/',
     //toolbarContent: 'nav | goto | pagesize ', /*| mybutton |*/
     /*onMouseOver: function(value, record, cell, row, colNo, rowNo, columnObj, grid) {
