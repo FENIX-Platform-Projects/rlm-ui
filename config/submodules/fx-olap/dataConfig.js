@@ -9,11 +9,11 @@ define({
         "Value", "Flag", "Unit"
     ],
     "hiddenAttributes": [
-        "Value", "Flag", "Year_Code", "Unit"
+        "Value", "Flag", "Year_Code", "Unit","qualifierOrder", "Qualifier_"
     ],
     "InstanceRenderers": [
         {label: "Grid", func: "Table"},
-		{label: "OLAP", func: "OLAP"},
+
 		{label: "Area", func: "Area"}
     ],
     "InstanceAggregators": [
