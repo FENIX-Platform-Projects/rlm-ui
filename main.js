@@ -83,7 +83,7 @@ require([
                     nls: "../../i18n",
 
                     amplify: '{FENIX_CDN}/js/amplify/1.1.2/amplify.min',
-                    packery : '{FENIX_CDN}/js/packery/1.4.1/packery.pkgd.min',
+                    packery : '{FENIX_CDN}/js/packery/1.4.3/dist/packery.pkgd.min',
                     jqueryBridget : '{FENIX_CDN}/js/jquery.bridget/1.1.0/jquery.bridget',
                     jstree : '{FENIX_CDN}/js/jstree/3.0.8/dist/jstree.min',
                     jstreegrid: '{FENIX_CDN}/js/jstree/plugins/jstreegrid/3.2.3/jstreegrid',

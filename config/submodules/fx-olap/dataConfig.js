@@ -20,8 +20,9 @@ define({
         {label: "SumUnit", func: "Sum2"}
     ],
     derivedAttributes: {
-        "Qualifier":function(mp){return "<span class=ordre>" + mp["qualifierOrder"] + "</span>" + mp["Qualifier_"];}
-
+        "Qualifier":function(mp) {
+            return mp["Qualifier_"];
+        }
     },
     linkedAttributes: [["Qualifier", "Qualifier_Code"],
         ["Indicator_Code", "Indicator"],
