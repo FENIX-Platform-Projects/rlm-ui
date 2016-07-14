@@ -10,7 +10,7 @@ require.config({
         compilerPaths : projectRoot + '/submodules/fenix-ui-common/js/Compiler',
         commonPaths : projectRoot + '/submodules/fenix-ui-common/js/paths',
         olapPaths : projectRoot + '/submodules/fenix-ui-olap/js/paths',
-        menuPaths: projectRoot + '/submodules/fenix-ui-menu/js/paths',
+        menuPaths: projectRoot + '/submodules/fenix-ui-menu/src/js/paths',
         metadataPaths :projectRoot + '/submodules/fenix-ui-metadata-viewer/src/js/paths',
         reportPaths :projectRoot + '/submodules/fenix-ui-reports/src/js/paths',
         faostatThemePaths :projectRoot + '/submodules/json-editor-faostat-theme/src/js/paths'
@@ -23,16 +23,15 @@ require([
     'olapPaths',
     'metadataPaths',
     'reportPaths',
-    'faostatThemePaths',
     'menuPaths'
-], function (Compiler, Common, Olap, MetadataViewer, Report, FAOSTAT_THEME, Menu) {
+], function (Compiler, Common, Olap, MetadataViewer, Report, Menu) {
 
     'use strict';
 
     var submodules_path = projectRoot + '/../../submodules';
 
     var menuConfig = Menu;
-    menuConfig.baseUrl = submodules_path + '/fenix-ui-menu/js';
+    menuConfig.baseUrl = submodules_path + '/fenix-ui-menu/src/js';
 
     var commonConfig = Common;
     commonConfig.baseUrl = submodules_path + '/fenix-ui-common/js';
@@ -46,10 +45,7 @@ require([
     var reportConfig = Report;
     reportConfig.baseUrl = submodules_path + '/fenix-ui-reports/src/js';
 
-    var faostatThemeConfig = FAOSTAT_THEME;
-    faostatThemeConfig.baseUrl = submodules_path + '/json-editor-faostat-theme/src/js';
-
-    Compiler.resolve([menuConfig, commonConfig, olapConfig, metadataViewerConfig, reportConfig, faostatThemeConfig],
+    Compiler.resolve([menuConfig, commonConfig, olapConfig, metadataViewerConfig, reportConfig],
         {
             placeholders: {
                 //"FENIX_CDN": "http://www.fao.org/fenixrepo/cdn",
@@ -76,12 +72,6 @@ require([
                     backbone: "{FENIX_CDN}/js/backbone/1.1.2/backbone.min",
                     handlebars: "{FENIX_CDN}/js/handlebars/2.0.0/handlebars",
                     chaplin: "{FENIX_CDN}/js/chaplin/1.0.1/chaplin",
-
-
-                    config: "../../config",
-                    json: "../../json",
-                    nls: "../../i18n",
-
                     amplify: '{FENIX_CDN}/js/amplify/1.1.2/amplify.min',
                     packery : '{FENIX_CDN}/js/packery/1.4.3/dist/packery.pkgd.min',
                     jqueryBridget : '{FENIX_CDN}/js/jquery.bridget/1.1.0/jquery.bridget',
@@ -90,6 +80,10 @@ require([
                     q : '{FENIX_CDN}/js/q/1.1.2/q',
                     progressbar : '{FENIX_CDN}/js/progressbar/0.8.1/progressbar.min',
 
+
+                    config: "../../config",
+                    json: "../../json",
+                    nls: "../../i18n",
                     // fenix-map-js
                     'import-dependencies': '{FENIX_CDN}/js/FENIX/utils/import-dependencies-1.0',
                     leaflet: '{FENIX_CDN}/js/leaflet/0.7.3/leaflet',
@@ -97,12 +91,10 @@ require([
                     'jquery-ui':   '{FENIX_CDN}/js/jquery-ui/1.10.3/jquery-ui-1.10.3.custom.min',
                     'jquery.i18n.properties': '{FENIX_CDN}/js/jquery/1.0.9/jquery.i18n.properties-min',
                     'jquery.hoverIntent': '{FENIX_CDN}/js/jquery.hoverIntent/1.8.0/jquery.hoverIntent.min',
-
                     'fenix-ui-map': '{FENIX_CDN}/js/fenix-ui-map/0.1/fenix-ui-map.min',
                     'fenix-ui-map-config': '{FENIX_CDN}/js/fenix-ui-map/0.1/fenix-ui-map-config',
                     //'bootstrap-list-filter' : "{FENIX_CDN}/js/bootstrap-list-filter/0.1.7/bootstrap-list-filter.min",
                     'bootstrap-list-filter' : "lib/bootstrap-list-filter",
-
                     //OLAP DEPS
 					pivot:      "../../submodules/fenix-ui-olap/js/pivot",
 					gt_msg:     "../../submodules/fenix-ui-olap/lib/grid/gt_msg_en",					
@@ -110,9 +102,7 @@ require([
 					gt_msg_grid:"../../submodules/fenix-ui-olap/lib/grid/gt_grid_all",
 					HPivot:     "//fenixapps.fao.org/repository/js/jbpivot/0.1.0-olap/jbpivot.min",
 					highcharts: "//fenixapps.fao.org/repository/js/highcharts/4.0.4/js/highcharts",					
-
 					"nls/pivot":  "../../i18n/pivot",
-
 					pivotRenderersFuncs:   "../../submodules/fenix-ui-olap/js/rend/function_rendererers",
 					pivotRenderers:        "../../submodules/fenix-ui-olap/js/rend/rendererers",
 					pivotAggregatorsFuncs: "../../submodules/fenix-ui-olap/js/rend/function_aggregators",
@@ -122,7 +112,6 @@ require([
                     'fx-olap/config/gridoption': '../../config/submodules/fx-olap/gridoption',
 
                     // METADATA VIEWER CONFIG
-                    'fx-mdviewer/config/config': '../../config/submodules/fx-md-viewer/config',
                     'fx-report/config/md-export/config' : '../../config/submodules/fx-report/md-export/config',
 
                 },

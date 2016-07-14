@@ -13,8 +13,8 @@ define([
     'i18n!nls/download-survey',
     'i18n!nls/errors',
     'fx-common/WDSClient',
-    'FENIX_UI_METADATA_VIEWER',
-    'fx-report',
+    'fx-md-v/start',
+    'fx-reports/start',
     'pivot',
     'pivotRenderers',
     'pivotAggregators',
@@ -26,7 +26,7 @@ define([
     'q',
     'jstree',
     'amplify'
-], function (Handlebars, View, SelectorsView, Config, Services, E, template, resultTemplate, errorTemplate, courtesyMessageTemplate, i18nLabels, i18Errors, WDSClient, MetadataViewer,MetadataReport, Pivot, pivotRenderers, pivotAggregators, pivotDataTest, pivotDataConfig, _, Packery, bridget, Q) {
+], function (Handlebars, View, SelectorsView, Config, Services, E, template, resultTemplate, errorTemplate, courtesyMessageTemplate, i18nLabels, i18Errors, WDSClient, MetadataViewer, MetadataReport, Pivot, pivotRenderers, pivotAggregators, pivotDataTest, pivotDataConfig, _, Packery, bridget, Q) {
 
     'use strict';
 
@@ -37,25 +37,25 @@ define([
         COURTESY_MESSAGE_HOLDER: ".courtesy-message-holder",
         RESULTS_CONTAINER: '#results-container',
         RESULT_SELECTOR: '.rlm-result',
-        SELECTORS_CONTAINER : '.download-selectors-container',
+        SELECTORS_CONTAINER: '.download-selectors-container',
 
         RESULT_OLAP_CONTAINER: '[data-role="pivot-container"]',
-        TAB_DOWNLOAD_BY_COUNTRY : '[data-tab="country"]',
-        TAB_DOWNLOAD_BY_INDICATOR : '[data-tab="indicator"]',
+        TAB_DOWNLOAD_BY_COUNTRY: '[data-tab="country"]',
+        TAB_DOWNLOAD_BY_INDICATOR: '[data-tab="indicator"]',
 
         BTN_DOWNLOAD_PIVOT: '[data-download]',
-        BTN_REMOVE_RESULT : '[data-control="remove"]',
-        BTN_METADATA : '[data-control="metadata"]',
+        BTN_REMOVE_RESULT: '[data-control="remove"]',
+        BTN_METADATA: '[data-control="metadata"]',
 
-        MODAL_METADATA : '#rlm-metadata-modal',
-        MODAL_METADATAVIEWER_CONTAINER : '[data-content="metadata-viewer-container"]',
+        MODAL_METADATA: '#rlm-metadata-modal',
+        MODAL_METADATAVIEWER_CONTAINER: '[data-content="metadata-viewer-container"]',
 
-        BTN_REPORT : '.fx-md-report-btn'
+        BTN_REPORT: '.fx-md-report-btn'
     };
 
     var DownloadSurveyView = View.extend({
 
-        initialize : function( options ) {
+        initialize: function (options) {
 
             this.section = options.section;
 
@@ -86,11 +86,13 @@ define([
 
             //tabs
             this.$tabDownloadByCountry = this.$el.find(s.TAB_DOWNLOAD_BY_COUNTRY);
-            this.$tabDownloadByIndicator= this.$el.find(s.TAB_DOWNLOAD_BY_INDICATOR);
+            this.$tabDownloadByIndicator = this.$el.find(s.TAB_DOWNLOAD_BY_INDICATOR);
 
             this.$modalMetadata = this.$el.find(s.MODAL_METADATA);
 
             this.pivots = [];
+
+            this.$metadataReport = new MetadataReport();
 
         },
 
@@ -114,7 +116,7 @@ define([
                 outputType: Config.WDS_OLAP_OUTPUT_TYPE
             });
 
-            switch (this.section){
+            switch (this.section) {
                 case Config.DOWNLOAD_BY_INDICATOR :
                     this.$tabDownloadByCountry.removeClass("active");
                     this.$tabDownloadByIndicator.addClass("active");
@@ -144,11 +146,15 @@ define([
 
         },
 
-        render: function() {
+        render: function () {
 
             View.prototype.render.apply(this, arguments);
 
-            var selectorsView = new SelectorsView({autoRender: true, container: this.$el.find(s.SELECTORS_CONTAINER), section : this.section});
+            var selectorsView = new SelectorsView({
+                autoRender: true,
+                container: this.$el.find(s.SELECTORS_CONTAINER),
+                section: this.section
+            });
 
             this.subview('selectors', selectorsView);
         },
@@ -218,23 +224,23 @@ define([
 
             var errors = [];
 
-            if (!inputs.hasOwnProperty("country") || !inputs.hasOwnProperty("indicator") || !inputs.hasOwnProperty("qualifier") || !inputs.hasOwnProperty("year") ) {
+            if (!inputs.hasOwnProperty("country") || !inputs.hasOwnProperty("indicator") || !inputs.hasOwnProperty("qualifier") || !inputs.hasOwnProperty("year")) {
                 errors.push("no_input");
             }
 
-            if (inputs.country.length < 1 ) {
+            if (inputs.country.length < 1) {
                 errors.push("country_empty");
             }
 
-            if (inputs.indicator.length < 1 ) {
+            if (inputs.indicator.length < 1) {
                 errors.push("indicator_empty");
             }
 
-            if (inputs.qualifier.length < 1 ) {
+            if (inputs.qualifier.length < 1) {
                 errors.push("qualifier_empty");
             }
 
-            if (inputs.year.length < 1 ) {
+            if (inputs.year.length < 1) {
                 errors.push("year_empty");
             }
 
@@ -267,7 +273,7 @@ define([
 
         getInputs: function () {
 
-           return this.subview('selectors').getInputs();
+            return this.subview('selectors').getInputs();
         },
 
         createRequest: function (inputs) {
@@ -306,7 +312,7 @@ define([
 
             this.WDSClientOlap.retrieve({
                 payload: {
-                    query:  Services.DOWNLOAD_SEARCH,
+                    query: Services.DOWNLOAD_SEARCH,
                     queryVars: this.currentRequest.processedInputs
                 },
                 success: _.bind(this.onSearchSuccess, this),
@@ -336,15 +342,15 @@ define([
         /* Results rendering */
         appendResult: function () {
 
-            if(!window.fx_rlm_dynamic_id){
+            if (!window.fx_rlm_dynamic_id) {
                 window.fx_rlm_dynamic_id = 0;
             }
 
-            window.fx_rlm_dynamic_id ++  ;
+            window.fx_rlm_dynamic_id++;
 
             //Add here the result header
             var template = Handlebars.compile(resultTemplate),
-                id = 'rlm-dynamic-pivot-' +  window.fx_rlm_dynamic_id,
+                id = 'rlm-dynamic-pivot-' + window.fx_rlm_dynamic_id,
                 $result = this.appendDynamicId($(template(this.currentRequest.inputs.labels)), id),
                 pivot;
 
@@ -356,11 +362,11 @@ define([
             this.bindResultEventListeners($result, pivot, this.currentRequest);
         },
 
-        bindResultEventListeners : function ($result, pivot, currentRequest) {
+        bindResultEventListeners: function ($result, pivot, currentRequest) {
 
             var request = $.extend(true, {}, currentRequest);
 
-            $result.find(s.BTN_DOWNLOAD_PIVOT).on('click', {request : this.currentRequest}, _.bind(function (e) {
+            $result.find(s.BTN_DOWNLOAD_PIVOT).on('click', {request: this.currentRequest}, _.bind(function (e) {
                 this.onClickDownloadPivot($(e.currentTarget).data('download'), pivot, e.data.request);
             }, this));
 
@@ -375,7 +381,7 @@ define([
 
         },
 
-        onClickDownloadPivot : function (output, pivot, request){
+        onClickDownloadPivot: function (output, pivot, request) {
 
             var fileName = "rlm_download",
                 tempName;
@@ -383,72 +389,76 @@ define([
             try {
                 tempName = request.inputs.labels.indicator.replace(/[^a-z0-9]/gi, '_').toLowerCase();
                 fileName = tempName;
-            } catch (e) {}
+            } catch (e) {
+            }
 
             switch (output.toUpperCase()) {
-                case 'CSV': pivot.exportCSV(fileName); break;
-                case 'XLS': pivot.exportExcel(fileName); break;
+                case 'CSV':
+                    pivot.exportCSV(fileName);
+                    break;
+                case 'XLS':
+                    pivot.exportExcel(fileName);
+                    break;
             }
         },
 
-        _listenToExport : function(dataParsed, indicator){
-
-            var fileName = indicator.replace(/[^a-z0-9]/gi, '_').toLowerCase();
-
-            var self = this;
-            $(s.BTN_REPORT).on('click', function(){
-
-                var payload = {
-                   input:{
-                       config:{
-                           uid: dataParsed.uid
-                       }
-                   },
-                   output: {
-                       config:{
-                           lang : 'en'.toUpperCase(),
-                           fileName: fileName+'.pdf'
-                       }
-                   }
-               };
-
-                self.$metadataReport.init('metadataExport');
-                self.$metadataReport.exportData(payload,Config.MD_EXPORT_URL);
-            });
-
-        },
-
-        onModalMetadataBtnClick : function (request) {
+        onModalMetadataBtnClick: function (request) {
 
             var self = this;
 
             this.$modalMetadata.modal('show');
 
             loadMetadata("rlm_" + request.inputs.indicator[0]).then(function (data) {
-                var metadata = new MetadataViewer();
-
-                self.$metadataReport = new MetadataReport();
 
                 self.$modalMetadata.find(s.MODAL_METADATAVIEWER_CONTAINER).empty();
 
-                metadata.init({
+                var metadata = new MetadataViewer({
                     lang: 'en',
-                    data : JSON.parse(data),
-                    //domain: "rlm_" + request.inputs.indicator[0],
-                    placeholder : self.$modalMetadata.find(s.MODAL_METADATAVIEWER_CONTAINER)
-                });
+                    model: JSON.parse(data),
+                    el: self.$modalMetadata.find(s.MODAL_METADATAVIEWER_CONTAINER),
+                    hideExportButton: false,
+                    expandAttributesRecursively: ['meContent']
+                })
+                    .on("export", function () {
 
-                var dataParsed = JSON.parse(data);
+                        var indicator = request.inputs.labels.indicator,
+                            fileName = indicator.replace(/[^a-z0-9]/gi, '_').toLowerCase(),
+                            dataParsed = JSON.parse(data);
 
-               self._listenToExport(dataParsed, request.inputs.labels.indicator);
+                        var payload = {
+                            format: "metadata",
+                            config: {
+                                resource: {
+                                    metadata: {
+                                        uid: dataParsed.uid
+                                    },
+                                    data: []
+                                },
+                                input: {
+                                    config: {}
+                                },
+                                output: {
+                                    config: {
+                                        template: "fao",
+                                        lang: 'en'.toUpperCase(),
+                                        fileName: fileName + '.pdf'
+                                    }
+                                }
+                            }
+                        };
+
+                        self.$metadataReport.export(payload);
+
+                    })
+
             });
 
-            function loadMetadata( id ) {
+            function loadMetadata(id) {
 
-                return Q.Promise(function(resolve, reject, notify) {
+                return Q.Promise(function (resolve, reject, notify) {
                     var request = new XMLHttpRequest();
 
-                    request.open("GET", Config.SERVICE_BASE_ADDRESS + '/resources/metadata/uid/'+ id + '?full=true', true);
+                    request.open("GET", Config.SERVICE_BASE_ADDRESS + '/resources/metadata/uid/' + id + '?full=true', true);
                     request.onload = onload;
                     request.onerror = onerror;
                     request.onprogress = onprogress;
@@ -473,13 +483,13 @@ define([
             }
 
         },
-        removeResult : function ($item){
+        removeResult: function ($item) {
 
             this.$resultsContainer.packery('remove', $item);
             this.$resultsContainer.packery();
         },
 
-        appendDynamicId : function ($result, id) {
+        appendDynamicId: function ($result, id) {
 
             $result.find(s.RESULT_OLAP_CONTAINER).attr('id', id);
 
@@ -498,7 +508,7 @@ define([
 
             pivotDataConf.aggregatorDisplay = pivotAggregators;
 
-            pivot.render( id, this.currentRequest.response, pivotDataConf );
+            pivot.render(id, this.currentRequest.response, pivotDataConf);
 
             return pivot;
         },

@@ -3,7 +3,8 @@
 body{
 
   background-color: $fenix-light-bg;
-
+  color: $fenix-text;
+  font: $standard-text;
 }
 
 .rlm-logo-blue{
@@ -20,27 +21,6 @@ body{
 
 .upper{
   text-transform: uppercase;
-}
-
-.btn{
-  @include fx-border-radius(5);
-  height: 25px;
-  min-width: 100px;
-  padding: 3px 12px;
-  font-size: 12px;
-  text-transform: uppercase;
-  background-color: transparent;
-  border: 1px solid $rlm-buttons;
-  color: $rlm-buttons;
-  margin: 3px;
-
-  &:hover{
-    background-color: $rlm-superlight-gray;
-    //border-color: transparent;
-    border: 1px solid $rlm-buttons;
-    color: $rlm-buttons;
-  }
-
 }
 
 
@@ -87,3 +67,51 @@ body{
 }
 
 
+
+/* Fenix Typography */
+
+a{
+  color: $fx-cool-blue;
+
+  &:focus{
+    outline: none;
+  }
+
+  &:active{
+    outline: none;
+  }
+
+}
+
+.dropdown-menu > li > a{
+  font-weight: 300;
+  color:$fenix-text;
+}
+
+h1{
+  font: $fx-text-h1;
+  color: $fx-cool-blue;
+}
+
+h2{
+  font: $fx-text-h2;
+  color: desaturate( $fx-cool-blue, 30% );
+}
+
+h3{
+  font: $fx-text-h3;
+  color: desaturate( $fx-cool-blue, 50% );
+}
+
+h4{
+  font: $fx-text-h4;
+  color: desaturate( $fx-cool-blue, 70% );
+}
+
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small, h1 .small, h2 .small, h3 .small, h4 .small, h5 .small, h6 .small, .h1 .small, .h2 .small, .h3 .small, .h4 .small, .h5 .small, .h6 .small{
+  font-family: Roboto;
+  font-weight: 700;
+  color: $fx-cool-blue;
+  text-transform: uppercase;
+  font-size: 12px;
+}
