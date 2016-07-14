@@ -1,0 +1,95 @@
+{
+  "items": [
+    {
+      "attrs": {
+        "id": "home"
+      },
+      "target": "#home",
+      "label": {
+        "EN": "Home"
+      }
+    },
+    {
+      "attrs": {
+        "id": "download"
+      },
+      "type": "dropdown",
+      "label": {
+        "EN": "Data"
+      },
+      "children": [
+        {
+          "attrs": {
+            "id": "indicator"
+          },
+          "target": "#download/indicator",
+          "label": {
+            "EN": "By Indicator"
+          }
+        },
+        {
+          "attrs": {
+            "id": "country"
+          },
+          "target": "#download/country",
+          "label": {
+            "EN": "By Country"
+          }
+        }
+      ]
+    },
+    {
+      "attrs": {
+        "id": "bulk"
+      },
+      "target": "#bulk",
+      "label": {
+        "EN": "Bulk download"
+      }
+    },
+    {
+      "attrs": {
+        "id": "datamng"
+      },
+      "a_attrs": {
+        "rel": "external"
+      },
+      "target": "datamng.html",
+      "label": {
+        "EN": "Data Management"
+      }
+    },
+    {
+      "attrs": {
+        "id": "upload"
+      },
+
+      "target": "#upload",
+      "label": {
+        "EN": "Bulk Upload"
+      }
+    }
+  ],
+  "rightItems": [
+    {
+      "attrs": {
+        "id": "login"
+      },
+      "label": {
+        "EN": "LOGIN"
+      }
+    },
+    {
+      "attrs": {
+        "id": "logout"
+      },
+      "label": {
+        "EN": "LOGOUT"
+      }
+    }
+  ],
+  "type": "static-top",
+  "brand": {
+    "target": "#"
+  }
+}

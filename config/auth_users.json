@@ -1,0 +1,6 @@
+{
+  "guest@rlm.org" : {
+      "name" : "Guest",
+      "password" : "guest"
+  }
+}
