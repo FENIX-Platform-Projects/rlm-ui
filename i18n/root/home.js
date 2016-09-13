@@ -9,7 +9,7 @@ define([
     return $.extend(true, {}, Common, {
 
         "home_header_contacts" : "Contacts",
-        "home_welcome_title" : "Welcome to Rural Livelihoods Monitor Data Portal"
+        "home_welcome_title" : "Welcome to Rural Livelihoods Information System data portal"
 
     });
 
